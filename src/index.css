@@ -1,0 +1,355 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 7%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 210 100% 56%;
+
+    --radius: 1.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Content Protection Styles */
+.protected-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.no-select, .no-select * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.no-drag, .no-drag * {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  
+  draggable: false !important;
+}
+
+.no-context-menu {
+  pointer-events: auto;
+}
+
+.protected-image {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+/* Disable print styles */
+@media print {
+  body {
+    display: none !important;
+  }
+  
+  * {
+    visibility: hidden !important;
+  }
+}
+
+.hero-card-premium {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  min-height: 85vh;
+  transition: none;
+  position: relative;
+}
+
+/* Mobile specific adjustments - Removendo efeitos de scroll e otimizando largura */
+@media (max-width: 640px) {
+  .hero-card-premium {
+    min-height: 80vh;
+    width: 95% !important;
+    transform: none !important;
+    opacity: 1 !important;
+    margin: 1rem auto !important;
+  }
+  
+  /* Garantir que elementos não saiam do container */
+  .hero-card-premium * {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  /* Botões otimizados para mobile */
+  .hero-card-premium button {
+    max-width: 85%;
+  }
+}
+
+/* Desktop - Largura aumentada para versões maiores */
+@media (min-width: 641px) {
+  .hero-card-premium {
+    width: 85%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-card-premium {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-card-premium {
+    width: 95%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-card-premium {
+    width: 98%;
+  }
+}
+
+.hero-card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.3), transparent, rgba(30, 144, 255, 0.1));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+}
+
+/* Premium gradient backgrounds */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Sophisticated animations */
+@keyframes pulse-blue-soft {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.4;
+    filter: blur(60px);
+  }
+  50% { 
+    opacity: 0.7;
+    filter: blur(80px);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Mobile optimized animations */
+@media (max-width: 768px) {
+  .animate-pulse-glow {
+    animation: pulse-glow 6s ease-in-out infinite;
+  }
+}
+
+.glow-blue-effect {
+  box-shadow: 
+    0 0 30px rgba(30, 144, 255, 0.4),
+    0 0 60px rgba(30, 144, 255, 0.3),
+    0 0 100px rgba(30, 144, 255, 0.2),
+    inset 0 0 60px rgba(255, 255, 255, 0.1);
+  animation: pulse-blue-glow 3s ease-in-out infinite alternate;
+}
+
+.glow-purple-effect {
+  box-shadow: 
+    0 0 40px rgba(139, 92, 246, 0.4),
+    0 0 80px rgba(139, 92, 246, 0.3),
+    0 0 120px rgba(139, 92, 246, 0.2),
+    inset 0 0 80px rgba(255, 255, 255, 0.1);
+  animation: pulse-purple-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-blue-glow {
+  0% {
+    box-shadow: 
+      0 0 30px rgba(30, 144, 255, 0.4),
+      0 0 60px rgba(30, 144, 255, 0.3),
+      0 0 100px rgba(30, 144, 255, 0.2),
+      inset 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 40px rgba(30, 144, 255, 0.6),
+      0 0 80px rgba(30, 144, 255, 0.4),
+      0 0 120px rgba(30, 144, 255, 0.3),
+      inset 0 0 80px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes pulse-purple-glow {
+  0% {
+    box-shadow: 
+      0 0 40px rgba(139, 92, 246, 0.4),
+      0 0 80px rgba(139, 92, 246, 0.3),
+      0 0 120px rgba(139, 92, 246, 0.2),
+      inset 0 0 80px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 60px rgba(139, 92, 246, 0.6),
+      0 0 100px rgba(139, 92, 246, 0.4),
+      0 0 140px rgba(139, 92, 246, 0.3),
+      inset 0 0 100px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #1E90FF, #1C86EE);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3D Flip Card Animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Mobile-specific flip animation timing */
+@media (max-width: 768px) {
+  .duration-400 {
+    transition-duration: 0.4s;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero-card-premium {
+    min-height: 80vh;
+    padding: 1.5rem;
+  }
+  
+  /* Garantir que botões fiquem dentro do card */
+  .hero-card-premium button {
+    max-width: 85%;
+  }
+  
+  /* Evitar scroll horizontal */
+  body {
+    overflow-x: hidden;
+  }
+  
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Correção específica para viewport pequenas */
+@media (max-width: 425px) {
+  .hero-card-premium {
+    width: 95% !important;
+    margin: 0.5rem auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-card-premium {
+    width: 95% !important;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-card-premium {
+    width: 95% !important;
+    padding: 0.75rem;
+  }
+}

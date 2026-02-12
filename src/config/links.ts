@@ -1,0 +1,1 @@
+export const WHATSAPP_URL = 'https://wa.me/5585984410835?text=Ol%C3%A1%20tenho%20interesse%20na%20consultoria%20da%20Orion%2C%20como%20funciona%3F';
