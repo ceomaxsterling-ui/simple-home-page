@@ -71,51 +71,49 @@ const MethodologySection: React.FC = () => {
   const step = steps[activeStep];
 
   return (
-    <section className="bg-[#050505] py-16 md:py-24 overflow-hidden">
+    <section className="bg-[#050505] py-12 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
 
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-5 py-2 mb-5">
+        <div className="text-center mb-8 md:mb-16 px-2">
+          <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-4 py-2 mb-4">
             <span className="text-[#5F91FF] font-semibold text-sm">⚡ Nossa Rota ⚡</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
             Três Etapas. Uma Missão.{' '}
             <span className="text-[#5F91FF]">Levar sua empresa ao lugar que ela merece.</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
             Sem achismo. Sem improviso. Cada projeto segue uma rota precisa — para que você saiba exatamente onde está e para onde está indo.
           </p>
         </div>
 
-        {/* Two-column layout */}
-        <div className="grid md:grid-cols-5 gap-6 md:gap-10 items-start">
+        {/* Layout: stacked on mobile, side-by-side on md+ */}
+        <div className="flex flex-col md:grid md:grid-cols-5 gap-4 md:gap-10 items-start">
 
-          {/* Left: Step cards */}
-          <div className="md:col-span-2 flex flex-col gap-3">
+          {/* Step cards — horizontal scroll on mobile */}
+          <div className="md:col-span-2 flex flex-row md:flex-col gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x md:snap-none">
             {steps.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => handleSelect(i)}
-                className={`group text-left p-4 md:p-5 rounded-2xl border transition-all duration-300 ${
+                className={`group text-left p-4 rounded-2xl border transition-all duration-300 flex-shrink-0 w-60 md:w-auto snap-start ${
                   activeStep === i
                     ? 'border-[#5F91FF]/50 bg-[#5F91FF]/8'
                     : 'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'
                 }`}
               >
-                <div className="flex items-start gap-4">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                <div className="flex items-start gap-3">
+                  <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
                     activeStep === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/60 text-gray-400 group-hover:text-white'
                   }`}>
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-xs font-bold ${activeStep === i ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
-                        {s.number}
-                      </span>
-                    </div>
-                    <h3 className={`font-bold text-sm md:text-base transition-colors leading-tight ${
+                    <span className={`text-xs font-bold block mb-0.5 ${activeStep === i ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
+                      {s.number}
+                    </span>
+                    <h3 className={`font-bold text-sm transition-colors leading-tight ${
                       activeStep === i ? 'text-white' : 'text-gray-300 group-hover:text-white'
                     }`}>
                       {s.title}
@@ -127,7 +125,7 @@ const MethodologySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Right: Detail panel */}
+          {/* Detail panel */}
           <div
             className="md:col-span-3"
             style={{
@@ -136,23 +134,23 @@ const MethodologySection: React.FC = () => {
               transition: 'opacity 0.22s ease, transform 0.22s ease',
             }}
           >
-            <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/30 border border-gray-800/50 rounded-2xl p-6 md:p-8 h-full">
+            <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/30 border border-gray-800/50 rounded-2xl p-5 md:p-8">
 
               {/* Badge + Title */}
-              <div className="mb-6">
+              <div className="mb-5 md:mb-6">
                 <span className="inline-block bg-[#5F91FF]/15 border border-[#5F91FF]/30 text-[#5F91FF] text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
                   {step.badge}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-gray-300 text-base leading-relaxed">{step.description}</p>
+                <h3 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-3">{step.title}</h3>
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed">{step.description}</p>
               </div>
 
               {/* Checklist */}
-              <div className="space-y-3 mb-6">
+              <div className="space-y-2 md:space-y-3 mb-5 md:mb-6">
                 {step.checklist.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#5F91FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-200 text-sm">{item}</span>
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#5F91FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-200 text-xs md:text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -173,7 +171,7 @@ const MethodologySection: React.FC = () => {
                   {steps.map((s, i) => (
                     <div
                       key={i}
-                      className={`text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}
+                      className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}
                     >
                       {s.title}
                     </div>
