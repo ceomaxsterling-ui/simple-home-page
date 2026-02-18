@@ -103,71 +103,81 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Light cone effect — neon beam rising from bottom, connecting to next section */}
+      {/* Light cone effect — neon beam #0F8CFA rising from bottom, connecting to next section */}
       <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none z-0" aria-hidden>
 
-        {/* Floor spread glow — wide base bleeding into next section */}
+        {/* Floor spread glow — wide ellipse bleeding into next section */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-80"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-96"
           style={{
-            background: 'radial-gradient(ellipse 90% 70% at 50% 100%, rgba(11,37,78,0.95) 0%, rgba(11,37,78,0.6) 35%, rgba(11,37,78,0.15) 65%, transparent 100%)',
+            background: 'radial-gradient(ellipse 100% 80% at 50% 100%, rgba(15,140,250,0.35) 0%, rgba(15,140,250,0.12) 40%, rgba(15,140,250,0.03) 70%, transparent 100%)',
           }}
         />
 
-        {/* Wide cone body */}
+        {/* Wide outer cone — diffuse spread */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[520px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1100px] h-[560px]"
           style={{
-            background: 'linear-gradient(to top, rgba(11,37,78,1) 0%, rgba(11,37,78,0.75) 25%, rgba(11,37,78,0.35) 55%, rgba(11,37,78,0.05) 80%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(15,140,250,0.45) 0%, rgba(15,140,250,0.2) 25%, rgba(15,140,250,0.05) 55%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+            filter: 'blur(4px)',
           }}
         />
 
-        {/* Medium cone — brighter inner */}
+        {/* Mid cone — stronger blue */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px]"
           style={{
-            background: 'linear-gradient(to top, rgba(30,80,160,0.95) 0%, rgba(20,55,120,0.7) 30%, rgba(11,37,78,0.3) 60%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(15,140,250,0.85) 0%, rgba(15,140,250,0.55) 25%, rgba(15,140,250,0.15) 55%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
             filter: 'blur(2px)',
           }}
         />
 
-        {/* Core bright streak */}
+        {/* Inner bright cone */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[160px] h-[420px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[240px] h-[440px]"
           style={{
-            background: 'linear-gradient(to top, rgba(80,140,255,1) 0%, rgba(50,100,220,0.8) 25%, rgba(20,60,160,0.4) 55%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(15,140,250,1) 0%, rgba(15,140,250,0.85) 20%, rgba(15,140,250,0.4) 50%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-            filter: 'blur(6px)',
+            filter: 'blur(5px)',
           }}
         />
 
-        {/* Ultra-bright neon core spine */}
+        {/* Neon core spine — pure white-blue hot center */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40px] h-[360px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60px] h-[380px]"
           style={{
-            background: 'linear-gradient(to top, rgba(150,200,255,1) 0%, rgba(100,160,255,0.9) 20%, rgba(60,120,240,0.5) 50%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(150,220,255,1) 15%, rgba(15,140,250,0.8) 40%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-            filter: 'blur(3px)',
+            filter: 'blur(2px)',
           }}
         />
 
-        {/* Neon glow halo at apex (button area) */}
+        {/* Neon bloom halo at apex — where beam starts */}
         <div
-          className="absolute bottom-[260px] left-1/2 -translate-x-1/2 w-48 h-10 rounded-full"
+          className="absolute bottom-[280px] left-1/2 -translate-x-1/2 w-64 h-12 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(100,180,255,0.9) 0%, rgba(30,80,200,0.5) 40%, transparent 100%)',
-            filter: 'blur(10px)',
+            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.95) 0%, rgba(15,140,250,0.7) 35%, transparent 100%)',
+            filter: 'blur(8px)',
           }}
         />
 
-        {/* Outer neon bloom at base */}
+        {/* Base floor neon pool */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-32 rounded-full"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-40 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center bottom, rgba(11,37,78,0.9) 0%, rgba(11,37,78,0.4) 50%, transparent 100%)',
-            filter: 'blur(20px)',
+            background: 'radial-gradient(ellipse at center bottom, rgba(15,140,250,0.6) 0%, rgba(15,140,250,0.2) 45%, transparent 100%)',
+            filter: 'blur(25px)',
+          }}
+        />
+
+        {/* Soft outer neon halo rim */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1400px] h-48"
+          style={{
+            background: 'radial-gradient(ellipse 80% 100% at 50% 100%, rgba(15,140,250,0.12) 0%, transparent 100%)',
+            filter: 'blur(15px)',
           }}
         />
       </div>
