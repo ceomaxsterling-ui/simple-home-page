@@ -96,7 +96,7 @@ const ConsultancySection = () => {
     <section 
       id="consultoria"
       ref={sectionRef} 
-      className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
+      className="relative py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
     >
       {/* Advanced Background Effects */}
       <div className="absolute inset-0">
