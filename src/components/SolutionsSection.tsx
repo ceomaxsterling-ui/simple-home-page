@@ -1,322 +1,214 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
+import mockupWebsites from '@/assets/mockup-websites.jpg';
+import mockupInstagram from '@/assets/mockup-instagram.jpg';
+import mockupGoogle from '@/assets/mockup-google.jpg';
+import mockupAds from '@/assets/mockup-ads.jpg';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Palette, MessageSquare, BarChart3, Users, Play, ArrowRight, CheckCircle } from 'lucide-react';
+const solutions = [
+  {
+    id: 'websites',
+    badge: '100% Personalizado',
+    subtitle: 'Desenvolvimento Web Profissional',
+    title: 'Sites que Convertem\nVisitantes em Clientes',
+    description:
+      'Criamos sites institucionais e landing pages de alta performance, otimizados para conversão e preparados para posicionar sua marca no topo das buscas. Design moderno, responsivo e focado em resultados.',
+    benefits: [
+      'Design Responsivo (Mobile-First)',
+      'Otimização SEO',
+      'Alta Velocidade de Carregamento',
+      'Focado em Conversão',
+      'Tecnologia de Ponta',
+    ],
+    image: mockupWebsites,
+    imageAlt: 'Mockup de sites profissionais em desktop',
+    imageRight: true,
+  },
+  {
+    id: 'instagram',
+    badge: '+150% Engajamento',
+    subtitle: 'Gestão Completa de Instagram',
+    title: 'Sua Marca Brilhando\nnas Redes Sociais',
+    description:
+      'Transformamos seu Instagram em uma máquina de atrair e engajar clientes. Criamos conteúdo estratégico, visual impactante e copywriting persuasivo para construir uma comunidade fiel em torno da sua marca.',
+    benefits: [
+      'Criação de Conteúdo Estratégico',
+      'Design Profissional',
+      'Copywriting Persuasivo',
+      'Agendamento Inteligente',
+      'Análise de Métricas',
+    ],
+    image: mockupInstagram,
+    imageAlt: 'Mockup de Instagram profissional no smartphone',
+    imageRight: false,
+  },
+  {
+    id: 'google',
+    badge: 'Buscas Locais',
+    subtitle: 'Otimização Google Meu Negócio',
+    title: 'Seja Encontrado por\nClientes Próximos a Você',
+    description:
+      'Colocamos sua empresa no mapa — literalmente. Otimizamos seu perfil no Google para aparecer nas buscas locais, atrair clientes da região e se destacar da concorrência com avaliações positivas e informações precisas.',
+    benefits: [
+      'Otimização Completa do Perfil',
+      'Apareça no Google Maps',
+      'Gestão de Avaliações',
+      'Posts Semanais',
+      'Relatórios de Performance',
+    ],
+    image: mockupGoogle,
+    imageAlt: 'Mockup do Google Meu Negócio com avaliações 5 estrelas',
+    imageRight: true,
+  },
+  {
+    id: 'ads',
+    badge: 'ROI Comprovado',
+    subtitle: 'Gestão Profissional de Tráfego Pago',
+    title: 'Anúncios que Geram\nResultados Reais',
+    description:
+      'Maximizamos seu ROI com campanhas estratégicas no Google Ads, Meta Ads e outras plataformas. Segmentação precisa, copywriting persuasivo e otimização constante para transformar cada real investido em lucro.',
+    benefits: [
+      'Google Ads & Meta Ads',
+      'Segmentação Precisa',
+      'Otimização Contínua',
+      'Relatórios Transparentes',
+      'Foco em ROI',
+    ],
+    image: mockupAds,
+    imageAlt: 'Dashboard de tráfego pago com métricas de conversão',
+    imageRight: false,
+  },
+];
 
-const SolutionsSection = () => {
-  const [activeService, setActiveService] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+interface SolutionBlockProps {
+  solution: typeof solutions[0];
+  index: number;
+}
 
-  const services = [
-    {
-      id: 0,
-      icon: <Palette className="w-6 md:w-8 h-6 md:h-8" />,
-      title: "Estratégia e Branding",
-      subtitle: "Para Todos os Negócios",
-      description: "Construímos a fundação da sua marca. Uma identidade forte não é estética — é estratégia. É o que faz empresas serem lembradas quando a concorrência é esquecida.",
-      features: ["Identidade Visual Completa", "Design de Marca Exclusivo", "Planejamento Estratégico", "Posicionamento de Mercado"],
-      color: "elevix-blue",
-      gradient: "from-elevix-blue/20 to-blue-500/5",
-      buttonBorder: "border-elevix-blue",
-      dashboardMetrics: [
-        { label: "Design", value: "95%" },
-        { label: "Estratégia", value: "98%" },
-        { label: "Branding", value: "92%" }
-      ],
-      dashboardStats: [
-        { label: "Marcas Criadas", value: "200+" },
-        { label: "Satisfação", value: "98%" }
-      ]
-    },
-    {
-      id: 1,
-      icon: <BarChart3 className="w-6 md:w-8 h-6 md:h-8" />,
-      title: "Performance e Aquisição",
-      subtitle: "Resultados Mensuráveis",
-      description: "Cada real investido em mídia precisa trabalhar. Gerenciamos suas campanhas com precisão cirúrgica — para atrair as pessoas certas, no momento certo, com a mensagem certa.",
-      features: ["Gestão de Tráfego Pago", "Criação de Criativos", "Otimização de Conversão (CRO)", "Análise de Performance"],
-      color: "blue-400",
-      gradient: "from-blue-500/20 to-blue-400/5",
-      buttonBorder: "border-blue-400",
-      dashboardMetrics: [
-        { label: "ROI", value: "85%" },
-        { label: "Conversão", value: "90%" },
-        { label: "Performance", value: "95%" }
-      ],
-      dashboardStats: [
-        { label: "ROI Médio", value: "280%" },
-        { label: "Campanhas", value: "500+" }
-      ]
-    },
-    {
-      id: 2,
-      icon: <MessageSquare className="w-6 md:w-8 h-6 md:h-8" />,
-      title: "Presença e Relacionamento",
-      subtitle: "Onde Seus Clientes Estão",
-      description: "Sua marca presente onde seus clientes estão. Criamos conteúdo, gerenciamos canais e automatizamos processos para que nenhuma oportunidade passe em branco.",
-      features: ["Design de Social Media", "Google Meu Negócio", "Automação de Atendimento", "Gestão de Relacionamento"],
-      color: "blue-500",
-      gradient: "from-blue-500/20 to-blue-400/5",
-      buttonBorder: "border-blue-500",
-      dashboardMetrics: [
-        { label: "Engajamento", value: "24/7" },
-        { label: "Automação", value: "90%" },
-        { label: "Visibilidade", value: "95%" }
-      ],
-      dashboardStats: [
-        { label: "Alcance", value: "+400%" },
-        { label: "Automação", value: "24/7" }
-      ]
-    }
-  ];
+const SolutionBlock: React.FC<SolutionBlockProps> = ({ solution, index }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-      
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(isInView);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+  const scrollToContact = () => {
+    const el = document.getElementById('contato') || document.getElementById('cta');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const parallaxOffset = scrollY * 0.1;
+  const imageFirst = !solution.imageRight;
 
   return (
-    <section 
-      ref={sectionRef}
-      id="solucoes" 
-      className="relative py-12 md:py-20 bg-black overflow-hidden"
+    <div
+      ref={ref}
+      className={`flex flex-col ${imageFirst ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16 lg:gap-24 transition-all duration-1000 ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="absolute inset-0">
-        <div 
-          className="absolute top-20 left-10 w-96 h-96 bg-elevix-blue/5 rounded-full blur-3xl transition-transform duration-1000"
-          style={{ transform: `translateY(${parallaxOffset}px) rotate(${scrollY * 0.05}deg)` }}
-        ></div>
-        <div 
-          className="absolute bottom-32 right-20 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl transition-transform duration-1000"
-          style={{ transform: `translateY(${-parallaxOffset}px) rotate(${-scrollY * 0.03}deg)` }}
-        ></div>
-        <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-elevix-blue/3 rounded-full blur-3xl transition-transform duration-1000"
-          style={{ transform: `translate(-50%, -50%) scale(${1 + scrollY * 0.0002})` }}
-        />
+      {/* Text side */}
+      <div className="flex-1 w-full space-y-5 md:space-y-7">
+        {/* Badge */}
+        <div className="inline-flex">
+          <span className="bg-[#5F91FF]/15 border border-[#5F91FF]/30 text-[#5F91FF] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
+            {solution.badge}
+          </span>
+        </div>
+
+        {/* Subtitle */}
+        <p className="text-[#5F91FF] text-sm md:text-base font-semibold tracking-wide uppercase">
+          {solution.subtitle}
+        </p>
+
+        {/* Title */}
+        <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-pre-line">
+          {solution.title}
+        </h2>
+
+        {/* Description */}
+        <p className="text-[#888] text-base md:text-lg leading-relaxed max-w-xl">
+          {solution.description}
+        </p>
+
+        {/* Benefits */}
+        <ul className="space-y-3">
+          {solution.benefits.map((benefit, i) => (
+            <li
+              key={i}
+              className="flex items-center gap-3 text-gray-300 text-sm md:text-base group cursor-default transition-all duration-200 hover:text-white"
+            >
+              <CheckCircle className="w-5 h-5 text-[#5F91FF] flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+              <span>{benefit}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <button
+          onClick={scrollToContact}
+          className="inline-flex items-center gap-2 mt-2 bg-[#5F91FF] hover:bg-[#4a7ee8] text-white font-bold px-7 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(95,145,255,0.4)] text-sm md:text-base"
+        >
+          Quero Começar Agora
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className={`text-center mb-12 md:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center space-x-2 text-elevix-blue mb-4 md:mb-6">
-            <div className="w-2 h-2 bg-elevix-blue rounded-full animate-pulse"></div>
-            <span className="text-sm sm:text-base md:text-lg font-medium">O Arsenal da Orion</span>
-            <div className="w-2 h-2 bg-elevix-blue rounded-full animate-pulse"></div>
+      {/* Image side */}
+      <div className="flex-1 w-full flex justify-center">
+        <div className="relative group w-full max-w-sm md:max-w-none">
+          {/* Glow */}
+          <div className="absolute -inset-4 bg-[#5F91FF]/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
+          <div className="absolute -inset-1 bg-gradient-to-br from-[#5F91FF]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+          <img
+            src={solution.image}
+            alt={solution.imageAlt}
+            className="relative z-10 w-full rounded-2xl border border-white/8 shadow-2xl shadow-black/60 group-hover:-translate-y-2 transition-transform duration-500 object-cover"
+            style={{ maxHeight: '420px', objectFit: 'cover' }}
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SolutionsSection: React.FC = () => {
+  return (
+    <section id="solucoes" className="bg-[#050505] py-20 md:py-28 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-2 text-[#5F91FF] mb-4">
+            <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
+            <span className="text-sm md:text-base font-medium">Nossas Soluções</span>
+            <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
           </div>
-          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight text-center px-2 sm:px-0">
-            Tudo Que Sua Empresa Precisa Para Ir Mais Longe{' '}
-            <span className="text-elevix-blue">
-              — Em Um Só Lugar.
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            Tudo Que Sua Empresa Precisa{' '}
+            <span className="text-[#5F91FF]">Para Crescer</span>
           </h2>
-          
-          <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-            Da identidade ao crescimento. Da estratégia à execução. Operamos como uma{' '}
-            <span className="text-elevix-blue font-semibold">extensão da sua empresa</span> — com foco total em levar sua marca a outro patamar.
+          <p className="text-[#888] text-base md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Soluções completas e personalizadas para impulsionar sua presença digital e transformar visitantes em clientes.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto mb-12 md:mb-16 px-2 sm:px-0">
-          <div className="flex flex-col md:flex-row justify-center space-y-3 sm:space-y-4 md:space-y-0 md:space-x-6">
-            {services.map((service, index) => (
-              <button
-                key={service.id}
-                onClick={() => setActiveService(index)}
-                className={`group relative p-3 sm:p-4 md:p-6 rounded-2xl border transition-all duration-500 ${
-                  activeService === index 
-                    ? 'border-elevix-blue/50 bg-elevix-blue/5' 
-                    : 'border-gray-800/50 bg-gray-900/30 hover:border-gray-700/50'
-                }`}
-              >
-                <div className={`flex items-center space-x-2 sm:space-x-3 md:space-x-4 transition-all duration-300 ${
-                  activeService === index ? 'scale-105' : 'group-hover:scale-102'
-                }`}>
-                  <div className={`p-2 md:p-3 rounded-xl transition-all duration-300 ${
-                    activeService === index 
-                      ? 'bg-elevix-blue/20 text-elevix-blue' 
-                      : 'bg-gray-800/50 text-gray-400 group-hover:text-white'
-                  }`}>
-                    {service.icon}
-                  </div>
-                  <div className="text-left">
-                    <h3 className={`font-bold text-sm sm:text-base md:text-lg transition-colors duration-300 ${
-                      activeService === index ? 'text-white' : 'text-gray-300 group-hover:text-white'
-                    }`}>
-                      {service.title}
-                    </h3>
-                    <p className={`text-xs md:text-sm transition-colors duration-300 ${
-                      activeService === index ? 'text-elevix-blue' : 'text-gray-500'
-                    }`}>
-                      {service.subtitle}
-                    </p>
-                  </div>
-                </div>
-                
-                {activeService === index && (
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-elevix-blue/10 to-transparent opacity-50 animate-pulse"></div>
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-2 sm:px-0">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`transition-all duration-700 ${
-                activeService === index 
-                  ? 'opacity-100 translate-x-0 scale-100' 
-                  : 'opacity-0 translate-x-10 scale-95 absolute pointer-events-none'
-              }`}
-            >
-              <Card className={`p-4 sm:p-6 md:p-8 lg:p-12 bg-gradient-to-br ${service.gradient} border-gray-800/50 hover:border-${service.color}/30 transition-all duration-500 relative overflow-hidden`}>
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute top-0 left-0 w-full h-full">
-                    {[...Array(20)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute w-2 h-2 bg-${service.color} rounded-full animate-pulse`}
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          animationDelay: `${Math.random() * 2}s`,
-                          animationDuration: `${2 + Math.random() * 2}s`
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center relative z-10">
-                  <div className="space-y-3 sm:space-y-4 md:space-y-6">
-                    <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-                      <div className={`p-2 sm:p-3 md:p-4 rounded-2xl bg-${service.color}/20`}>
-                        <div className={`text-${service.color}`}>
-                          {service.icon}
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 md:mb-2">
-                          {service.title}
-                        </h3>
-                        <p className={`text-sm sm:text-base md:text-lg font-semibold text-${service.color}`}>
-                          {service.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-sm sm:text-base md:text-xl text-gray-300 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
-                      {service.features.map((feature, idx) => (
-                        <div 
-                          key={idx}
-                          className="flex items-center space-x-2 md:space-x-3 p-2 md:p-3 rounded-xl bg-gray-900/30 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300"
-                        >
-                          <CheckCircle className={`w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:w-5 text-${service.color}`} />
-                          <span className="text-white font-medium text-xs sm:text-sm md:text-base">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex justify-center md:justify-start">
-                      <Button 
-                        onClick={() => scrollToSection('nossas-solucoes')}
-                        className={`group bg-transparent text-white border-2 ${service.buttonBorder} hover:bg-${service.color}/10 font-bold py-2 sm:py-3 md:py-4 px-4 sm:px-6 md:px-8 rounded-xl transition-all duration-300 hover:scale-105 text-xs sm:text-sm md:text-base`}
-                      >
-                        Explorar Solução →
-                        <ArrowRight className="ml-1 sm:ml-2 w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <div className={`relative p-4 sm:p-6 md:p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-3xl border border-gray-700/50 backdrop-blur-sm`}>
-                      <div className="space-y-3 sm:space-y-4 md:space-y-6">
-                        <div className="flex items-center justify-between">
-                          <span className="text-gray-400 font-medium text-xs sm:text-sm md:text-base">Performance</span>
-                          <div className="flex items-center space-x-2">
-                            <div className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-${service.color} animate-pulse`}></div>
-                            <span className={`text-${service.color} font-bold text-xs sm:text-sm md:text-base`}>Ativo</span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2 sm:space-y-3 md:space-y-4">
-                          {service.dashboardMetrics.map((metric, idx) => (
-                            <div key={idx} className="space-y-1 sm:space-y-2">
-                              <div className="flex justify-between text-xs sm:text-sm">
-                                <span className="text-gray-300">{metric.label}</span>
-                                <span className={`text-${service.color} font-bold`}>
-                                  {metric.value}
-                                </span>
-                              </div>
-                              <div className="h-1.5 sm:h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div 
-                                  className={`h-full bg-gradient-to-r from-${service.color} to-${service.color}/70 rounded-full transition-all duration-1000 ease-out`}
-                                  style={{ 
-                                    width: metric.value.includes('%') ? metric.value : '100%',
-                                    animationDelay: `${idx * 200}ms`
-                                  }}
-                                ></div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 pt-3 sm:pt-4 border-t border-gray-700/50">
-                          {service.dashboardStats.map((stat, idx) => (
-                            <div key={idx} className="text-center">
-                              <div className={`text-base sm:text-lg md:text-2xl font-bold text-${service.color}`}>
-                                {stat.value}
-                              </div>
-                              <div className="text-xs text-gray-400">
-                                {stat.label}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4">
-                        <div className={`w-4 sm:w-6 md:w-8 h-4 sm:h-6 md:h-8 bg-${service.color}/20 rounded-full flex items-center justify-center animate-bounce`}>
-                          <Play className={`w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 text-${service.color}`} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
+        {/* Solution blocks */}
+        <div className="space-y-24 md:space-y-32 lg:space-y-40">
+          {solutions.map((solution, index) => (
+            <SolutionBlock key={solution.id} solution={solution} index={index} />
           ))}
         </div>
       </div>
