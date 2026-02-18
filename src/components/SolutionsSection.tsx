@@ -113,10 +113,12 @@ const SolutionBlock: React.FC<SolutionBlockProps> = ({ solution, index }) => {
   return (
     <div
       ref={ref}
-      className={`flex flex-col ${imageFirst ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16 lg:gap-24 transition-all duration-1000 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
-      style={{ transitionDelay: `${index * 80}ms` }}
+      className={`flex flex-col ${imageFirst ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16 lg:gap-24 transition-all duration-700`}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(48px)',
+        transitionDelay: `${index * 60}ms`,
+      }}
     >
       {/* Text side */}
       <div className="flex-1 w-full space-y-5 md:space-y-7">
