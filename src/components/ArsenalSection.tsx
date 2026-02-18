@@ -16,17 +16,17 @@ const ArsenalSection: React.FC = () => {
 
   const cards = [
     {
-      icon: <Rocket strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      icon: <Rocket strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
       title: 'Nossa Missão',
       text: 'Colocar empresas em uma nova órbita de crescimento',
     },
     {
-      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
       title: 'Resultados',
       text: 'ROI médio de +300% e 98% de satisfação',
     },
     {
-      icon: <Handshake strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      icon: <Handshake strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
       title: 'Compromisso',
       text: 'Transparência total e foco no seu crescimento',
     },
@@ -35,7 +35,7 @@ const ArsenalSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-24 overflow-hidden"
+      className="relative py-20 md:py-28 overflow-hidden"
       style={{ background: '#050505' }}
     >
       <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
@@ -56,56 +56,153 @@ const ArsenalSection: React.FC = () => {
 
         {/* Title */}
         <div
-          className="text-center mb-4"
+          className="text-center mb-3"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(15px)',
             transition: 'opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s',
           }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             Nascemos da Inconformidade com o{' '}
-            <span className="text-[#5F91FF]">Marketing Genérico</span>
+            <span style={{ color: '#5F91FF' }}>Marketing Genérico</span>
           </h2>
+        </div>
+
+        {/* Subtitle */}
+        <div
+          className="text-center mb-14"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(15px)',
+            transition: 'opacity 0.4s ease 0.14s, transform 0.4s ease 0.14s',
+          }}
+        >
           <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
             Enquanto o mercado se contentava com promessas vazias, nós criamos algo que realmente funciona.
           </p>
         </div>
 
         {/* 2-column layout */}
-        <div
-          className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mt-12"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(15px)',
-            transition: 'opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s',
-          }}
-        >
-          {/* Left: Text */}
-          <div className="space-y-5">
-            <p className="text-gray-300 text-base leading-[1.7]">
-              Cansamos de ver empresas sendo enganadas por métricas de vaidade e estratégias prontas. Assim nasceu a Orion: não como mais uma agência, mas como uma missão de colocar sua empresa em uma nova órbita.
-            </p>
-            <p className="text-gray-300 text-base leading-[1.7]">
-              Desenvolvemos a <span className="text-white font-medium">Metodologia Orion de Alavancagem Digital</span> — um sistema que transforma presença digital em resultado mensurável. Atuamos como extensão da sua empresa, com foco total no que realmente importa: <span className="text-white font-medium">seu crescimento.</span>
-            </p>
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+          {/* Left: Logo / 3D Visual */}
+          <div
+            className="flex items-center justify-center"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
+            }}
+          >
+            <div className="relative flex items-center justify-center">
+              {/* Outer diffuse glow */}
+              <div
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(95,145,255,0.18) 0%, transparent 70%)',
+                  filter: 'blur(40px)',
+                  transform: 'scale(1.5)',
+                }}
+              />
+
+              {/* Floating card */}
+              <div
+                className="relative flex flex-col items-center justify-center rounded-2xl p-10 md:p-14"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(95,145,255,0.08) 0%, rgba(10,14,26,0.95) 60%, rgba(5,5,5,1) 100%)',
+                  border: '1px solid rgba(95,145,255,0.35)',
+                  boxShadow: '0 0 40px rgba(95,145,255,0.25), 0 0 80px rgba(95,145,255,0.12), inset 0 0 40px rgba(95,145,255,0.05)',
+                  animation: 'floatOrion 5s ease-in-out infinite',
+                  minWidth: '260px',
+                  minHeight: '260px',
+                }}
+              >
+                {/* Logo text */}
+                <span
+                  className="text-4xl md:text-5xl font-bold tracking-widest select-none"
+                  style={{
+                    color: '#ffffff',
+                    textShadow: '0 0 20px rgba(95,145,255,0.8), 0 0 40px rgba(95,145,255,0.4)',
+                    letterSpacing: '0.2em',
+                  }}
+                >
+                  ORION
+                </span>
+
+                {/* Orbit ring SVG */}
+                <svg
+                  className="mt-5 opacity-60"
+                  width="120"
+                  height="36"
+                  viewBox="0 0 120 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <ellipse
+                    cx="60"
+                    cy="18"
+                    rx="58"
+                    ry="15"
+                    stroke="#5F91FF"
+                    strokeWidth="1.2"
+                    strokeDasharray="6 4"
+                  />
+                  {/* Small planet */}
+                  <circle cx="60" cy="3" r="4" fill="#5F91FF" opacity="0.9" />
+                  <circle cx="60" cy="3" r="7" stroke="#5F91FF" strokeWidth="0.8" opacity="0.3" />
+                </svg>
+
+                {/* Tagline */}
+                <p
+                  className="mt-4 text-xs font-medium tracking-widest uppercase"
+                  style={{ color: 'rgba(95,145,255,0.7)', letterSpacing: '0.25em' }}
+                >
+                  Nova Órbita
+                </p>
+
+                {/* Corner accent lines */}
+                <div className="absolute top-4 left-4 w-6 h-6 border-t border-l" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
+                <div className="absolute top-4 right-4 w-6 h-6 border-t border-r" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
+                <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
+              </div>
+            </div>
           </div>
 
           {/* Right: Cards */}
-          <div className="space-y-3">
+          <div className="flex flex-col gap-5">
             {cards.map((card, i) => (
               <div
                 key={i}
-                className="group p-6 rounded-xl border border-[#5F91FF]/20 hover:border-[#5F91FF] hover:-translate-y-1 transition-all duration-300"
+                className="group p-6 rounded-2xl cursor-default"
                 style={{
                   background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(95,145,255,0.25)',
+                  boxShadow: '0 0 12px rgba(95,145,255,0.1)',
+                  transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(15px)',
-                  transition: `opacity 0.4s ease ${0.2 + i * 0.08}s, transform 0.4s ease ${0.2 + i * 0.08}s`,
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.45), 0 0 48px rgba(95,145,255,0.15)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.7)';
+                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-3px)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 12px rgba(95,145,255,0.1)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.25)';
+                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
                 }}
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 p-2 rounded-lg bg-[#5F91FF]/10 group-hover:bg-[#5F91FF]/15 transition-colors duration-300">
+                  <div
+                    className="flex-shrink-0 p-2.5 rounded-xl"
+                    style={{
+                      background: 'rgba(95,145,255,0.08)',
+                      border: '1px solid rgba(95,145,255,0.2)',
+                    }}
+                  >
                     {card.icon}
                   </div>
                   <div>
@@ -119,6 +216,14 @@ const ArsenalSection: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Floating animation keyframe via style tag */}
+      <style>{`
+        @keyframes floatOrion {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+        }
+      `}</style>
     </section>
   );
 };
