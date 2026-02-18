@@ -15,38 +15,33 @@ const CTASection = () => {
   };
 
   return (
-    <section id="cta-final" className="py-16 sm:py-20 relative overflow-hidden">
-      {/* Deep nebula background */}
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse at 50% 50%, rgba(79,142,247,0.14) 0%, rgba(123,47,190,0.09) 40%, transparent 70%), #030714'
-      }} />
-      {/* Extra density blobs for climax */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%)', filter: 'blur(80px)' }} />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+    <section id="cta-final" className="py-20 sm:py-28 relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #103051 0%, #081B2D 100%)' }}>
+      {/* Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-64 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(97,164,248,0.10) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+      <div className="absolute bottom-0 right-1/4 w-80 h-64 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
-          <div className="space-y-4 sm:space-y-6">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-              Sua Empresa Tem Potencial Para Ir Muito Mais Longe.{' '}
-              <span style={{ background: 'linear-gradient(135deg, #4F8EF7, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                A Orion Vai Te Mostrar Como.
-              </span>
-            </h2>
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+            Sua Empresa Tem Potencial Para Ir Muito Mais Longe.{' '}
+            <span style={{ background: 'linear-gradient(135deg, #61A4F8, #a8d1ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              A Orion Vai Te Mostrar Como.
+            </span>
+          </h2>
 
-            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Não importa onde sua empresa está agora. O que importa é para onde ela quer ir. Se você tem ambição de crescer, a Orion tem a rota — e a experiência para percorrê-la
-              <span className="text-white font-semibold"> com você</span>.
-            </p>
-          </div>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            Não importa onde sua empresa está agora. O que importa é para onde ela quer ir. Se você tem ambição de crescer, a Orion tem a rota —{' '}
+            <span className="text-white/90 font-medium">e a experiência para percorrê-la com você</span>.
+          </p>
 
-          <div className="py-4">
+          <div className="py-2">
             <Button
               size="lg"
-              className="btn-glow btn-shimmer text-white font-bold px-6 sm:px-16 py-4 sm:py-6 text-base sm:text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto group leading-tight"
-              style={{ background: 'linear-gradient(135deg, #4F8EF7, #00D4FF)' }}
+              className="btn-glow btn-shimmer text-white font-semibold px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto group"
+              style={{ background: 'linear-gradient(135deg, #61A4F8, #3b82f6)', border: 'none', borderRadius: '999px' }}
               onClick={handleWhatsAppRedirect}
             >
               <span className="sm:hidden">Agende Consultoria Gratuita</span>

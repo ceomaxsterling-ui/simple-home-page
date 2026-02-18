@@ -13,14 +13,16 @@ const TyrionServicesSection = () => {
   };
 
   return (
-    <section id="nossas-solucoes" className="py-12 sm:py-16 relative bg-black overflow-hidden">
+    <section id="nossas-solucoes" className="py-12 sm:py-16 relative overflow-hidden"
+      style={{ background: '#103051' }}>
       {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-96 h-48 sm:h-96 bg-elevix-blue/8 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-20 w-40 sm:w-80 h-40 sm:h-80 bg-blue-500/6 rounded-full blur-3xl animate-pulse-glow" style={{
-          animationDelay: '2s'
-        }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[600px] h-60 sm:h-[400px] bg-elevix-blue/4 rounded-full blur-3xl" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl opacity-60"
+          style={{ background: 'radial-gradient(circle, rgba(97,164,248,0.07) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-20 right-10 w-64 h-64 rounded-full blur-3xl opacity-40"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-72 rounded-full blur-3xl opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(97,164,248,0.04) 0%, transparent 70%)' }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">

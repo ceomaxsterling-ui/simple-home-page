@@ -75,24 +75,16 @@ const PainPointsSection = () => {
   };
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-24 xl:py-32 bg-black overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className={`absolute top-10 md:top-20 left-4 md:left-10 w-64 md:w-96 h-64 md:h-96 rounded-full blur-3xl transition-all duration-1000 ${
-          isInSolutionMode 
-            ? 'bg-elevix-blue/8' 
-            : 'bg-red-500/5'
-        }`}></div>
-        <div className={`absolute bottom-16 md:bottom-32 right-4 md:right-20 w-48 md:w-80 h-48 md:h-80 rounded-full blur-3xl transition-all duration-1000 ${
-          isInSolutionMode 
-            ? 'bg-elevix-blue/10' 
-            : 'bg-red-500/8'
-        }`}></div>
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[600px] h-60 md:h-[400px] rounded-full blur-3xl transition-all duration-1000 ${
-          isInSolutionMode 
-            ? 'bg-elevix-blue/5' 
-            : 'bg-red-500/3'
-        }`}></div>
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #081B2D 0%, #0d2540 100%)' }}>
+      {/* Background blobs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className={`absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl transition-all duration-1000 ${
+          isInSolutionMode ? 'opacity-100' : 'opacity-40'
+        }`} style={{ background: 'radial-gradient(circle, rgba(97,164,248,0.08) 0%, transparent 70%)' }} />
+        <div className={`absolute bottom-20 right-10 w-64 h-64 rounded-full blur-3xl transition-all duration-1000 ${
+          isInSolutionMode ? 'opacity-100' : 'opacity-30'
+        }`} style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)' }} />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -198,38 +190,31 @@ const PainPointsSection = () => {
 
         {/* Impact Statement */}
         <div className="text-center">
-          <div className={`max-w-4xl mx-auto p-4 md:p-6 lg:p-8 xl:p-10 rounded-2xl border transition-all duration-500 ${
-            isInSolutionMode 
-              ? 'bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/20' 
-              : 'bg-gradient-to-br from-red-500/10 to-red-900/5 border-red-500/20'
-          }`}>
+          <div className={`max-w-4xl mx-auto p-6 md:p-10 rounded-3xl border transition-all duration-500 ${
+            isInSolutionMode
+              ? 'border-[rgba(97,164,248,0.20)]'
+              : 'border-[rgba(239,68,68,0.15)]'
+          }`} style={{ background: 'rgba(8,27,45,0.6)', backdropFilter: 'blur(12px)' }}>
             <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white leading-relaxed font-semibold mb-3 md:mb-4">
-              {isInSolutionMode 
-                ? 'A Transformação Que Você Precisa' 
+              {isInSolutionMode
+                ? 'A Transformação Que Você Precisa'
                 : 'O Custo de Não Agir Agora'
               }
             </h3>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed text-white/70">
               {isInSolutionMode ? (
                 <>
                   Cada problema tem solução profissional com a{' '}
-                  <span className="text-elevix-blue font-bold">Orion</span>.
+                  <span className="text-[#61A4F8] font-bold">Orion</span>.
                   Transforme seu negócio e{' '}
-                  <span className="text-elevix-blue font-bold">multiplique seus resultados</span> hoje mesmo.
+                  <span className="text-[#61A4F8] font-bold">multiplique seus resultados</span> hoje mesmo.
                 </>
               ) : (
                 <>
-                  <span className="text-gray-200">
-                    Cada mês sem a estratégia certa é{' '}
-                  </span>
-                  <span className="text-red-500 font-bold">crescimento que não volta</span>
-                  <span className="text-gray-200">
-                    . Os obstáculos que travam sua empresa hoje têm solução — e ela começa com{' '}
-                  </span>
-                  <span className="text-red-500 font-bold">uma conversa</span>
-                  <span className="text-gray-200">
-                    .
-                  </span>
+                  Cada mês sem a estratégia certa é{' '}
+                  <span className="text-red-400 font-bold">crescimento que não volta</span>.
+                  Os obstáculos que travam sua empresa hoje têm solução — e ela começa com{' '}
+                  <span className="text-red-400 font-bold">uma conversa</span>.
                 </>
               )}
             </p>

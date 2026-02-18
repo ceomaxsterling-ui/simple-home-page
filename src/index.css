@@ -3,45 +3,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Space Grotesk via Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* ── Plus Jakarta Sans + Inter via Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 228 57% 4%;     /* #030714 */
+    --background: 210 76% 10%;    /* #103051 - Azul Noturno Profundo */
     --foreground: 0 0% 100%;
 
-    --card: 220 63% 12%;          /* #0D1B35 */
+    --card: 211 76% 6%;           /* #081B2D - Apoio Escuro */
     --card-foreground: 0 0% 100%;
 
-    --popover: 220 63% 12%;
+    --popover: 211 76% 6%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 216 91% 60%;       /* #4F8EF7 */
+    --primary: 213 91% 67%;       /* #61A4F8 - Azul Céu/Brilho */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 40% 10%;
+    --secondary: 211 76% 8%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 30% 10%;
+    --muted: 211 40% 12%;
     --muted-foreground: 215 16% 57%;
 
-    --accent: 193 100% 50%;       /* #00D4FF ciano */
+    --accent: 213 91% 67%;        /* #61A4F8 como accent também */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 216 91% 60%;
+    --border: 213 50% 20%;
+    --input: 213 50% 20%;
+    --ring: 213 91% 67%;
 
-    --radius: 1.25rem;
+    --radius: 999px; /* pill buttons por padrão */
 
-    /* Custom nebula tokens */
-    --nebula-blue:   79, 142, 247;
-    --nebula-cyan:   0, 212, 255;
+    /* Custom nebula tokens - nova paleta */
+    --nebula-blue:   97, 164, 248;    /* #61A4F8 */
+    --nebula-dark:   8, 27, 45;       /* #081B2D */
+    --nebula-mid:    16, 48, 81;      /* #103051 */
     --nebula-purple: 123, 47, 190;
+
+    /* Alias para compatibilidade */
+    --nebula-cyan:   97, 164, 248;
   }
 }
 
@@ -55,23 +59,25 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    background: #103051;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
   }
 
   /* ── Custom Scrollbar ── */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #0D1628; }
+  ::-webkit-scrollbar-track { background: #081B2D; }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #4F8EF7, #00D4FF);
+    background: linear-gradient(180deg, #61A4F8, #103051);
     border-radius: 3px;
   }
-  ::-webkit-scrollbar-thumb:hover { background: #4F8EF7; }
+  ::-webkit-scrollbar-thumb:hover { background: #61A4F8; }
 
   /* ── Selection Color ── */
-  ::selection { background: rgba(79,142,247,0.3); color: #FFFFFF; }
+  ::selection { background: rgba(97,164,248,0.3); color: #FFFFFF; }
 }
 
 /* ══════════════════════════════════════
@@ -178,8 +184,8 @@
    ANIMATIONS
 ══════════════════════════════════════ */
 @keyframes pulse-glow-btn {
-  0%, 100% { box-shadow: 0 0 20px rgba(79,142,247,0.4), 0 0 40px rgba(79,142,247,0.2); }
-  50%       { box-shadow: 0 0 40px rgba(79,142,247,0.7), 0 0 80px rgba(0,212,255,0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(97,164,248,0.4), 0 0 40px rgba(97,164,248,0.2); }
+  50%       { box-shadow: 0 0 40px rgba(97,164,248,0.7), 0 0 80px rgba(97,164,248,0.3); }
 }
 .btn-glow {
   animation: pulse-glow-btn 2.5s ease-in-out infinite;
@@ -229,7 +235,7 @@
 
 /* Gradient text hero */
 .text-gradient-hero {
-  background: linear-gradient(135deg, #FFFFFF 0%, #4F8EF7 50%, #00D4FF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #61A4F8 50%, #a8d1ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -247,7 +253,7 @@
 }
 
 /* ── Existing glow effects (kept) ── */
-.glow-effect { box-shadow: 0 0 20px rgba(79,142,247,0.3); }
+.glow-effect { box-shadow: 0 0 20px rgba(97,164,248,0.35); }
 
 .bg-gradient-radial { background: radial-gradient(var(--tw-gradient-stops)); }
 
