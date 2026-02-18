@@ -130,7 +130,7 @@ const SolutionsSection = () => {
             <div className="w-2 h-2 bg-elevix-blue rounded-full animate-pulse"></div>
           </div>
           
-          <h2 className="text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight text-center px-2 sm:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight text-center px-2 sm:px-0">
             Tudo Que Sua Empresa Precisa Para Ir Mais Longe{' '}
             <span className="text-elevix-blue">
               — Em Um Só Lugar.
