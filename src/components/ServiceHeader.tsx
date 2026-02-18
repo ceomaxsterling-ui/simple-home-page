@@ -12,15 +12,14 @@ const ServiceHeader = () => {
       
       <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
         <span className="bg-gradient-to-r from-elevix-blue via-blue-400 to-elevix-blue bg-clip-text text-transparent">
-          Estratégias Inteligentes
+          A Solução Certa
         </span>{' '}
-        Para Cada Desafio do Seu Negócio
+        Para Cada Fase da Sua Empresa.
       </h2>
       
       <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        Nosso portfólio de serviços é desenhado para impulsionar o crescimento de{' '}
-        <span className="text-elevix-blue font-semibold">negócios locais, infoprodutores e e-commerces</span>, 
-        com foco em resultados e inovação.
+        Do primeiro contato ao crescimento consolidado — temos a solução para{' '}
+        <span className="text-elevix-blue font-semibold">onde sua empresa está agora</span> e para onde ela quer chegar.
       </p>
     </div>
   );

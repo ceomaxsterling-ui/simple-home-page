@@ -24,32 +24,32 @@ const PainPointsSection = () => {
   const interactiveCards = [
     {
       problem: {
-        title: "Presença Digital Que Não Passa Confiança",
-        description: "Seu site parece amador, afasta clientes e destrói suas conversões antes mesmo deles conhecerem sua oferta."
+        title: "Sua Marca Não Gera Autoridade",
+        description: "A primeira impressão decide tudo. Se ela não transmite confiança, o cliente vai embora antes de você ter a chance de convencê-lo."
       },
       solution: {
-        title: "Design Profissional e Confiável",
-        description: "Tenha uma presença digital profissional que gera credibilidade e faz o cliente confiar na sua marca."
+        title: "Autoridade Visual Que Fecha Portas",
+        description: "Construímos identidades que fazem o cliente confiar na sua empresa antes de você dizer uma só palavra."
       }
     },
     {
       problem: {
-        title: "Presença Digital Que Não Converte",
-        description: "Você investe em tráfego, mas seu site não converte. Os visitantes entram e saem sem realizar ação nenhuma."
+        title: "Investimento Que Não Retorna",
+        description: "Você atrai atenção, mas os clientes não avançam. O problema não é o produto — é a estratégia que não guia o cliente até a decisão."
       },
       solution: {
-        title: "Estrutura Otimizada Para Conversão",
-        description: "Site estrategicamente construído para converter visitantes em leads qualificados e clientes reais."
+        title: "Cada Contato Vira Oportunidade",
+        description: "Estruturamos sua comunicação para conduzir o cliente da descoberta à compra — com clareza, confiança e zero atrito."
       }
     },
     {
       problem: {
-        title: "Presença Digital Boa, Mas Sem Todo Seu Potencial",
-        description: "Seu site até funciona, mas você sabe que poderia estar gerando muito mais resultados com a estrutura certa."
+        title: "Você Opera Abaixo do Seu Teto",
+        description: "Sua operação funciona — mas não no ritmo que você sabe que é possível. Gargalos invisíveis estão limitando o que você poderia conquistar."
       },
       solution: {
-        title: "Performance Máxima Desbloqueada",
-        description: "Eleve sua operação ao próximo nível com uma presença digital que explora todo seu potencial de crescimento."
+        title: "Órbita Máxima Ativada",
+        description: "Mapeamos os pontos de travamento e implementamos as alavancas que fazem sua empresa crescer de forma consistente e sustentável."
       }
     }
   ];
@@ -99,20 +99,19 @@ const PainPointsSection = () => {
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12 lg:mb-16 xl:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 lg:mb-8 leading-tight">
-            Cansado de ter uma presença digital{' '}
+            Seu potencial é maior do que seus resultados atuais.{' '}
             <AnimatedRotatingWord 
               words={rotatingWords}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             />
-            ?
           </h2>
           
           <p className={`text-lg sm:text-xl md:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed mb-6 md:mb-8 lg:mb-12 xl:mb-16 transition-colors duration-500 ${
             isInSolutionMode ? 'text-elevix-blue/90' : 'text-gray-300'
           }`}>
             {isInSolutionMode 
-              ? 'Cada desafio tem uma solução profissional. Não importa seu segmento - transformamos problemas em oportunidades de crescimento.' 
-              : 'Não importa se você é um negócio local, infoprodutor ou e-commerce... estes problemas travam seu crescimento e podem ser fatais para seu negócio.'
+              ? 'Para cada obstáculo, existe uma rota. A Orion foi construída para encontrá-la — e executá-la.' 
+              : 'Não importa o tamanho ou o segmento da sua empresa. Esses são os obstáculos que impedem marcas ambiciosas de atingir seu verdadeiro potencial.'
             }
           </p>
 
@@ -221,19 +220,15 @@ const PainPointsSection = () => {
               ) : (
                 <>
                   <span className="text-gray-200">
-                    Cada dia sem uma estratégia profissional significa{' '}
+                    Cada mês sem a estratégia certa é{' '}
                   </span>
-                  <span className="text-red-500 font-bold">oportunidades perdidas</span>
+                  <span className="text-red-500 font-bold">crescimento que não volta</span>
                   <span className="text-gray-200">
-                    , frustração acumulada e{' '}
+                    . Os obstáculos que travam sua empresa hoje têm solução — e ela começa com{' '}
                   </span>
-                  <span className="text-red-500 font-bold">crescimento estagnado</span>
+                  <span className="text-red-500 font-bold">uma conversa</span>
                   <span className="text-gray-200">
-                    . Chega de deixar{' '}
-                  </span>
-                  <span className="text-red-500 font-bold">resultados na mesa</span>
-                  <span className="text-gray-200">
-                    . Transforme seu negócio hoje.
+                    .
                   </span>
                 </>
               )}
@@ -250,7 +245,7 @@ const PainPointsSection = () => {
               isInSolutionMode ? 'bg-elevix-blue' : 'bg-red-500'
             }`}></div>
             <span className="text-base md:text-lg">
-              {isInSolutionMode ? 'Vamos transformar seu negócio no próximo nível...' : 'Mas existe uma solução profissional completa...'}
+              {isInSolutionMode ? 'Existe uma rota para onde você quer chegar. E nós sabemos como traçá-la.' : 'Existe uma rota para onde você quer chegar. Nós sabemos como encontrá-la.'}
             </span>
             <div className={`w-2 h-2 rounded-full animate-pulse transition-colors duration-500 ${
               isInSolutionMode ? 'bg-elevix-blue' : 'bg-red-500'

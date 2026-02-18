@@ -15,8 +15,8 @@ const SolutionsSection = () => {
       id: 0,
       icon: <Palette className="w-6 md:w-8 h-6 md:h-8" />,
       title: "Estratégia e Branding",
-      subtitle: "Para Todos os Públicos",
-      description: "Criamos marcas que conectam e se destacam. Do logo à paleta de cores, construímos a essência visual do seu negócio com planejamento estratégico digital completo.",
+      subtitle: "Para Todos os Negócios",
+      description: "Construímos a fundação da sua marca. Uma identidade forte não é estética — é estratégia. É o que faz empresas serem lembradas quando a concorrência é esquecida.",
       features: ["Identidade Visual Completa", "Design de Marca Exclusivo", "Planejamento Estratégico", "Posicionamento de Mercado"],
       color: "elevix-blue",
       gradient: "from-elevix-blue/20 to-blue-500/5",
@@ -35,8 +35,8 @@ const SolutionsSection = () => {
       id: 1,
       icon: <BarChart3 className="w-6 md:w-8 h-6 md:h-8" />,
       title: "Performance e Aquisição",
-      subtitle: "Infoprodutores, E-commerce e Negócios Locais",
-      description: "Campanhas de alta performance no Google, Meta e outras plataformas, focadas em ROI e aquisição de clientes. Criamos criativos que capturam atenção e convertem.",
+      subtitle: "Resultados Mensuráveis",
+      description: "Cada real investido em mídia precisa trabalhar. Gerenciamos suas campanhas com precisão cirúrgica — para atrair as pessoas certas, no momento certo, com a mensagem certa.",
       features: ["Gestão de Tráfego Pago", "Criação de Criativos", "Otimização de Conversão (CRO)", "Análise de Performance"],
       color: "blue-400",
       gradient: "from-blue-500/20 to-blue-400/5",
@@ -55,8 +55,8 @@ const SolutionsSection = () => {
       id: 2,
       icon: <MessageSquare className="w-6 md:w-8 h-6 md:h-8" />,
       title: "Presença e Relacionamento",
-      subtitle: "Negócios Locais e E-commerce",
-      description: "Conteúdo visual estratégico para redes sociais, otimização Google Meu Negócio e automação de atendimento para maximizar sua visibilidade e eficiência nas vendas.",
+      subtitle: "Onde Seus Clientes Estão",
+      description: "Sua marca presente onde seus clientes estão. Criamos conteúdo, gerenciamos canais e automatizamos processos para que nenhuma oportunidade passe em branco.",
       features: ["Design de Social Media", "Google Meu Negócio", "Automação de Atendimento", "Gestão de Relacionamento"],
       color: "blue-500",
       gradient: "from-blue-500/20 to-blue-400/5",
@@ -126,22 +126,20 @@ const SolutionsSection = () => {
         <div className={`text-center mb-12 md:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center space-x-2 text-elevix-blue mb-4 md:mb-6">
             <div className="w-2 h-2 bg-elevix-blue rounded-full animate-pulse"></div>
-            <span className="text-sm sm:text-base md:text-lg font-medium">Nossas Soluções</span>
+            <span className="text-sm sm:text-base md:text-lg font-medium">O Arsenal da Orion</span>
             <div className="w-2 h-2 bg-elevix-blue rounded-full animate-pulse"></div>
           </div>
           
           <h2 className="text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight text-center px-2 sm:px-0">
-            Um Ecossistema Completo{' '}
+            Tudo Que Sua Empresa Precisa Para Ir Mais Longe{' '}
             <span className="text-elevix-blue">
-              Para o Seu Sucesso
+              — Em Um Só Lugar.
             </span>
           </h2>
           
           <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-            Da concepção à otimização contínua, a Orion oferece um{' '}
-            <span className="text-elevix-blue font-semibold">portfólio completo de serviços</span> projetados para atender às necessidades específicas de cada negócio. 
-            Nossa abordagem full service garante que todas as pontas do seu marketing digital estejam{' '}
-            <span className="text-white font-semibold">conectadas e trabalhando em sinergia</span> para o seu crescimento.
+            Da identidade ao crescimento. Da estratégia à execução. Operamos como uma{' '}
+            <span className="text-elevix-blue font-semibold">extensão da sua empresa</span> — com foco total em levar sua marca a outro patamar.
           </p>
         </div>
 
@@ -256,7 +254,7 @@ const SolutionsSection = () => {
                         onClick={() => scrollToSection('nossas-solucoes')}
                         className={`group bg-transparent text-white border-2 ${service.buttonBorder} hover:bg-${service.color}/10 font-bold py-2 sm:py-3 md:py-4 px-4 sm:px-6 md:px-8 rounded-xl transition-all duration-300 hover:scale-105 text-xs sm:text-sm md:text-base`}
                       >
-                        Conhecer Solução
+                        Explorar Solução →
                         <ArrowRight className="ml-1 sm:ml-2 w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
                       </Button>
                     </div>

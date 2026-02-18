@@ -46,8 +46,8 @@ const Header = () => {
 
           <div className="flex items-center space-x-3">
             <Button className="bg-elevix-blue text-white hover:bg-blue-hover font-semibold px-4 sm:px-6 py-2 rounded-xl glow-effect transition-all duration-300 hover:scale-105 text-sm sm:text-base" onClick={handleWhatsAppRedirect}>
-              <span className="hidden sm:inline">Quero Escalar</span>
-              <span className="sm:hidden">Escalar</span>
+            <span className="hidden sm:inline">Iniciar Minha Jornada →</span>
+              <span className="sm:hidden">Começar Agora</span>
             </Button>
             <MobileNavigation />
           </div>
