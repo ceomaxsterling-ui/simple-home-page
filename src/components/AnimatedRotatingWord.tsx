@@ -15,7 +15,7 @@ const AnimatedRotatingWord: React.FC<AnimatedRotatingWordProps> = ({
   useEffect(() => {
     // Optimized with longer interval for better performance
     const interval = setInterval(() => {
-      setCurrentWordIndex(prevIndex => (prevIndex + 1) % words.length);
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -23,11 +23,11 @@ const AnimatedRotatingWord: React.FC<AnimatedRotatingWordProps> = ({
 
   return (
     <span className={`inline-block transition-all duration-500 ${className}`}>
-      <span className="font-bold underline decoration-elevix-blue decoration-2 underline-offset-4 text-elevix-blue">
-        {words[currentWordIndex]}
-      </span>
-    </span>
-  );
+      
+
+
+    </span>);
+
 };
 
 export default memo(AnimatedRotatingWord);
