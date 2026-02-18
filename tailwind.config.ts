@@ -86,11 +86,11 @@ export default {
 				night:  '#103051',
 				glow:   '#61A4F8',
 			},
-			
-	fontFamily: {
-		sans: ['Inter', 'sans-serif'],
-		display: ['Plus Jakarta Sans', 'sans-serif'],
-	},
+		},
+		fontFamily: {
+			sans: ['Inter', 'sans-serif'],
+			display: ['Plus Jakarta Sans', 'sans-serif'],
+		},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
