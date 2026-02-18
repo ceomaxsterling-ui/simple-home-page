@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import SolutionsSection from '@/components/SolutionsSection';
+import ArsenalSection from '@/components/ArsenalSection';
+import MethodologySection from '@/components/MethodologySection';
 import ChallengesSection from '@/components/ChallengesSection';
 import ConsultancySection from '@/components/ConsultancySection';
 import FAQSection from '@/components/FAQSection';
@@ -17,6 +19,8 @@ const Index = () => {
       <HeroSection />
       <PainPointsSection />
       <SolutionsSection />
+      <ArsenalSection />
+      <MethodologySection />
       <ChallengesSection />
       <ConsultancySection />
       <FAQSection />
@@ -27,3 +31,4 @@ const Index = () => {
 };
 
 export default Index;
+
