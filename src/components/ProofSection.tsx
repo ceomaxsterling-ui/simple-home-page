@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Star, ArrowRight, CheckCircle, Store, ShoppingCart, Quote, MessageCircle } from 'lucide-react';
 import { WHATSAPP_URL } from '@/config/links';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const ProofSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -80,11 +81,13 @@ const ProofSection = () => {
   const currentCase = cases[currentSlide];
 
   return (
-    <section id="provas" className="py-20 sm:py-24 bg-black relative overflow-hidden">
-      {/* Background Effects */}
+    <section id="provas" className="py-20 sm:py-24 relative overflow-hidden" style={{ background: '#030714' }}>
+      {/* Nebula backgrounds */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-elevix-blue/8 to-transparent rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tr from-elevix-blue/8 to-transparent rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-96 h-96 rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(123,47,190,0.07) 0%, transparent 70%)', filter: 'blur(80px)' }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -171,14 +174,16 @@ const ProofSection = () => {
                 </div>
 
                 {/* Resultados Alcançados */}
-                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-2xl p-5 sm:p-6 md:p-8 border border-elevix-blue/20 backdrop-blur-sm mb-6 sm:mb-8">
-                  <h4 className="text-base sm:text-lg font-bold text-elevix-blue mb-4 sm:mb-6 uppercase tracking-wide text-center">
+                <div className="rounded-2xl p-5 sm:p-6 md:p-8 mb-6 sm:mb-8"
+                  style={{ background: 'rgba(13,27,53,0.8)', border: '1px solid rgba(79,142,247,0.2)', backdropFilter: 'blur(12px)' }}>
+                  <h4 className="font-display text-base sm:text-lg font-bold text-nebula-blue mb-4 sm:mb-6 uppercase tracking-wide text-center">
                     Resultados Alcançados
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                     {currentCase.results.map((result, idx) => (
-                      <div key={idx} className="bg-gray-800/50 rounded-xl p-4 sm:p-5 border border-gray-700/30 text-center">
-                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-elevix-blue mb-2">
+                      <div key={idx} className="rounded-xl p-4 sm:p-5 text-center transition-all duration-300 hover:-translate-y-1"
+                        style={{ background: 'rgba(79,142,247,0.06)', border: '1px solid rgba(79,142,247,0.15)' }}>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-nebula-blue mb-2">
                           {result.value}
                         </div>
                         <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">
