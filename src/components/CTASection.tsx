@@ -26,7 +26,8 @@ const CTASection = () => {
   };
 
   return (
-    <section id="cta-final" className="py-16 sm:py-20 bg-gradient-to-br from-slate-950 via-black to-slate-900 relative overflow-hidden">
+    <section id="cta-final" className="py-16 sm:py-20 section-space relative overflow-hidden">
+      <div className="space-dots" />
       {/* Background Effects */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl" />
