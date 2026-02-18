@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Zap } from 'lucide-react';
@@ -8,57 +9,56 @@ const CTASection = () => {
   const { trackButtonClick, trackContact, trackLead } = useFacebookPixel();
 
   const handleWhatsAppRedirect = () => {
-    trackButtonClick('Comece Sua Transformação', 'CTA Final', { source: 'cta_final' });
-    trackContact('WhatsApp', {});
-    trackLead('CTA Final', {});
+    // Capturar informações do usuário se disponível
+    const userInfo = {
+      source: 'cta_final',
+      timestamp: new Date().toISOString(),
+      page_location: window.location.href
+    };
+
+    // Múltiplos eventos para melhor tracking
+    trackButtonClick('Comece Sua Transformação', 'CTA Final', userInfo);
+    trackContact('WhatsApp', userInfo);
+    trackLead('CTA Final', userInfo);
+    
+    console.log('Eventos do Facebook Pixel disparados - CTA Final');
     window.open(WHATSAPP_URL, '_blank');
   };
 
   return (
-    <section id="cta-final" className="py-20 sm:py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #103051 0%, #081B2D 100%)' }}>
-      {/* Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-64 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(97,164,248,0.10) 0%, transparent 70%)', filter: 'blur(80px)' }} />
-      <div className="absolute bottom-0 right-1/4 w-80 h-64 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-
+    <section id="cta-final" className="py-16 sm:py-20 bg-gradient-to-br from-slate-950 via-black to-slate-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-black">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-elevix-blue/5 to-transparent rounded-full blur-2xl" />
+      </div>
+      
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-            Sua Empresa Tem Potencial Para Ir Muito Mais Longe.{' '}
-            <span style={{ background: 'linear-gradient(135deg, #61A4F8, #a8d1ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              A Orion Vai Te Mostrar Como.
-            </span>
-          </h2>
-
-          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-            Não importa onde sua empresa está agora. O que importa é para onde ela quer ir. Se você tem ambição de crescer, a Orion tem a rota —{' '}
-            <span className="text-white/90 font-medium">e a experiência para percorrê-la com você</span>.
-          </p>
-
-          <div className="py-2">
-            <Button
-              size="lg"
-              className="btn-glow btn-shimmer text-white font-semibold px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto group"
-              style={{ background: 'linear-gradient(135deg, #61A4F8, #3b82f6)', border: 'none', borderRadius: '999px' }}
-              onClick={handleWhatsAppRedirect}
-            >
+        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+              Sua Empresa Tem Potencial Para Ir Muito Mais Longe.{' '}
+              <span className="text-elevix-blue">A Orion Vai Te Mostrar Como.</span>
+            </h2>
+            
+            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Não importa onde sua empresa está agora. O que importa é para onde ela quer ir. Se você tem ambição de crescer, a Orion tem a rota — e a experiência para percorrê-la
+              <span className="text-white font-semibold"> com você</span>.
+            </p>
+          </div>
+          
+          <div className="py-4">
+            <Button size="lg" className="bg-gradient-to-r from-elevix-blue to-blue-600 hover:from-blue-hover hover:to-blue-700 text-white font-bold px-6 sm:px-12 py-3 sm:py-5 text-sm sm:text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-elevix-blue/25 w-full sm:w-auto group leading-tight" onClick={handleWhatsAppRedirect}>
               <span className="sm:hidden">Agende Consultoria Gratuita</span>
-              <span className="hidden sm:inline">Agende Sua Consultoria Estratégica Gratuita</span>
-              <Zap className="inline-block ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <span className="hidden sm:inline">Agende Sua Consultoria Estratégica Gratuita ⚡</span>
+              <Zap className="hidden sm:inline-block ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
             </Button>
           </div>
-
-          {/* Urgency badge */}
-          <div className="flex justify-center">
-            <div className="badge-urgency">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse-dot flex-shrink-0" />
-              <span className="text-white text-sm font-medium">
-                Apenas 10 consultorias por mês • Garanta a sua agora
-              </span>
-            </div>
-          </div>
+          
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Apenas 10 consultorias por mês para garantir atenção total a cada empresa.{' '}
+            Garanta a sua <span className="text-elevix-blue font-medium">consultoria estratégica gratuita</span> — não deixe para depois.
+          </p>
         </div>
       </div>
     </section>

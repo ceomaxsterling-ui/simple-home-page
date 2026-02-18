@@ -15,7 +15,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ background: '#103051' }}>
+    <div className="min-h-screen bg-black">
       <Header />
       <HeroSection />
       <PainPointsSection />
