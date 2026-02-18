@@ -75,7 +75,8 @@ const PainPointsSection = () => {
   };
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-24 xl:py-32 bg-black overflow-hidden">
+    <section className="relative py-12 md:py-16 lg:py-24 xl:py-32 section-space overflow-hidden">
+      <div className="space-dots" />
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className={`absolute top-10 md:top-20 left-4 md:left-10 w-64 md:w-96 h-64 md:h-96 rounded-full blur-3xl transition-all duration-1000 ${

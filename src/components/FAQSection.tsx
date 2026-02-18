@@ -48,7 +48,8 @@ const FAQSection = () => {
   }];
 
   return (
-    <section id="faq" className="py-12 sm:py-20 bg-gradient-to-br from-black via-slate-900 to-black relative overflow-hidden">
+    <section id="faq" className="py-12 sm:py-20 section-space relative overflow-hidden">
+      <div className="space-dots" />
       {/* Background Effects */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl" style={{
