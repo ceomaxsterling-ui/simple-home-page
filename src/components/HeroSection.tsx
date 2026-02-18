@@ -40,6 +40,31 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-0 px-4 overflow-hidden bg-black">
       
+      {/* Falling stars */}
+      <div className="stars-container">
+        {[
+          { left: '10%', duration: '8s',  delay: '0s'   },
+          { left: '25%', duration: '10s', delay: '1s'   },
+          { left: '40%', duration: '12s', delay: '2s'   },
+          { left: '55%', duration: '9s',  delay: '0.5s' },
+          { left: '70%', duration: '11s', delay: '1.5s' },
+          { left: '85%', duration: '10s', delay: '3s'   },
+          { left: '15%', duration: '13s', delay: '2.5s' },
+          { left: '60%', duration: '9s',  delay: '4s'   },
+          { left: '33%', duration: '11s', delay: '3.5s' },
+          { left: '78%', duration: '12s', delay: '5s'   },
+        ].map((s, i) => (
+          <div
+            key={`fall-${i}`}
+            className="star"
+            style={{ left: s.left, animationDuration: s.duration, animationDelay: s.delay }}
+          />
+        ))}
+      </div>
+
+      {/* Blue glow connector to next section */}
+      <div className="blue-glow" />
+
       {/* Starfield background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Static star dots — small, subtle, blue-tinted */}
