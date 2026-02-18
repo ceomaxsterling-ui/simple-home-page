@@ -4,9 +4,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import SolutionsSection from '@/components/SolutionsSection';
-import StoreCreationSection from '@/components/StoreCreationSection';
 import ChallengesSection from '@/components/ChallengesSection';
-import TyrionServicesSection from '@/components/TyrionServicesSection';
 import ConsultancySection from '@/components/ConsultancySection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
@@ -19,9 +17,7 @@ const Index = () => {
       <HeroSection />
       <PainPointsSection />
       <SolutionsSection />
-      <StoreCreationSection />
       <ChallengesSection />
-      <TyrionServicesSection />
       <ConsultancySection />
       <FAQSection />
       <CTASection />
