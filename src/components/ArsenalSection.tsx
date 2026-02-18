@@ -1,238 +1,197 @@
-import React, { useState } from 'react';
-import { Palette, BarChart3, MessageSquare, CheckCircle, ArrowRight, Play } from 'lucide-react';
-import { WHATSAPP_URL } from '@/config/links';
-
-const services = [
-  {
-    id: 0,
-    icon: <Palette className="w-6 h-6" />,
-    title: 'Estratégia e Branding',
-    subtitle: 'Para Todos os Negócios',
-    description:
-      'Construímos a fundação da sua marca. Uma identidade forte não é estética — é estratégia. É o que faz empresas serem lembradas quando a concorrência é esquecida.',
-    features: [
-      'Identidade Visual Completa',
-      'Design de Marca Exclusivo',
-      'Planejamento Estratégico',
-      'Posicionamento de Mercado',
-    ],
-    metrics: [
-      { label: 'Design', value: 95 },
-      { label: 'Estratégia', value: 98 },
-      { label: 'Branding', value: 92 },
-    ],
-    stats: [
-      { label: 'Marcas Criadas', value: '200+' },
-      { label: 'Satisfação', value: '98%' },
-    ],
-  },
-  {
-    id: 1,
-    icon: <BarChart3 className="w-6 h-6" />,
-    title: 'Performance e Aquisição',
-    subtitle: 'Resultados Mensuráveis',
-    description:
-      'Cada real investido em mídia precisa trabalhar. Gerenciamos suas campanhas com precisão cirúrgica — para atrair as pessoas certas, no momento certo, com a mensagem certa.',
-    features: [
-      'Gestão de Tráfego Pago',
-      'Criação de Criativos',
-      'Otimização de Conversão (CRO)',
-      'Análise de Performance',
-    ],
-    metrics: [
-      { label: 'ROI', value: 85 },
-      { label: 'Conversão', value: 90 },
-      { label: 'Performance', value: 95 },
-    ],
-    stats: [
-      { label: 'ROI Médio', value: '280%' },
-      { label: 'Campanhas', value: '500+' },
-    ],
-  },
-  {
-    id: 2,
-    icon: <MessageSquare className="w-6 h-6" />,
-    title: 'Presença e Relacionamento',
-    subtitle: 'Onde Seus Clientes Estão',
-    description:
-      'Sua marca presente onde seus clientes estão. Criamos conteúdo, gerenciamos canais e automatizamos processos para que nenhuma oportunidade passe em branco.',
-    features: [
-      'Design de Social Media',
-      'Google Meu Negócio',
-      'Automação de Atendimento',
-      'Gestão de Relacionamento',
-    ],
-    metrics: [
-      { label: 'Engajamento', value: 88 },
-      { label: 'Automação', value: 90 },
-      { label: 'Visibilidade', value: 95 },
-    ],
-    stats: [
-      { label: 'Alcance', value: '+400%' },
-      { label: 'Automação', value: '24/7' },
-    ],
-  },
-];
+import React, { useEffect, useRef, useState } from 'react';
+import { Rocket, Target, Handshake, TrendingUp, Eye, RefreshCw } from 'lucide-react';
 
 const ArsenalSection: React.FC = () => {
-  const [active, setActive] = useState(0);
-  const [fading, setFading] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-  const handleSelect = (index: number) => {
-    if (index === active) return;
-    setFading(true);
-    setTimeout(() => {
-      setActive(index);
-      setFading(false);
-    }, 180);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
-  const service = services[active];
+  const cards = [
+    {
+      icon: <Rocket strokeWidth={1.5} className="w-9 h-9 text-[#5F91FF]" />,
+      title: 'Missão',
+      text: 'Colocar empresas em uma nova órbita de crescimento através de estratégias baseadas em dados e execução impecável.',
+    },
+    {
+      icon: <Target strokeWidth={1.5} className="w-9 h-9 text-[#5F91FF]" />,
+      title: 'Diferencial',
+      text: 'Não vendemos promessas. Entregamos resultados comprovados com ROI médio de +300% e taxa de satisfação de 98%.',
+    },
+    {
+      icon: <Handshake strokeWidth={1.5} className="w-9 h-9 text-[#5F91FF]" />,
+      title: 'Compromisso',
+      text: 'Transparência total, comunicação constante e foco obsessivo no crescimento do seu negócio.',
+    },
+  ];
+
+  const values = [
+    {
+      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      title: 'Resultados Acima de Tudo',
+      text: 'Cada decisão é tomada pensando no retorno real para seu negócio',
+    },
+    {
+      icon: <Eye strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      title: 'Transparência Radical',
+      text: 'Você acompanha tudo em tempo real, sem letras miúdas',
+    },
+    {
+      icon: <RefreshCw strokeWidth={1.5} className="w-8 h-8 text-[#5F91FF]" />,
+      title: 'Melhoria Contínua',
+      text: 'Otimizamos constantemente para maximizar seus resultados',
+    },
+  ];
 
   return (
-    <section className="bg-black py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+    <section
+      ref={sectionRef}
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #050505 0%, #080d18 60%, #050505 100%)' }}
+    >
+      {/* Subtle star dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[
+          { top: '10%', left: '5%' }, { top: '25%', left: '92%' },
+          { top: '60%', left: '3%' }, { top: '80%', left: '88%' },
+          { top: '45%', left: '50%' }, { top: '15%', left: '70%' },
+        ].map((s, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-[#5F91FF]/30"
+            style={{ top: s.top, left: s.left, width: '2px', height: '2px' }}
+          />
+        ))}
+      </div>
 
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 text-[#5F91FF] mb-4">
-            <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
-            <span className="text-sm font-medium">O Arsenal da Orion</span>
-            <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            Tudo Que Sua Empresa Precisa Para Ir Mais Longe{' '}
-            <span className="text-[#5F91FF]">— Em Um Só Lugar.</span>
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+
+        {/* Badge */}
+        <div
+          className="flex justify-center mb-6"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.5s ease, transform 0.5s ease',
+          }}
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5F91FF]/30 bg-[#5F91FF]/5 text-[#5F91FF] text-sm font-medium tracking-wide">
+            Sobre a Orion
+          </span>
+        </div>
+
+        {/* Title */}
+        <div
+          className="text-center mb-6"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s',
+          }}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            Nascemos da Inconformidade com o{' '}
+            <span className="text-[#5F91FF]">Marketing Genérico</span>
           </h2>
-          <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Da identidade ao crescimento. Da estratégia à execução. Operamos como uma{' '}
-            <span className="text-[#5F91FF] font-semibold">extensão da sua empresa</span> — com foco total em levar sua marca a outro patamar.
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Enquanto o mercado se contentava com promessas vazias e resultados medíocres, nós decidimos criar algo diferente. Algo que realmente funcionasse.
           </p>
         </div>
 
-        {/* Tab buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-3 mb-10">
-          {services.map((s, i) => (
-            <button
-              key={s.id}
-              onClick={() => handleSelect(i)}
-              className={`group relative p-4 md:p-5 rounded-2xl border transition-all duration-400 text-left ${
-                active === i
-                  ? 'border-[#5F91FF]/50 bg-[#5F91FF]/5'
-                  : 'border-gray-800/50 bg-gray-900/30 hover:border-gray-700/50'
-              }`}
-            >
-              <div className="flex items-center gap-3 md:gap-4">
-                <div className={`p-2 md:p-3 rounded-xl transition-all duration-300 ${
-                  active === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/50 text-gray-400 group-hover:text-white'
-                }`}>
-                  {s.icon}
-                </div>
-                <div>
-                  <h3 className={`font-bold text-sm md:text-base transition-colors ${
-                    active === i ? 'text-white' : 'text-gray-300 group-hover:text-white'
-                  }`}>
-                    {s.title}
-                  </h3>
-                  <p className={`text-xs transition-colors ${active === i ? 'text-[#5F91FF]' : 'text-gray-500'}`}>
-                    {s.subtitle}
-                  </p>
-                </div>
-              </div>
-              {active === i && (
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#5F91FF]/10 to-transparent opacity-50 pointer-events-none animate-pulse" />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Content panel */}
+        {/* 2-column layout */}
         <div
+          className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mt-14 mb-16"
           style={{
-            opacity: fading ? 0 : 1,
-            transform: fading ? 'translateY(6px)' : 'translateY(0)',
-            transition: 'opacity 0.22s ease, transform 0.22s ease',
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
           }}
         >
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-gradient-to-br from-gray-900/60 to-gray-800/30 border border-gray-800/50 rounded-3xl p-6 md:p-10">
+          {/* Left: Story */}
+          <div className="space-y-7">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-[#5F91FF] uppercase tracking-widest">O Problema</p>
+              <p className="text-gray-300 text-base leading-[1.85]">
+                Cansamos de ver empresas sendo enganadas por agências que focam em métricas de vaidade enquanto seus clientes reais sofriam sem resultados. Cansamos do "achismo", das estratégias prontas, da falta de compromisso com o que realmente importa: <span className="text-white font-medium">o crescimento do seu negócio.</span>
+              </p>
+            </div>
+            <div className="w-10 h-px bg-[#5F91FF]/30" />
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-[#5F91FF] uppercase tracking-widest">A Solução</p>
+              <p className="text-gray-300 text-base leading-[1.85]">
+                Assim nasceu a Orion. Não como mais uma agência, mas como uma missão: colocar sua empresa em uma nova órbita. Desenvolvemos a <span className="text-white font-medium">Metodologia Orion de Alavancagem Digital</span> — um sistema estruturado que transforma presença digital em resultado mensurável.
+              </p>
+            </div>
+            <div className="w-10 h-px bg-[#5F91FF]/30" />
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-[#5F91FF] uppercase tracking-widest">O Propósito</p>
+              <p className="text-gray-300 text-base leading-[1.85]">
+                Hoje, atuamos como extensão da sua empresa. Cada projeto é tratado como se fosse nosso. Cada real investido em marketing precisa voltar multiplicado. Isso não é marketing. É <span className="text-white font-medium">engenharia de crescimento.</span>
+              </p>
+            </div>
+          </div>
 
-            {/* Left: Text */}
-            <div className="space-y-5">
-              <div className="flex items-center gap-4">
-                <div className="p-3 md:p-4 rounded-2xl bg-[#5F91FF]/20 text-[#5F91FF]">
-                  {service.icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">{service.title}</h3>
-                  <p className="text-[#5F91FF] font-semibold text-sm">{service.subtitle}</p>
-                </div>
-              </div>
-
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">{service.description}</p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {service.features.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2 p-3 rounded-xl bg-gray-900/40 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300"
-                  >
-                    <CheckCircle className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
-                    <span className="text-white font-medium text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => window.open(WHATSAPP_URL, '_blank')}
-                className="inline-flex items-center gap-2 bg-transparent border-2 border-[#5F91FF] text-white hover:bg-[#5F91FF]/10 font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 text-sm"
+          {/* Right: Cards */}
+          <div className="space-y-4">
+            {cards.map((card, i) => (
+              <div
+                key={i}
+                className="group p-7 rounded-2xl border border-[#5F91FF]/20 bg-white/[0.02] hover:border-[#5F91FF] hover:-translate-y-1 transition-all duration-300"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `opacity 0.5s ease ${0.3 + i * 0.1}s, transform 0.5s ease ${0.3 + i * 0.1}s`,
+                }}
               >
-                Explorar Solução
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Right: Dashboard */}
-            <div className="relative p-5 md:p-7 bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl border border-gray-700/50 backdrop-blur-sm">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-gray-400 font-medium text-sm">Performance</span>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#5F91FF] animate-pulse" />
-                  <span className="text-[#5F91FF] font-bold text-sm">Ativo</span>
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 p-2 rounded-xl bg-[#5F91FF]/10">
+                    {card.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg mb-2">{card.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{card.text}</p>
+                  </div>
                 </div>
               </div>
+            ))}
 
-              <div className="space-y-4 mb-6">
-                {service.metrics.map((metric, idx) => (
-                  <div key={idx} className="space-y-1">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-300">{metric.label}</span>
-                      <span className="text-[#5F91FF] font-bold">{metric.value}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-[#5F91FF] to-[#5F91FF]/70 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${metric.value}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700/50">
-                {service.stats.map((stat, idx) => (
-                  <div key={idx} className="text-center">
-                    <div className="text-xl md:text-2xl font-bold text-[#5F91FF]">{stat.value}</div>
-                    <div className="text-xs text-gray-400">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="absolute -top-3 -right-3">
-                <div className="w-7 h-7 bg-[#5F91FF]/20 rounded-full flex items-center justify-center animate-bounce">
-                  <Play className="w-3 h-3 text-[#5F91FF]" />
-                </div>
-              </div>
+            {/* Constellation tag */}
+            <div className="mt-6 p-4 rounded-xl border border-[#5F91FF]/10 bg-[#5F91FF]/5 text-center">
+              <p className="text-[#5F91FF]/70 text-xs tracking-widest uppercase">✦ &nbsp; Mais que uma agência, seu parceiro de crescimento &nbsp; ✦</p>
             </div>
+          </div>
+        </div>
+
+        {/* Values */}
+        <div
+          className="pt-12 border-t border-white/5"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s',
+          }}
+        >
+          <p className="text-center text-[#5F91FF] text-xs font-semibold uppercase tracking-widest mb-8">O Que Nos Move</p>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {values.map((v, i) => (
+              <div
+                key={i}
+                className="group flex flex-col items-center text-center p-8 rounded-2xl border border-[#5F91FF]/20 bg-white/[0.02] hover:border-[#5F91FF] hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="mb-4 p-3 rounded-xl bg-[#5F91FF]/10 group-hover:bg-[#5F91FF]/20 transition-colors duration-300">
+                  {v.icon}
+                </div>
+                <h4 className="text-white font-semibold text-base mb-2">{v.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">{v.text}</p>
+              </div>
+            ))}
           </div>
         </div>
 
