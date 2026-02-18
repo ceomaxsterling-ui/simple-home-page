@@ -132,10 +132,9 @@
 .hero-card-premium::before {
   content: '';
   position: absolute; inset: 0; padding: 1px;
-  background: linear-gradient(135deg, rgba(79,142,247,0.3), transparent, rgba(0,212,255,0.15));
+  background: linear-gradient(135deg, rgba(97,164,248,0.3), transparent, rgba(97,164,248,0.15));
   border-radius: inherit;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor; -webkit-mask-composite: xor;
+  -webkit-mask-composite: xor;
 }
 
 /* ══════════════════════════════════════
