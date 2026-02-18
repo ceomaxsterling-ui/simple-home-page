@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Smartphone, Search, BarChart3, Calendar, Palette, Heart, Map, Star, Eye, Target, DollarSign, RefreshCw, ArrowRight, Monitor } from 'lucide-react';
 import mockupWebsites from '@/assets/mockup-websites.jpg';
 import mockupInstagram from '@/assets/mockup-instagram.jpg';
@@ -67,6 +67,17 @@ const tabs = [
 const SolutionsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [fading, setFading] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleTabChange = (index: number) => {
     if (index === activeTab) return;
@@ -85,11 +96,35 @@ const SolutionsSection: React.FC = () => {
   const tab = tabs[activeTab];
 
   return (
-    <section id="solucoes" className="bg-[#050505] py-12 sm:py-16 md:py-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl">
+    <section
+      id="solucoes"
+      ref={sectionRef}
+      className="relative bg-[#050505] py-12 sm:py-16 md:py-20 overflow-hidden"
+    >
+      {/* Bottom edge glow */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
+      />
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 100%, rgba(95,145,255,0.1) 0%, transparent 70%)',
+          filter: 'blur(30px)',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12 px-2">
+        <div
+          className="text-center mb-8 md:mb-12 px-2"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
           <div className="inline-flex items-center gap-2 text-[#5F91FF] mb-3">
             <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
             <span className="text-xs sm:text-sm font-medium">Nossas Soluções</span>
@@ -104,15 +139,22 @@ const SolutionsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Tabs — scrollable on mobile */}
-        <div className="flex overflow-x-auto md:flex-wrap md:justify-center gap-2 mb-8 md:mb-10 pb-1 md:pb-0 snap-x md:snap-none">
+        {/* Tabs — STACKED on mobile (grid 2x2), row on md+ */}
+        <div
+          className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 mb-8 md:mb-10"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(16px)',
+            transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s',
+          }}
+        >
           {tabs.map((t, i) => (
             <button
               key={t.id}
               onClick={() => handleTabChange(i)}
-              className={`flex-shrink-0 snap-start px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border whitespace-nowrap ${
+              className={`px-4 py-2.5 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 border whitespace-nowrap w-full md:w-auto ${
                 activeTab === i
-                  ? 'bg-[#5F91FF]/15 border-[#5F91FF]/60 text-[#5F91FF]'
+                  ? 'bg-[#5F91FF]/15 border-[#5F91FF]/60 text-[#5F91FF] shadow-[0_0_12px_rgba(95,145,255,0.25)]'
                   : 'bg-white/3 border-white/8 text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/5'
               }`}
             >
@@ -125,23 +167,40 @@ const SolutionsSection: React.FC = () => {
         <div
           className="flex flex-col md:grid md:grid-cols-5 gap-6 md:gap-12 items-center"
           style={{
-            opacity: fading ? 0 : 1,
-            transform: fading ? 'translateY(8px)' : 'translateY(0)',
-            transition: 'opacity 0.25s ease, transform 0.25s ease',
+            opacity: fading ? 0 : visible ? 1 : 0,
+            transform: fading ? 'translateY(8px)' : visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: fading
+              ? 'opacity 0.25s ease, transform 0.25s ease'
+              : 'opacity 0.55s ease 0.2s, transform 0.55s ease 0.2s',
           }}
         >
           {/* Image */}
           <div className="md:col-span-2 flex justify-center w-full">
             <div className="relative group w-full max-w-sm md:max-w-none">
-              <div className="absolute -inset-3 bg-[#5F91FF]/12 rounded-2xl blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <img
-                key={tab.id}
-                src={tab.image}
-                alt={tab.imageAlt}
-                className="relative z-10 w-full rounded-2xl border border-white/8 shadow-2xl shadow-black/60 object-cover"
-                style={{ maxHeight: '280px', objectFit: 'cover' }}
-                loading="lazy"
+              <div
+                className="absolute -inset-3 rounded-2xl pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse, rgba(95,145,255,0.18) 0%, transparent 70%)',
+                  filter: 'blur(20px)',
+                  transition: 'opacity 0.5s ease',
+                }}
               />
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  border: '1px solid rgba(95,145,255,0.25)',
+                  boxShadow: '0 0 30px rgba(95,145,255,0.15)',
+                }}
+              >
+                <img
+                  key={tab.id}
+                  src={tab.image}
+                  alt={tab.imageAlt}
+                  className="w-full object-cover"
+                  style={{ maxHeight: '280px', objectFit: 'cover' }}
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
@@ -169,7 +228,21 @@ const SolutionsSection: React.FC = () => {
               {tab.cards.map((card, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center gap-1.5 md:gap-2 p-2 md:p-3 rounded-xl border border-white/8 bg-white/[0.03] hover:border-[#5F91FF]/30 hover:bg-[#5F91FF]/5 transition-all duration-300 text-center"
+                  className="flex flex-col items-center gap-1.5 md:gap-2 p-2 md:p-3 rounded-xl transition-all duration-300 text-center"
+                  style={{
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'rgba(255,255,255,0.03)',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.35)';
+                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(95,145,255,0.06)';
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 12px rgba(95,145,255,0.15)';
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.08)';
+                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.03)';
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+                  }}
                 >
                   <div className="text-[#5F91FF]">{card.icon}</div>
                   <span className="text-white text-xs font-medium leading-snug">{card.label}</span>
@@ -180,7 +253,19 @@ const SolutionsSection: React.FC = () => {
             {/* CTA */}
             <button
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 bg-[#5F91FF] hover:bg-[#4a7ee8] text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(95,145,255,0.35)] text-sm w-full md:w-auto justify-center md:justify-start"
+              className="inline-flex items-center gap-2 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-105 text-sm w-full md:w-auto justify-center md:justify-start"
+              style={{
+                background: '#5F91FF',
+                boxShadow: '0 0 0 rgba(95,145,255,0)',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#4a7ee8';
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.4)';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#5F91FF';
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 rgba(95,145,255,0)';
+              }}
             >
               Quero Começar Agora
               <ArrowRight className="w-4 h-4" />

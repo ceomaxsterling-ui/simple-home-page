@@ -38,6 +38,19 @@ const ArsenalSection: React.FC = () => {
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
       style={{ background: '#050505' }}
     >
+      {/* Top glow line */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
+      />
+      {/* Ambient glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.1) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Badge */}

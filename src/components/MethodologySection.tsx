@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Settings, Zap, TrendingUp, CheckCircle } from 'lucide-react';
 
 const steps = [
@@ -58,6 +58,17 @@ const steps = [
 const MethodologySection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [fading, setFading] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleSelect = (index: number) => {
     if (index === activeStep) return;
@@ -71,11 +82,35 @@ const MethodologySection: React.FC = () => {
   const step = steps[activeStep];
 
   return (
-    <section className="bg-[#050505] py-12 sm:py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl">
+    <section
+      ref={sectionRef}
+      className="relative bg-[#050505] py-12 sm:py-16 md:py-24 overflow-hidden"
+    >
+      {/* Section ambient glow — top edge */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
+      />
+      {/* Radial glow centre */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.12) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-8 md:mb-16 px-2">
+        <div
+          className="text-center mb-8 md:mb-16 px-2"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
           <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-4 py-2 mb-4">
             <span className="text-[#5F91FF] font-semibold text-xs sm:text-sm">⚡ Nossa Rota ⚡</span>
           </div>
@@ -91,15 +126,22 @@ const MethodologySection: React.FC = () => {
         {/* Layout: stacked on mobile, side-by-side on md+ */}
         <div className="flex flex-col md:grid md:grid-cols-5 gap-4 md:gap-10 items-start">
 
-          {/* Step cards — horizontal scroll on mobile */}
-          <div className="md:col-span-2 flex flex-row md:flex-col gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x md:snap-none">
+          {/* Step cards — STACKED on mobile (no horizontal scroll) */}
+          <div
+            className="md:col-span-2 flex flex-col gap-3"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateX(0)' : 'translateX(-20px)',
+              transition: 'opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s',
+            }}
+          >
             {steps.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => handleSelect(i)}
-                className={`group text-left p-4 rounded-2xl border transition-all duration-300 flex-shrink-0 w-60 md:w-auto snap-start ${
+                className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full ${
                   activeStep === i
-                    ? 'border-[#5F91FF]/50 bg-[#5F91FF]/8'
+                    ? 'border-[#5F91FF]/60 bg-[#5F91FF]/8 shadow-[0_0_20px_rgba(95,145,255,0.2)]'
                     : 'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'
                 }`}
               >
@@ -129,12 +171,26 @@ const MethodologySection: React.FC = () => {
           <div
             className="md:col-span-3"
             style={{
-              opacity: fading ? 0 : 1,
-              transform: fading ? 'translateX(8px)' : 'translateX(0)',
-              transition: 'opacity 0.22s ease, transform 0.22s ease',
+              opacity: fading ? 0 : visible ? 1 : 0,
+              transform: fading ? 'translateX(8px)' : visible ? 'translateX(0)' : 'translateX(20px)',
+              transition: fading
+                ? 'opacity 0.22s ease, transform 0.22s ease'
+                : 'opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s',
             }}
           >
-            <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/30 border border-gray-800/50 rounded-2xl p-5 md:p-8">
+            <div
+              className="rounded-2xl p-5 md:p-8 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(95,145,255,0.07) 0%, rgba(10,14,28,0.95) 60%)',
+                border: '1px solid rgba(95,145,255,0.3)',
+                boxShadow: '0 0 40px rgba(95,145,255,0.12), inset 0 0 20px rgba(95,145,255,0.03)',
+              }}
+            >
+              {/* Card top glow line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-px"
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.6), transparent)' }}
+              />
 
               {/* Badge + Title */}
               <div className="mb-5 md:mb-6">
