@@ -1,11 +1,23 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInteractiveSection } from '@/hooks/useInteractiveSection';
 import AnimatedRotatingWord from './AnimatedRotatingWord';
 import InteractiveFlipCard from './InteractiveFlipCard';
 import { CheckCircle, AlertTriangle, TrendingUp } from 'lucide-react';
 
 const PainPointsSection = () => {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.08 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const { 
     isInSolutionMode, 
     hoveredCard, 
@@ -61,7 +73,6 @@ const PainPointsSection = () => {
       newFlippedCards.delete(index);
     } else {
       newFlippedCards.add(index);
-      // Auto-revert after 3 seconds
       setTimeout(() => {
         setFlippedMobileCards(prev => {
           const updated = new Set(prev);
@@ -75,29 +86,40 @@ const PainPointsSection = () => {
   };
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-24 xl:py-32 bg-black overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative py-12 md:py-16 lg:py-24 xl:py-32 bg-black overflow-hidden"
+    >
+      {/* Top edge light */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(239,68,68,0.4), transparent)' }}
+      />
+
       {/* Background Effects */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div className={`absolute top-10 md:top-20 left-4 md:left-10 w-64 md:w-96 h-64 md:h-96 rounded-full blur-3xl transition-all duration-1000 ${
           isInSolutionMode 
             ? 'bg-elevix-blue/8' 
             : 'bg-red-500/5'
-        }`}></div>
+        }`} />
         <div className={`absolute bottom-16 md:bottom-32 right-4 md:right-20 w-48 md:w-80 h-48 md:h-80 rounded-full blur-3xl transition-all duration-1000 ${
           isInSolutionMode 
             ? 'bg-elevix-blue/10' 
             : 'bg-red-500/8'
-        }`}></div>
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-[600px] h-60 md:h-[400px] rounded-full blur-3xl transition-all duration-1000 ${
-          isInSolutionMode 
-            ? 'bg-elevix-blue/5' 
-            : 'bg-red-500/3'
-        }`}></div>
+        }`} />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-16 xl:mb-20">
+        <div
+          className="text-center mb-8 md:mb-12 lg:mb-16 xl:mb-20"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.7s ease, transform 0.7s ease',
+          }}
+        >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 lg:mb-8 leading-tight">
             Seu potencial é maior do que seus resultados atuais.{' '}
             <AnimatedRotatingWord 
@@ -115,8 +137,15 @@ const PainPointsSection = () => {
             }
           </p>
 
-          {/* Mobile: Interactive Flip Cards */}
-          <div className="block md:hidden max-w-md mx-auto mb-8">
+          {/* Mobile: Interactive Cards - STACKED (no flip, just toggle) */}
+          <div
+            className="block md:hidden max-w-md mx-auto mb-8"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
+            }}
+          >
             <div className="space-y-3">
               {interactiveCards.map((card, index) => {
                 const isFlipped = flippedMobileCards.has(index);
@@ -125,51 +154,34 @@ const PainPointsSection = () => {
                 return (
                   <div
                     key={index}
-                    className="relative perspective-1000 cursor-pointer"
+                    className="cursor-pointer"
                     onClick={() => handleMobileCardClick(index)}
                   >
                     <div 
-                      className={`relative w-full transition-transform duration-400 ease-in-out transform-style-preserve-3d ${
-                        showSolution ? 'rotate-y-180' : ''
+                      className={`flex items-start gap-3 p-3 rounded-xl border transition-all duration-500 ${
+                        showSolution 
+                          ? 'bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/30 shadow-[0_0_12px_rgba(30,144,255,0.15)]' 
+                          : 'bg-gradient-to-br from-red-500/10 to-red-900/5 border-red-500/20'
                       }`}
                     >
-                      {/* Front Face - Problem */}
-                      <div className={`flex items-start gap-3 p-3 rounded-xl border transition-all duration-500 backface-hidden ${
-                        showSolution 
-                          ? 'bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/20' 
-                          : 'bg-gradient-to-br from-red-500/10 to-red-900/5 border-red-500/20'
-                      }`}>
-                        <div className="flex-shrink-0 mt-0.5">
-                          {showSolution ? (
-                            <CheckCircle className="w-5 h-5 text-elevix-blue" />
-                          ) : (
-                            <AlertTriangle className="w-5 h-5 text-red-400" />
-                          )}
-                        </div>
-                        <div className="flex-1">
-                          <div className={`text-sm font-semibold mb-1 ${
-                            showSolution ? 'text-elevix-blue' : 'text-red-300'
-                          }`}>
-                            {showSolution ? card.solution.title : card.problem.title}
-                          </div>
-                          <div className="text-xs text-gray-400 leading-relaxed">
-                            {showSolution ? card.solution.description : card.problem.description}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Back Face - Solution */}
-                      <div className="absolute inset-0 flex items-start gap-3 p-3 rounded-xl border transition-all duration-500 backface-hidden rotate-y-180 bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/20">
-                        <div className="flex-shrink-0 mt-0.5">
+                      <div className="flex-shrink-0 mt-0.5">
+                        {showSolution ? (
                           <CheckCircle className="w-5 h-5 text-elevix-blue" />
+                        ) : (
+                          <AlertTriangle className="w-5 h-5 text-red-400" />
+                        )}
+                      </div>
+                      <div className="flex-1 text-left">
+                        <div className={`text-sm font-semibold mb-1 ${
+                          showSolution ? 'text-elevix-blue' : 'text-red-300'
+                        }`}>
+                          {showSolution ? card.solution.title : card.problem.title}
                         </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-semibold mb-1 text-elevix-blue">
-                            {card.solution.title}
-                          </div>
-                          <div className="text-xs text-blue-100 leading-relaxed">
-                            {card.solution.description}
-                          </div>
+                        <div className="text-xs text-gray-400 leading-relaxed">
+                          {showSolution ? card.solution.description : card.problem.description}
+                        </div>
+                        <div className={`text-[10px] mt-1.5 font-medium ${showSolution ? 'text-elevix-blue/60' : 'text-red-400/60'}`}>
+                          {showSolution ? 'Toque para ver o problema' : 'Toque para ver a solução →'}
                         </div>
                       </div>
                     </div>
@@ -180,7 +192,14 @@ const PainPointsSection = () => {
           </div>
 
           {/* Desktop: Interactive Cards Grid */}
-          <div className="hidden md:block max-w-6xl mx-auto mb-12 lg:mb-16 xl:mb-20">
+          <div
+            className="hidden md:block max-w-6xl mx-auto mb-12 lg:mb-16 xl:mb-20"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s',
+            }}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               {interactiveCards.map((card, index) => (
                 <InteractiveFlipCard
@@ -197,7 +216,14 @@ const PainPointsSection = () => {
         </div>
 
         {/* Impact Statement */}
-        <div className="text-center">
+        <div
+          className="text-center"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s',
+          }}
+        >
           <div className={`max-w-4xl mx-auto p-4 md:p-6 lg:p-8 xl:p-10 rounded-2xl border transition-all duration-500 ${
             isInSolutionMode 
               ? 'bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/20' 
@@ -227,29 +253,27 @@ const PainPointsSection = () => {
                     . Os obstáculos que travam sua empresa hoje têm solução — e ela começa com{' '}
                   </span>
                   <span className="text-red-500 font-bold">uma conversa</span>
-                  <span className="text-gray-200">
-                    .
-                  </span>
+                  <span className="text-gray-200">.</span>
                 </>
               )}
             </p>
           </div>
         </div>
 
-        {/* Bottom CTA hint */}
+        {/* Bottom hint */}
         <div className="text-center mt-8 md:mt-12 lg:mt-16">
           <div className={`inline-flex items-center space-x-2 transition-colors duration-500 ${
             isInSolutionMode ? 'text-elevix-blue' : 'text-gray-400'
           }`}>
             <div className={`w-2 h-2 rounded-full animate-pulse transition-colors duration-500 ${
               isInSolutionMode ? 'bg-elevix-blue' : 'bg-red-500'
-            }`}></div>
+            }`} />
             <span className="text-base md:text-lg">
               {isInSolutionMode ? 'Existe uma rota para onde você quer chegar. E nós sabemos como traçá-la.' : 'Existe uma rota para onde você quer chegar. Nós sabemos como encontrá-la.'}
             </span>
             <div className={`w-2 h-2 rounded-full animate-pulse transition-colors duration-500 ${
               isInSolutionMode ? 'bg-elevix-blue' : 'bg-red-500'
-            }`}></div>
+            }`} />
           </div>
         </div>
       </div>

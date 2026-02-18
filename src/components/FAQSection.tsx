@@ -1,24 +1,20 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { HelpCircle, ChevronRight, MessageCircle, CheckCircle, Store, ShoppingCart, TrendingUp } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 const FAQSection = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('faq');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
-        setScrollProgress(progress);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const faqs = [{
@@ -48,21 +44,37 @@ const FAQSection = () => {
   }];
 
   return (
-    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-black via-slate-900 to-black relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-black">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl" style={{
-          transform: `translateY(${scrollProgress * 30}px)`,
-          opacity: scrollProgress * 0.2
-        }} />
-      </div>
+    <section
+      id="faq"
+      ref={sectionRef}
+      className="relative py-12 sm:py-16 md:py-20 bg-black overflow-hidden"
+    >
+      {/* Top glow line */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.45), transparent)' }}
+      />
+      {/* Ambient top glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.09) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+      {/* Side glow */}
+      <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12" style={{
-          transform: `translateY(${Math.max(0, 30 - scrollProgress * 30)}px)`,
-          opacity: Math.min(1, scrollProgress * 1.5)
-        }}>
+        <div
+          className="text-center mb-8 sm:mb-12"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
           <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-blue-500/20">
             <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
             <span className="text-blue-300 font-semibold text-xs sm:text-sm">Suas Dúvidas, Respondidas.</span>
@@ -78,18 +90,33 @@ const FAQSection = () => {
         </div>
 
         {/* Main Content */}
-        <div style={{
-          transform: `translateY(${Math.max(0, 20 - scrollProgress * 20)}px)`,
-          opacity: Math.min(1, scrollProgress * 1.2)
-        }}>
-          <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm overflow-hidden w-full">
+        <div
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
+          }}
+        >
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{
+              background: 'rgba(15,23,42,0.7)',
+              border: '1px solid rgba(95,145,255,0.2)',
+              boxShadow: '0 0 40px rgba(95,145,255,0.08), inset 0 0 20px rgba(95,145,255,0.02)',
+            }}
+          >
+            {/* Top glow line on card */}
+            <div
+              className="h-px w-full"
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
+            />
             <div className="p-4 sm:p-6 md:p-8">
               <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
                 {faqs.map((faq, index) => (
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`} 
-                    className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-3 sm:px-6 py-1 hover:bg-slate-800/50 transition-all duration-300"
+                    className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-3 sm:px-6 py-1 hover:bg-slate-800/50 hover:border-[#5F91FF]/20 transition-all duration-300"
                   >
                     <AccordionTrigger className="text-left text-white hover:text-elevix-blue font-semibold py-3 sm:py-5 group hover:no-underline">
                       <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-elevix-blue transition-colors pr-2 text-left">
@@ -105,7 +132,7 @@ const FAQSection = () => {
                 ))}
               </Accordion>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>

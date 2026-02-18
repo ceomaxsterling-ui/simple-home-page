@@ -1,9 +1,21 @@
 
-import React, { memo } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { Users, Target, Zap, TrendingUp, Shield, Rocket } from 'lucide-react';
 import AchievementsCarousel from './AchievementsCarousel';
 
 const ChallengesSection = () => {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const achievements = [
     {
       icon: <Users className="w-7 h-7 text-blue-400" />,
@@ -62,9 +74,33 @@ const ChallengesSection = () => {
   ];
 
   return (
-    <section id="challenges" className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+    <section
+      id="challenges"
+      ref={sectionRef}
+      className="relative bg-black py-12 sm:py-16 md:py-20 overflow-hidden"
+    >
+      {/* Top edge glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.5), transparent)' }}
+      />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.1) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+        <div
+          className="text-center mb-8 sm:mb-12 md:mb-16 px-2"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Resultados Que Falam Por Si:{' '}
             <span className="text-blue-500">O Sucesso dos Nossos Clientes</span>{' '}
@@ -77,7 +113,14 @@ const ChallengesSection = () => {
           </p>
         </div>
 
-        <div className="px-0 md:px-6">
+        <div
+          className="px-0 md:px-6"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
+          }}
+        >
           <AchievementsCarousel achievements={achievements} />
         </div>
       </div>
