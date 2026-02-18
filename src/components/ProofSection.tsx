@@ -89,120 +89,120 @@ const ProofSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header Section */}
-        
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-elevix-blue/10 to-blue-500/10 rounded-full px-6 md:px-8 py-3 mb-6 md:mb-8 border border-elevix-blue/20 backdrop-blur-sm">
+            <CheckCircle className="w-5 h-5 text-elevix-blue" />
+            <span className="text-blue-300 font-semibold text-sm sm:text-base">Missões Concluídas</span>
+          </div>
 
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
+            Histórias Reais. Crescimento Real.{' '}
+            <span className="text-elevix-blue">
+              Empresas Que Foram Além.
+            </span>
+          </h2>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Conheça as histórias de transformação de empresas que chegaram até nós com desafios reais — e foram além do que{' '}
+            <span className="text-elevix-blue font-semibold">elas mesmas esperavam</span>.
+          </p>
+        </div>
 
         {/* Main Case Display */}
         <div className="max-w-6xl mx-auto mb-12 md:mb-16">
           <div className="relative">
             <Card className={`bg-gradient-to-br ${currentCase.gradient} border ${currentCase.borderColor} backdrop-blur-sm overflow-hidden`}>
-              <div className="p-6 sm:p-8 md:p-10">
-                {/* Header com Avatar e Info */}
-                <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
-                  <div className="relative flex-shrink-0">
-                    <img
-                      src={currentCase.avatar}
-                      alt={currentCase.clientName}
-                      className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-elevix-blue/30" />
+              
 
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-elevix-blue/20 to-blue-500/20 flex items-center justify-center border-2 border-elevix-blue/30">
-                      <currentCase.icon className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
-                    </div>
-                  </div>
 
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
-                      {currentCase.clientName}
-                    </h3>
-                    <p className="text-base sm:text-lg text-elevix-blue font-semibold mb-1">
-                      {currentCase.businessType}
-                    </p>
-                    <Badge className="bg-elevix-blue/10 text-elevix-blue border-elevix-blue/20 px-3 py-1 text-xs font-semibold">
-                      {currentCase.businessCategory}
-                    </Badge>
 
-                    {/* Rating Stars */}
-                    <div className="flex gap-1 mt-3">
-                      {[...Array(currentCase.rating)].map((_, i) =>
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-elevix-blue text-elevix-blue" />
-                      )}
-                    </div>
-                  </div>
-                </div>
 
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
-                  {/* Desafio Inicial */}
-                  <div className="bg-gray-900/40 border border-gray-700/30 rounded-2xl p-4 sm:p-6">
-                    <h4 className="text-sm sm:text-base font-bold text-red-400 mb-3 uppercase tracking-wide flex items-center gap-2">
-                      <div className="w-2 h-2 bg-red-400 rounded-full" />
-                      Desafio Inicial
-                    </h4>
-                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                      {currentCase.challenge}
-                    </p>
-                  </div>
 
-                  {/* Solução Orion */}
-                  <div className="bg-gray-900/40 border border-elevix-blue/30 rounded-2xl p-4 sm:p-6">
-                    <h4 className="text-sm sm:text-base font-bold text-elevix-blue mb-3 uppercase tracking-wide flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                      Solução Orion
-                    </h4>
-                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                      {currentCase.solution}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Resultados Alcançados */}
-                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-2xl p-5 sm:p-6 md:p-8 border border-elevix-blue/20 backdrop-blur-sm mb-6 sm:mb-8">
-                  <h4 className="text-base sm:text-lg font-bold text-elevix-blue mb-4 sm:mb-6 uppercase tracking-wide text-center">
-                    Resultados Alcançados
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                    {currentCase.results.map((result, idx) =>
-                    <div key={idx} className="bg-gray-800/50 rounded-xl p-4 sm:p-5 border border-gray-700/30 text-center">
-                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-elevix-blue mb-2">
-                          {result.value}
-                        </div>
-                        <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wide">
-                          {result.label}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
 
-                {/* Depoimento */}
-                <div className="bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border border-elevix-blue/20 rounded-2xl p-5 sm:p-6 md:p-8 relative">
-                  <Quote className="absolute top-4 right-4 w-8 h-8 sm:w-12 sm:h-12 text-elevix-blue/20" />
-                  <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed italic relative z-10">
-                    "{currentCase.testimonial}"
-                  </p>
-                  <div className="mt-4 flex items-center gap-2">
-                    <div className="h-1 w-12 bg-elevix-blue/40 rounded" />
-                    <span className="text-xs sm:text-sm text-elevix-blue font-semibold">
-                      {currentCase.clientName}
-                    </span>
-                  </div>
-                </div>
-              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </Card>
 
             {/* Navigation Arrows */}
