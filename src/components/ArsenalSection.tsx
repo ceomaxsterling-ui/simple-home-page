@@ -118,39 +118,62 @@ const ArsenalSection: React.FC = () => {
                   minHeight: '260px',
                 }}
               >
-                {/* Logo text */}
-                <span
-                  className="text-4xl md:text-5xl font-bold tracking-widest select-none"
-                  style={{
-                    color: '#ffffff',
-                    textShadow: '0 0 20px rgba(95,145,255,0.8), 0 0 40px rgba(95,145,255,0.4)',
-                    letterSpacing: '0.2em',
-                  }}
-                >
-                  ORION
-                </span>
+              {/* Logo image */}
+                <div className="relative flex items-center justify-center">
+                  {/* Pulsing ring around logo */}
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      width: '160px',
+                      height: '160px',
+                      border: '1px solid rgba(95,145,255,0.4)',
+                      animation: 'pulseRing 3s ease-in-out infinite',
+                    }}
+                  />
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      width: '200px',
+                      height: '200px',
+                      border: '1px solid rgba(95,145,255,0.2)',
+                      animation: 'pulseRing 3s ease-in-out infinite 0.5s',
+                    }}
+                  />
+                  {/* Logo */}
+                  <img
+                    src="https://i.postimg.cc/4N8Dk04j/Design-sem-nome.png"
+                    alt="Orion Logo"
+                    draggable={false}
+                    style={{
+                      width: '120px',
+                      height: '120px',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 0 18px rgba(95,145,255,0.9)) drop-shadow(0 0 40px rgba(95,145,255,0.5))',
+                      userSelect: 'none',
+                    }}
+                  />
+                </div>
 
                 {/* Orbit ring SVG */}
                 <svg
-                  className="mt-5 opacity-60"
-                  width="120"
-                  height="36"
-                  viewBox="0 0 120 36"
+                  className="mt-6 opacity-60"
+                  width="140"
+                  height="40"
+                  viewBox="0 0 140 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <ellipse
-                    cx="60"
-                    cy="18"
-                    rx="58"
-                    ry="15"
+                    cx="70"
+                    cy="20"
+                    rx="68"
+                    ry="16"
                     stroke="#5F91FF"
                     strokeWidth="1.2"
                     strokeDasharray="6 4"
                   />
-                  {/* Small planet */}
-                  <circle cx="60" cy="3" r="4" fill="#5F91FF" opacity="0.9" />
-                  <circle cx="60" cy="3" r="7" stroke="#5F91FF" strokeWidth="0.8" opacity="0.3" />
+                  <circle cx="70" cy="4" r="4" fill="#5F91FF" opacity="0.9" />
+                  <circle cx="70" cy="4" r="8" stroke="#5F91FF" strokeWidth="0.8" opacity="0.3" />
                 </svg>
 
                 {/* Tagline */}
@@ -222,6 +245,10 @@ const ArsenalSection: React.FC = () => {
         @keyframes floatOrion {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-12px); }
+        }
+        @keyframes pulseRing {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 0.9; transform: scale(1.06); }
         }
       `}</style>
     </section>
