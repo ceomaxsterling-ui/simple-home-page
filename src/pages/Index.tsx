@@ -7,7 +7,6 @@ import SolutionsSection from '@/components/SolutionsSection';
 import StoreCreationSection from '@/components/StoreCreationSection';
 import ChallengesSection from '@/components/ChallengesSection';
 import TyrionServicesSection from '@/components/TyrionServicesSection';
-import ProofSection from '@/components/ProofSection';
 import ConsultancySection from '@/components/ConsultancySection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
@@ -23,7 +22,6 @@ const Index = () => {
       <StoreCreationSection />
       <ChallengesSection />
       <TyrionServicesSection />
-      <ProofSection />
       <ConsultancySection />
       <FAQSection />
       <CTASection />
