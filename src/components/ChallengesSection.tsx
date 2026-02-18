@@ -62,15 +62,15 @@ const ChallengesSection = () => {
   ];
 
   return (
-    <section id="challenges" className="bg-black py-20 relative overflow-hidden">
+    <section id="challenges" className="bg-black py-12 md:py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-10 md:mb-16 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Resultados Que Falam Por Si:{' '}
             <span className="text-blue-500">O Sucesso dos Nossos Clientes</span>{' '}
             é a Nossa Maior Conquista
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Acreditamos que os números contam a melhor história. Nossos cases de sucesso
             abrangem diversos segmentos e demonstram o impacto real da{' '}
             <span className="text-blue-400 font-semibold">Metodologia Orion de Alavancagem</span>.
@@ -78,7 +78,7 @@ const ChallengesSection = () => {
           </p>
         </div>
 
-        <div className="px-6">
+        <div className="px-0 md:px-6">
           <AchievementsCarousel achievements={achievements} />
         </div>
       </div>

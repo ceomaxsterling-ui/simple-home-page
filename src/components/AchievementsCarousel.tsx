@@ -129,7 +129,7 @@ const AchievementsCarousel: React.FC<AchievementsCarouselProps> = ({ achievement
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-3"
+              className="flex-shrink-0 px-2 md:px-3"
               style={{ width: `${cardWidthPercent}%` }}
             >
               <div
@@ -193,17 +193,17 @@ const AchievementsCarousel: React.FC<AchievementsCarouselProps> = ({ achievement
         </div>
       </div>
 
-      {/* Navigation arrows */}
+      {/* Navigation arrows — hidden on mobile, shown on md+ */}
       <button
         onClick={prev}
-        className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-gray-900/90 border border-blue-500/40 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:border-blue-400 hover:text-white transition-all duration-200 shadow-lg shadow-blue-500/10 backdrop-blur-sm"
+        className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-gray-900/90 border border-blue-500/40 items-center justify-center text-blue-400 hover:bg-blue-600 hover:border-blue-400 hover:text-white transition-all duration-200 shadow-lg shadow-blue-500/10 backdrop-blur-sm"
         aria-label="Anterior"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={next}
-        className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-gray-900/90 border border-blue-500/40 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:border-blue-400 hover:text-white transition-all duration-200 shadow-lg shadow-blue-500/10 backdrop-blur-sm"
+        className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-gray-900/90 border border-blue-500/40 items-center justify-center text-blue-400 hover:bg-blue-600 hover:border-blue-400 hover:text-white transition-all duration-200 shadow-lg shadow-blue-500/10 backdrop-blur-sm"
         aria-label="Próximo"
       >
         <ChevronRight className="w-5 h-5" />

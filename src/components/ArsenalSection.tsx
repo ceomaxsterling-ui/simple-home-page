@@ -35,14 +35,14 @@ const ArsenalSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-28 overflow-hidden"
+      className="relative py-14 md:py-24 overflow-hidden"
       style={{ background: '#050505' }}
     >
       <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
 
         {/* Badge */}
         <div
-          className="flex justify-center mb-5"
+          className="flex justify-center mb-4"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(15px)',
@@ -56,14 +56,14 @@ const ArsenalSection: React.FC = () => {
 
         {/* Title */}
         <div
-          className="text-center mb-3"
+          className="text-center mb-3 px-2"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(15px)',
             transition: 'opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s',
           }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             Nascemos da Inconformidade com o{' '}
             <span style={{ color: '#5F91FF' }}>Marketing Genérico</span>
           </h2>
@@ -71,7 +71,7 @@ const ArsenalSection: React.FC = () => {
 
         {/* Subtitle */}
         <div
-          className="text-center mb-14"
+          className="text-center mb-8 md:mb-12 px-2"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(15px)',
@@ -83,8 +83,8 @@ const ArsenalSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 2-column layout */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        {/* 2-column layout: stacks on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-stretch">
 
           {/* Left: Logo card */}
           <div
