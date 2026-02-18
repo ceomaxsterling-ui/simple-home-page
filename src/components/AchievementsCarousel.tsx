@@ -144,14 +144,6 @@ const AchievementsCarousel: React.FC<AchievementsCarouselProps> = ({ achievement
                   transition-all duration-300 group
                 `}
               >
-                {/* Featured badge */}
-                {achievement.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                    <span className="bg-gradient-to-r from-blue-500 to-blue-400 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg shadow-blue-500/40 uppercase tracking-wider">
-                      Destaque
-                    </span>
-                  </div>
-                )}
 
                 {/* Glow on hover */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/5 to-blue-400/5 pointer-events-none" />
