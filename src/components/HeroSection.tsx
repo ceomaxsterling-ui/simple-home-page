@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Rocket, Shield, Sparkles } from 'lucide-react';
+import { Rocket, Sparkles } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 import { WHATSAPP_URL } from '@/config/links';
 
@@ -27,15 +27,6 @@ const HeroSection = () => {
     window.open(WHATSAPP_URL, '_blank');
   };
 
-  const handleCasosDeSuccesso = () => {
-    const userInfo = {
-      source: 'hero_section',
-      button_type: 'secondary_cta',
-      timestamp: new Date().toISOString()
-    };
-    trackButtonClick('Ver Transformações Reais', 'Hero Section', userInfo);
-    scrollToSection('provas');
-  };
 
   return (
     <section className="hero-section relative min-h-screen flex flex-col items-center justify-center pt-20 pb-0 px-4 overflow-hidden">
@@ -188,20 +179,12 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-16 sm:mb-20">
           <Button
             size="lg"
-            className="relative bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-white/20 hover:border-[#0F8CFA]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(15,140,250,0.25)] hover:scale-105 w-[85%] sm:w-auto backdrop-blur-sm"
+            className="relative text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[85%] sm:w-auto"
+            style={{ backgroundColor: '#70B8FF' }}
             onClick={handleWhatsAppRedirect}
           >
             <Rocket className="w-5 h-5 mr-2 flex-shrink-0" />
             Quero Crescer com a Orion →
-          </Button>
-          <Button
-            size="lg"
-            variant="ghost"
-            className="text-slate-400 hover:text-white hover:bg-white/5 font-medium px-6 py-4 text-base rounded-2xl transition-all duration-300 w-[85%] sm:w-auto"
-            onClick={handleCasosDeSuccesso}
-          >
-            <Shield className="w-5 h-5 mr-2 flex-shrink-0" />
-            Ver Cases de Sucesso
           </Button>
         </div>
       </div>
