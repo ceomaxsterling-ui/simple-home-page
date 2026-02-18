@@ -86,7 +86,7 @@ const ArsenalSection: React.FC = () => {
         {/* 2-column layout */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-          {/* Left: Logo / 3D Visual */}
+          {/* Left: Astronaut hand holding logo */}
           <div
             className="flex items-center justify-center"
             style={{
@@ -95,101 +95,134 @@ const ArsenalSection: React.FC = () => {
               transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
             }}
           >
-            <div className="relative flex items-center justify-center">
-              {/* Outer diffuse glow */}
+            <div className="relative flex items-center justify-center" style={{ width: '320px', height: '390px' }}>
+
+              {/* Outer ambient glow */}
               <div
-                className="absolute inset-0 rounded-2xl"
+                className="absolute inset-0"
                 style={{
-                  background: 'radial-gradient(ellipse at center, rgba(95,145,255,0.18) 0%, transparent 70%)',
-                  filter: 'blur(40px)',
-                  transform: 'scale(1.5)',
+                  background: 'radial-gradient(ellipse at 50% 55%, rgba(95,145,255,0.22) 0%, transparent 70%)',
+                  filter: 'blur(50px)',
                 }}
               />
 
-              {/* Floating card */}
+              {/* Floating visor panel / card */}
               <div
-                className="relative flex flex-col items-center justify-center rounded-2xl p-10 md:p-14"
+                className="absolute top-0 left-0 right-0"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(95,145,255,0.08) 0%, rgba(10,14,26,0.95) 60%, rgba(5,5,5,1) 100%)',
+                  height: '250px',
+                  background: 'linear-gradient(160deg, rgba(95,145,255,0.09) 0%, rgba(8,12,24,0.97) 60%, rgba(5,5,5,1) 100%)',
                   border: '1px solid rgba(95,145,255,0.35)',
-                  boxShadow: '0 0 40px rgba(95,145,255,0.25), 0 0 80px rgba(95,145,255,0.12), inset 0 0 40px rgba(95,145,255,0.05)',
+                  borderRadius: '20px',
+                  boxShadow: '0 0 50px rgba(95,145,255,0.2), 0 0 100px rgba(95,145,255,0.1), inset 0 0 30px rgba(95,145,255,0.04)',
                   animation: 'floatOrion 5s ease-in-out infinite',
-                  minWidth: '260px',
-                  minHeight: '260px',
                 }}
               >
-              {/* Logo image */}
-                <div className="relative flex items-center justify-center">
-                  {/* Pulsing ring around logo */}
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: '160px',
-                      height: '160px',
-                      border: '1px solid rgba(95,145,255,0.4)',
-                      animation: 'pulseRing 3s ease-in-out infinite',
-                    }}
-                  />
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: '200px',
-                      height: '200px',
-                      border: '1px solid rgba(95,145,255,0.2)',
-                      animation: 'pulseRing 3s ease-in-out infinite 0.5s',
-                    }}
-                  />
-                  {/* Logo */}
+                {/* Corner accents */}
+                <div className="absolute top-3 left-3 w-5 h-5 border-t border-l" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
+                <div className="absolute top-3 right-3 w-5 h-5 border-t border-r" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
+                <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
+
+                {/* Scan lines */}
+                <div
+                  className="absolute inset-0 rounded-[20px] pointer-events-none overflow-hidden opacity-20"
+                  style={{
+                    background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(95,145,255,0.08) 3px, rgba(95,145,255,0.08) 4px)',
+                  }}
+                />
+
+                {/* Pulsing rings */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute rounded-full" style={{ width: '160px', height: '160px', border: '1px solid rgba(95,145,255,0.35)', animation: 'pulseRing 3s ease-in-out infinite' }} />
+                  <div className="absolute rounded-full" style={{ width: '200px', height: '200px', border: '1px solid rgba(95,145,255,0.15)', animation: 'pulseRing 3s ease-in-out infinite 0.7s' }} />
+                </div>
+
+                {/* Logo — big */}
+                <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/4N8Dk04j/Design-sem-nome.png"
                     alt="Orion Logo"
                     draggable={false}
                     style={{
-                      width: '120px',
-                      height: '120px',
+                      width: '155px',
+                      height: '155px',
                       objectFit: 'contain',
-                      filter: 'drop-shadow(0 0 18px rgba(95,145,255,0.9)) drop-shadow(0 0 40px rgba(95,145,255,0.5))',
+                      filter: 'drop-shadow(0 0 22px rgba(95,145,255,1)) drop-shadow(0 0 55px rgba(95,145,255,0.6))',
                       userSelect: 'none',
                     }}
                   />
                 </div>
+              </div>
 
-                {/* Orbit ring SVG */}
+              {/* Astronaut glove — holding the card from below */}
+              <div
+                className="absolute bottom-0 left-0 right-0 flex justify-center"
+                style={{ animation: 'floatOrion 5s ease-in-out infinite' }}
+              >
                 <svg
-                  className="mt-6 opacity-60"
-                  width="140"
-                  height="40"
-                  viewBox="0 0 140 40"
+                  width="260"
+                  height="155"
+                  viewBox="0 0 260 155"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <ellipse
-                    cx="70"
-                    cy="20"
-                    rx="68"
-                    ry="16"
-                    stroke="#5F91FF"
-                    strokeWidth="1.2"
-                    strokeDasharray="6 4"
-                  />
-                  <circle cx="70" cy="4" r="4" fill="#5F91FF" opacity="0.9" />
-                  <circle cx="70" cy="4" r="8" stroke="#5F91FF" strokeWidth="0.8" opacity="0.3" />
+                  {/* Sleeve */}
+                  <rect x="78" y="108" width="104" height="44" rx="10" fill="url(#sleeveGrad)" />
+                  <rect x="78" y="108" width="104" height="44" rx="10" stroke="rgba(95,145,255,0.4)" strokeWidth="1" />
+                  <line x1="78" y1="118" x2="182" y2="118" stroke="rgba(95,145,255,0.18)" strokeWidth="0.8" />
+                  <line x1="78" y1="128" x2="182" y2="128" stroke="rgba(95,145,255,0.18)" strokeWidth="0.8" />
+                  <line x1="78" y1="138" x2="182" y2="138" stroke="rgba(95,145,255,0.18)" strokeWidth="0.8" />
+                  {/* Cuff ring */}
+                  <rect x="73" y="105" width="114" height="8" rx="4" fill="rgba(95,145,255,0.12)" stroke="rgba(95,145,255,0.55)" strokeWidth="1" />
+
+                  {/* Palm */}
+                  <ellipse cx="130" cy="95" rx="54" ry="19" fill="url(#palmGrad)" />
+                  <ellipse cx="130" cy="95" rx="54" ry="19" stroke="rgba(95,145,255,0.35)" strokeWidth="1" />
+
+                  {/* Thumb */}
+                  <path d="M79 95 C67 89,60 76,66 63 C70 55,80 58,84 69 L84 95 Z" fill="url(#fingerGrad)" stroke="rgba(95,145,255,0.4)" strokeWidth="0.8" />
+                  <path d="M70 77 C72 71,77 68,82 70" stroke="rgba(95,145,255,0.22)" strokeWidth="0.6" fill="none" />
+
+                  {/* Index */}
+                  <path d="M97 79 C95 62,97 41,101 25 C104 14,113 12,116 23 C119 36,117 60,115 79 Z" fill="url(#fingerGrad)" stroke="rgba(95,145,255,0.4)" strokeWidth="0.8" />
+                  <path d="M98 57 C99 48,104 42,108 44" stroke="rgba(95,145,255,0.2)" strokeWidth="0.6" fill="none" />
+
+                  {/* Middle */}
+                  <path d="M116 77 C114 56,116 34,120 17 C123 7,132 5,135 15 C138 29,137 55,135 77 Z" fill="url(#fingerGrad)" stroke="rgba(95,145,255,0.4)" strokeWidth="0.8" />
+                  <path d="M117 52 C118 43,123 37,127 39" stroke="rgba(95,145,255,0.2)" strokeWidth="0.6" fill="none" />
+
+                  {/* Ring */}
+                  <path d="M136 77 C134 59,136 39,139 25 C142 15,150 13,153 23 C156 36,154 59,152 77 Z" fill="url(#fingerGrad)" stroke="rgba(95,145,255,0.4)" strokeWidth="0.8" />
+                  <path d="M137 55 C138 47,143 41,147 43" stroke="rgba(95,145,255,0.2)" strokeWidth="0.6" fill="none" />
+
+                  {/* Pinky */}
+                  <path d="M153 79 C152 63,154 47,157 35 C160 25,168 24,170 33 C172 44,170 63,168 79 Z" fill="url(#fingerGrad)" stroke="rgba(95,145,255,0.4)" strokeWidth="0.8" />
+                  <path d="M154 60 C155 53,160 48,164 50" stroke="rgba(95,145,255,0.2)" strokeWidth="0.6" fill="none" />
+
+                  {/* Knuckle arc */}
+                  <path d="M97 80 Q130 75 167 80" stroke="rgba(95,145,255,0.28)" strokeWidth="0.8" fill="none" />
+
+                  {/* Suit glow shimmer */}
+                  <ellipse cx="130" cy="96" rx="36" ry="7" fill="rgba(95,145,255,0.06)" />
+
+                  <defs>
+                    <linearGradient id="sleeveGrad" x1="78" y1="108" x2="182" y2="152" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#0d1628" />
+                      <stop offset="100%" stopColor="#060a14" />
+                    </linearGradient>
+                    <linearGradient id="palmGrad" x1="76" y1="76" x2="184" y2="114" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#1a2540" />
+                      <stop offset="100%" stopColor="#0a1020" />
+                    </linearGradient>
+                    <linearGradient id="fingerGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+                      <stop offset="0%" stopColor="#1e2e4a" />
+                      <stop offset="100%" stopColor="#0c1624" />
+                    </linearGradient>
+                  </defs>
                 </svg>
-
-                {/* Tagline */}
-                <p
-                  className="mt-4 text-xs font-medium tracking-widest uppercase"
-                  style={{ color: 'rgba(95,145,255,0.7)', letterSpacing: '0.25em' }}
-                >
-                  Nova Órbita
-                </p>
-
-                {/* Corner accent lines */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-t border-l" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
-                <div className="absolute top-4 right-4 w-6 h-6 border-t border-r" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
-                <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r" style={{ borderColor: 'rgba(95,145,255,0.5)' }} />
               </div>
+
             </div>
           </div>
 
