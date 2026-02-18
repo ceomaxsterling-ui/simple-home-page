@@ -63,20 +63,27 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				elevix: {
-					blue: '#1E90FF'
-				},
-				blue: {
-					elevix: '#1E90FF',
-					hover: '#1C86EE'
-				},
-				red: {
-					neon: '#FF3131'
-				}
+			elevix: {
+				blue: '#4F8EF7'
 			},
-			fontFamily: {
-				sans: ['Plus Jakarta Sans', 'sans-serif'],
+			blue: {
+				elevix: '#4F8EF7',
+				hover: '#3d7ef6',
+				cyan: '#00D4FF'
 			},
+			red: {
+				neon: '#FF3131'
+			},
+			nebula: {
+				blue:   '#4F8EF7',
+				cyan:   '#00D4FF',
+				purple: '#7B2FBE'
+			}
+			},
+		fontFamily: {
+			sans: ['Inter', 'sans-serif'],
+			display: ['Space Grotesk', 'sans-serif'],
+		},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
