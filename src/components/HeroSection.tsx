@@ -170,9 +170,8 @@ const HeroSection = () => {
 
         {/* Subheadline */}
         <p className="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-3xl leading-relaxed font-light">
-          Construímos estratégias que levam empresas a outro patamar. Com{' '}
-          <span className="text-white font-medium">dados, criatividade</span> e uma metodologia que já gerou mais de{' '}
-          .
+          Construímos estratégias que levam empresas a outro nível. Com{' '}
+          <span className="text-white font-medium">dados, criatividade</span> e uma metodologia que transforma ideias em resultados sólidos no universo digital
         </p>
 
         {/* CTAs */}
