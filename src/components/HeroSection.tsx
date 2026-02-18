@@ -180,7 +180,7 @@ const HeroSection = () => {
           <Button
             size="lg"
             className="relative text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[85%] sm:w-auto"
-            style={{ backgroundColor: '#70B8FF' }}
+            style={{ backgroundColor: '#1E90FF' }}
             onClick={handleWhatsAppRedirect}
           >
             <Rocket className="w-5 h-5 mr-2 flex-shrink-0" />
