@@ -71,19 +71,19 @@ const MethodologySection: React.FC = () => {
   const step = steps[activeStep];
 
   return (
-    <section className="bg-[#050505] py-12 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+    <section className="bg-[#050505] py-12 sm:py-16 md:py-24 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl">
 
         {/* Header */}
         <div className="text-center mb-8 md:mb-16 px-2">
           <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-4 py-2 mb-4">
-            <span className="text-[#5F91FF] font-semibold text-sm">⚡ Nossa Rota ⚡</span>
+            <span className="text-[#5F91FF] font-semibold text-xs sm:text-sm">⚡ Nossa Rota ⚡</span>
           </div>
-          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
             Três Etapas. Uma Missão.{' '}
             <span className="text-[#5F91FF]">Levar sua empresa ao lugar que ela merece.</span>
           </h2>
-          <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Sem achismo. Sem improviso. Cada projeto segue uma rota precisa — para que você saiba exatamente onde está e para onde está indo.
           </p>
         </div>

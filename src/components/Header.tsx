@@ -35,7 +35,6 @@ const Header = () => {
             <button onClick={() => scrollToSection('solucoes')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
               Soluções
             </button>
-            <button onClick={() => scrollToSection('provas')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">Cases</button>
             <button onClick={() => scrollToSection('consultoria')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
               Consultoria Gratuita
             </button>

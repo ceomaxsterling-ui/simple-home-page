@@ -44,9 +44,6 @@ const MobileNavigation = () => {
             <button onClick={() => scrollToSection('solucoes')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium text-left py-3 border-b border-gray-800 focus:outline-none">
               Soluções
             </button>
-            <button onClick={() => scrollToSection('provas')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium text-left py-3 border-b border-gray-800 focus:outline-none">
-              Cases
-            </button>
             <button onClick={() => scrollToSection('consultoria')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium text-left py-3 border-b border-gray-800 focus:outline-none">
               Consultoria Gratuita
             </button>

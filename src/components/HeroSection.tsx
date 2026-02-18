@@ -71,18 +71,18 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto w-full">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto w-full px-4">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
-          <Sparkles className="w-4 h-4 text-[#7EC8FF]" />
-          <span className="text-xs sm:text-sm font-medium text-slate-300 tracking-wide">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8 backdrop-blur-sm">
+          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#7EC8FF] flex-shrink-0" />
+          <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide leading-snug">
             A DISTÂNCIA ENTRE ONDE VOCÊ ESTÁ E ONDE QUER CHEGAR É UMA ESTRATÉGIA.
           </span>
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6 text-white">
           Sua marca tem{' '}
           <span
             className="bg-clip-text text-transparent"
@@ -98,19 +98,19 @@ const HeroSection = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-3xl leading-relaxed font-light">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed font-light">
           Construímos estratégias que levam empresas a outro nível. Com{' '}
           <span className="text-white font-medium">dados, criatividade</span> e uma metodologia que transforma ideias em resultados sólidos no universo digital
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-16 sm:mb-20">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full mb-12 sm:mb-20">
           <Button
             size="lg"
-            className="relative text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[85%] sm:w-auto"
+            className="relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[90%] sm:w-auto"
             style={{ backgroundColor: '#1E90FF' }}
             onClick={handleWhatsAppRedirect}>
-            <Rocket className="w-5 h-5 mr-2 flex-shrink-0" />
+            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
             Quero Crescer com a Orion →
           </Button>
         </div>
