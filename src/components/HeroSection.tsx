@@ -40,10 +40,79 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-0 px-4 overflow-hidden bg-black">
       
-      {/* Background subtle nebulas */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-16 right-10 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl" />
-        <div className="absolute top-10 left-10 w-72 h-72 bg-slate-800/10 rounded-full blur-3xl" />
+      {/* Starfield background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Static star dots — small, subtle, blue-tinted */}
+        {[
+          { top: '8%',  left: '12%',  size: 1.5, opacity: 0.5 },
+          { top: '15%', left: '78%',  size: 1,   opacity: 0.4 },
+          { top: '22%', left: '34%',  size: 1,   opacity: 0.35 },
+          { top: '6%',  left: '55%',  size: 1.5, opacity: 0.45 },
+          { top: '30%', left: '90%',  size: 1,   opacity: 0.3 },
+          { top: '42%', left: '5%',   size: 1.5, opacity: 0.4 },
+          { top: '18%', left: '65%',  size: 1,   opacity: 0.3 },
+          { top: '55%', left: '22%',  size: 1,   opacity: 0.35 },
+          { top: '70%', left: '88%',  size: 1.5, opacity: 0.4 },
+          { top: '62%', left: '47%',  size: 1,   opacity: 0.25 },
+          { top: '80%', left: '10%',  size: 1,   opacity: 0.3 },
+          { top: '88%', left: '72%',  size: 1.5, opacity: 0.4 },
+          { top: '75%', left: '33%',  size: 1,   opacity: 0.3 },
+          { top: '4%',  left: '88%',  size: 1,   opacity: 0.35 },
+          { top: '48%', left: '68%',  size: 1.5, opacity: 0.3 },
+          { top: '35%', left: '15%',  size: 1,   opacity: 0.4 },
+          { top: '92%', left: '50%',  size: 1,   opacity: 0.3 },
+          { top: '12%', left: '42%',  size: 1.5, opacity: 0.45 },
+          { top: '58%', left: '80%',  size: 1,   opacity: 0.35 },
+          { top: '25%', left: '8%',   size: 1,   opacity: 0.3 },
+          { top: '82%', left: '92%',  size: 1,   opacity: 0.4 },
+          { top: '38%', left: '58%',  size: 1.5, opacity: 0.3 },
+          { top: '66%', left: '18%',  size: 1,   opacity: 0.35 },
+          { top: '50%', left: '95%',  size: 1,   opacity: 0.3 },
+          { top: '2%',  left: '22%',  size: 1,   opacity: 0.4 },
+          { top: '95%', left: '28%',  size: 1.5, opacity: 0.3 },
+          { top: '44%', left: '38%',  size: 1,   opacity: 0.25 },
+          { top: '72%', left: '62%',  size: 1,   opacity: 0.35 },
+          { top: '20%', left: '95%',  size: 1,   opacity: 0.3 },
+          { top: '85%', left: '42%',  size: 1.5, opacity: 0.35 },
+        ].map((star, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              top: star.top,
+              left: star.left,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              background: `rgba(15,140,250,${star.opacity})`,
+              boxShadow: `0 0 ${star.size * 3}px rgba(15,140,250,${star.opacity * 0.8})`,
+              animation: `twinkle ${3 + (i % 4)}s ease-in-out infinite`,
+              animationDelay: `${(i * 0.4) % 4}s`,
+            }}
+          />
+        ))}
+
+        {/* A few brighter white-tinted stars for contrast */}
+        {[
+          { top: '10%', left: '48%', size: 2 },
+          { top: '60%', left: '7%',  size: 2 },
+          { top: '33%', left: '82%', size: 2 },
+          { top: '78%', left: '55%', size: 2 },
+        ].map((star, i) => (
+          <div
+            key={`bright-${i}`}
+            className="absolute rounded-full"
+            style={{
+              top: star.top,
+              left: star.left,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              background: 'rgba(200,230,255,0.85)',
+              boxShadow: '0 0 6px rgba(15,140,250,0.6), 0 0 2px rgba(255,255,255,0.9)',
+              animation: `twinkle ${4 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.7}s`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Content */}
@@ -51,7 +120,7 @@ const HeroSection = () => {
 
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
-          <Sparkles className="w-4 h-4 text-[#33FFFD]" />
+          <Sparkles className="w-4 h-4 text-[#0F8CFA]" />
           <span className="text-xs sm:text-sm font-medium text-slate-300 tracking-wide">
             A DISTÂNCIA ENTRE ONDE VOCÊ ESTÁ E ONDE QUER CHEGAR É UMA ESTRATÉGIA.
           </span>
@@ -63,7 +132,7 @@ const HeroSection = () => {
           <span
             className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: 'linear-gradient(90deg, #ffffff, #33FFFD, #ffffff)',
+              backgroundImage: 'linear-gradient(90deg, #ffffff, #0F8CFA, #ffffff)',
               backgroundSize: '200% auto',
               animation: 'gradient-shift 4s linear infinite',
             }}
@@ -85,7 +154,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-16 sm:mb-20">
           <Button
             size="lg"
-            className="relative bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-white/20 hover:border-[#33FFFD]/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(51,255,253,0.2)] hover:scale-105 w-[85%] sm:w-auto backdrop-blur-sm"
+            className="relative bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg rounded-2xl border border-white/20 hover:border-[#0F8CFA]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(15,140,250,0.25)] hover:scale-105 w-[85%] sm:w-auto backdrop-blur-sm"
             onClick={handleWhatsAppRedirect}
           >
             <Rocket className="w-5 h-5 mr-2 flex-shrink-0" />
@@ -103,84 +172,14 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Neon beam — narrow, precise, futuristic like reference */}
-      <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none z-0" aria-hidden>
-
-        {/* Very subtle wide ambient — doesn't dirty the visual */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '700px',
-            height: '280px',
-            background: 'radial-gradient(ellipse 55% 100% at 50% 100%, rgba(15,140,250,0.08) 0%, transparent 100%)',
-          }}
-        />
-
-        {/* Outer cone — narrow angle, like a projector beam */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '220px',
-            height: '500px',
-            background: 'linear-gradient(to top, rgba(15,140,250,0.50) 0%, rgba(15,140,250,0.22) 35%, rgba(15,140,250,0.04) 70%, transparent 100%)',
-            clipPath: 'polygon(50% 0%, 12% 100%, 88% 100%)',
-            filter: 'blur(4px)',
-          }}
-        />
-
-        {/* Inner cone — tighter, more saturated */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '90px',
-            height: '480px',
-            background: 'linear-gradient(to top, rgba(15,140,250,1) 0%, rgba(15,140,250,0.75) 25%, rgba(15,140,250,0.18) 60%, transparent 100%)',
-            clipPath: 'polygon(50% 0%, 10% 100%, 90% 100%)',
-            filter: 'blur(1px)',
-          }}
-        />
-
-        {/* Ultra-hot white core — the neon filament */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '28px',
-            height: '430px',
-            background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(200,235,255,1) 8%, rgba(15,140,250,1) 30%, rgba(15,140,250,0.3) 60%, transparent 100%)',
-            clipPath: 'polygon(50% 0%, 18% 100%, 82% 100%)',
-            filter: 'blur(0.5px)',
-          }}
-        />
-
-        {/* Apex point glow — tight bright point at button level */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2"
-          style={{
-            bottom: '295px',
-            width: '80px',
-            height: '14px',
-            background: 'radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(15,140,250,0.9) 40%, transparent 100%)',
-            filter: 'blur(4px)',
-            borderRadius: '9999px',
-          }}
-        />
-
-        {/* Floor pool — tight, not wide, controlled */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '320px',
-            height: '60px',
-            background: 'radial-gradient(ellipse at center bottom, rgba(15,140,250,0.55) 0%, rgba(15,140,250,0.15) 55%, transparent 100%)',
-            filter: 'blur(14px)',
-          }}
-        />
-      </div>
-
       <style>{`
         @keyframes gradient-shift {
           0% { background-position: 0% center; }
           100% { background-position: 200% center; }
+        }
+        @keyframes twinkle {
+          0%, 100% { opacity: var(--star-opacity, 0.4); transform: scale(1); }
+          50% { opacity: calc(var(--star-opacity, 0.4) * 0.3); transform: scale(0.7); }
         }
       `}</style>
     </section>
