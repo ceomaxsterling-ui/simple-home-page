@@ -1,20 +1,10 @@
 
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useRef } from 'react';
 import { Users, Target, Zap, TrendingUp, Shield, Rocket } from 'lucide-react';
 import AchievementsCarousel from './AchievementsCarousel';
 
 const ChallengesSection = () => {
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const achievements = [
     {
@@ -93,14 +83,7 @@ const ChallengesSection = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
-        <div
-          className="text-center mb-8 sm:mb-12 md:mb-16 px-2"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(24px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}
-        >
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Resultados Que Falam Por Si:{' '}
             <span className="text-blue-500">O Sucesso dos Nossos Clientes</span>{' '}
@@ -113,14 +96,7 @@ const ChallengesSection = () => {
           </p>
         </div>
 
-        <div
-          className="px-0 md:px-6"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(24px)',
-            transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
-          }}
-        >
+        <div className="px-0 md:px-6">
           <AchievementsCarousel achievements={achievements} />
         </div>
       </div>

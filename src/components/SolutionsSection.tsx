@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Smartphone, Search, BarChart3, Calendar, Palette, Heart, Map, Star, Eye, Target, DollarSign, RefreshCw, ArrowRight, Monitor } from 'lucide-react';
 import mockupWebsites from '@/assets/mockup-websites.jpg';
 import mockupInstagram from '@/assets/mockup-instagram.jpg';
@@ -67,17 +67,7 @@ const tabs = [
 const SolutionsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [fading, setFading] = useState(false);
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleTabChange = (index: number) => {
     if (index === activeTab) return;
@@ -117,14 +107,7 @@ const SolutionsSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Header */}
-        <div
-          className="text-center mb-8 md:mb-12 px-2"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(24px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}
-        >
+        <div className="text-center mb-8 md:mb-12 px-2">
           <div className="inline-flex items-center gap-2 text-[#5F91FF] mb-3">
             <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
             <span className="text-xs sm:text-sm font-medium">Nossas Soluções</span>
@@ -140,14 +123,7 @@ const SolutionsSection: React.FC = () => {
         </div>
 
         {/* Tabs — STACKED on mobile (grid 2x2), row on md+ */}
-        <div
-          className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 mb-8 md:mb-10"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s',
-          }}
-        >
+        <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 mb-8 md:mb-10">
           {tabs.map((t, i) => (
             <button
               key={t.id}
@@ -167,11 +143,9 @@ const SolutionsSection: React.FC = () => {
         <div
           className="flex flex-col md:grid md:grid-cols-5 gap-6 md:gap-12 items-center"
           style={{
-            opacity: fading ? 0 : visible ? 1 : 0,
-            transform: fading ? 'translateY(8px)' : visible ? 'translateY(0)' : 'translateY(20px)',
-            transition: fading
-              ? 'opacity 0.25s ease, transform 0.25s ease'
-              : 'opacity 0.55s ease 0.2s, transform 0.55s ease 0.2s',
+            opacity: fading ? 0 : 1,
+            transform: fading ? 'translateY(8px)' : 'translateY(0)',
+            transition: 'opacity 0.25s ease, transform 0.25s ease',
           }}
         >
           {/* Image */}

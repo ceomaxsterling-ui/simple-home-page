@@ -1,21 +1,11 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
 
 const FAQSection = () => {
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const faqs = [{
     question: "O que é a Metodologia Orion de Alavancagem?",
@@ -67,14 +57,7 @@ const FAQSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl">
         {/* Header */}
-        <div
-          className="text-center mb-8 sm:mb-12"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(24px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}
-        >
+        <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-blue-500/20">
             <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
             <span className="text-blue-300 font-semibold text-xs sm:text-sm">Suas Dúvidas, Respondidas.</span>
@@ -90,13 +73,7 @@ const FAQSection = () => {
         </div>
 
         {/* Main Content */}
-        <div
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
-          }}
-        >
+        <div>
           <div
             className="rounded-2xl overflow-hidden"
             style={{

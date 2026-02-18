@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Zap } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
@@ -7,17 +7,7 @@ import { WHATSAPP_URL } from '@/config/links';
 
 const CTASection = () => {
   const { trackButtonClick, trackContact, trackLead } = useFacebookPixel();
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleWhatsAppRedirect = () => {
     const userInfo = {
@@ -57,14 +47,7 @@ const CTASection = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-        <div
-          className="text-center space-y-5 sm:space-y-6 md:space-y-8"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'opacity 0.7s ease, transform 0.7s ease',
-          }}
-        >
+        <div className="text-center space-y-5 sm:space-y-6 md:space-y-8">
           {/* Main card with glow border */}
           <div
             className="rounded-3xl p-8 sm:p-12 relative overflow-hidden"

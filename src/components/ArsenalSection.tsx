@@ -1,18 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Rocket, TrendingUp, Handshake } from 'lucide-react';
 
 const ArsenalSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const cards = [
     {
@@ -56,11 +46,6 @@ const ArsenalSection: React.FC = () => {
         {/* Badge */}
         <div
           className="flex justify-center mb-4"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(15px)',
-            transition: 'opacity 0.4s ease, transform 0.4s ease',
-          }}
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5F91FF]/30 bg-[#5F91FF]/5 text-[#5F91FF] text-xs sm:text-sm font-medium tracking-wide">
             Sobre Nós
@@ -70,11 +55,6 @@ const ArsenalSection: React.FC = () => {
         {/* Title */}
         <div
           className="text-center mb-3 px-2"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(15px)',
-            transition: 'opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s',
-          }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             Nascemos da Inconformidade com o{' '}
@@ -85,11 +65,6 @@ const ArsenalSection: React.FC = () => {
         {/* Subtitle */}
         <div
           className="text-center mb-8 md:mb-12 px-2"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(15px)',
-            transition: 'opacity 0.4s ease 0.14s, transform 0.4s ease 0.14s',
-          }}
         >
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Enquanto o mercado se contentava com promessas vazias, nós criamos algo que realmente funciona.
@@ -102,11 +77,6 @@ const ArsenalSection: React.FC = () => {
           {/* Left: Logo card */}
           <div
             className="flex items-center justify-center"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
-            }}
           >
             <div className="relative w-full" style={{ minHeight: '340px' }}>
 
@@ -179,8 +149,6 @@ const ArsenalSection: React.FC = () => {
                   border: '1px solid rgba(95,145,255,0.25)',
                   boxShadow: '0 0 12px rgba(95,145,255,0.1)',
                   transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? 'translateY(0)' : 'translateY(15px)',
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.45), 0 0 48px rgba(95,145,255,0.15)';
