@@ -35,10 +35,10 @@ const ArsenalSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-14 md:py-24 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
       style={{ background: '#050505' }}
     >
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Badge */}
         <div
@@ -49,7 +49,7 @@ const ArsenalSection: React.FC = () => {
             transition: 'opacity 0.4s ease, transform 0.4s ease',
           }}
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5F91FF]/30 bg-[#5F91FF]/5 text-[#5F91FF] text-sm font-medium tracking-wide">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5F91FF]/30 bg-[#5F91FF]/5 text-[#5F91FF] text-xs sm:text-sm font-medium tracking-wide">
             Sobre Nós
           </span>
         </div>
@@ -63,7 +63,7 @@ const ArsenalSection: React.FC = () => {
             transition: 'opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s',
           }}
         >
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             Nascemos da Inconformidade com o{' '}
             <span style={{ color: '#5F91FF' }}>Marketing Genérico</span>
           </h2>
@@ -78,7 +78,7 @@ const ArsenalSection: React.FC = () => {
             transition: 'opacity 0.4s ease 0.14s, transform 0.4s ease 0.14s',
           }}
         >
-          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Enquanto o mercado se contentava com promessas vazias, nós criamos algo que realmente funciona.
           </p>
         </div>

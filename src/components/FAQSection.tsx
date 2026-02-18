@@ -48,7 +48,7 @@ const FAQSection = () => {
   }];
 
   return (
-    <section id="faq" className="py-12 sm:py-20 bg-gradient-to-br from-black via-slate-900 to-black relative overflow-hidden">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-black via-slate-900 to-black relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl" style={{
@@ -57,59 +57,55 @@ const FAQSection = () => {
         }} />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-16" style={{
+        <div className="text-center mb-8 sm:mb-12" style={{
           transform: `translateY(${Math.max(0, 30 - scrollProgress * 30)}px)`,
           opacity: Math.min(1, scrollProgress * 1.5)
         }}>
           <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-blue-500/20">
             <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">Suas Dúvidas, Respondidas.</span>
+            <span className="text-blue-300 font-semibold text-xs sm:text-sm">Suas Dúvidas, Respondidas.</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
             Perguntas Frequentes
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Tudo que você precisa saber antes de dar o próximo passo com a{' '}
             <span className="text-elevix-blue font-semibold">Orion Company</span>.
           </p>
         </div>
 
-        {/* Main Content - Layout Modificado */}
-        <div className="space-y-8 lg:space-y-12" style={{
+        {/* Main Content */}
+        <div style={{
           transform: `translateY(${Math.max(0, 20 - scrollProgress * 20)}px)`,
           opacity: Math.min(1, scrollProgress * 1.2)
         }}>
-          
-          {/* FAQ Section - Centralizado */}
-          <div className="w-full max-w-5xl mx-auto">
-            <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm overflow-hidden w-full">
-              <div className="p-4 sm:p-8">
-                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                  {faqs.map((faq, index) => (
-                    <AccordionItem 
-                      key={index} 
-                      value={`item-${index}`} 
-                      className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-4 sm:px-6 py-2 hover:bg-slate-800/50 transition-all duration-300"
-                    >
-                      <AccordionTrigger className="text-left text-white hover:text-elevix-blue font-semibold py-4 sm:py-6 group hover:no-underline">
-                        <h3 className="font-bold text-base sm:text-lg leading-tight group-hover:text-elevix-blue transition-colors pr-2 text-left">
-                          {faq.question}
-                        </h3>
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-300 leading-relaxed pb-4 sm:pb-6 pt-2">
-                        <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-                          {faq.answer}
-                        </p>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </Card>
-          </div>
+          <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm overflow-hidden w-full">
+            <div className="p-4 sm:p-6 md:p-8">
+              <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
+                {faqs.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`} 
+                    className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-3 sm:px-6 py-1 hover:bg-slate-800/50 transition-all duration-300"
+                  >
+                    <AccordionTrigger className="text-left text-white hover:text-elevix-blue font-semibold py-3 sm:py-5 group hover:no-underline">
+                      <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-elevix-blue transition-colors pr-2 text-left">
+                        {faq.question}
+                      </h3>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-slate-300 leading-relaxed pb-3 sm:pb-5 pt-1">
+                      <p className="text-slate-300 leading-relaxed text-sm">
+                        {faq.answer}
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </Card>
         </div>
       </div>
     </section>

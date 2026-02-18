@@ -85,21 +85,21 @@ const SolutionsSection: React.FC = () => {
   const tab = tabs[activeTab];
 
   return (
-    <section id="solucoes" className="bg-[#050505] py-12 md:py-20 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+    <section id="solucoes" className="bg-[#050505] py-12 sm:py-16 md:py-20 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl">
 
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 px-2">
           <div className="inline-flex items-center gap-2 text-[#5F91FF] mb-3">
             <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
-            <span className="text-sm font-medium">Nossas Soluções</span>
+            <span className="text-xs sm:text-sm font-medium">Nossas Soluções</span>
             <div className="w-2 h-2 bg-[#5F91FF] rounded-full animate-pulse" />
           </div>
-          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
             Tudo Que Sua Empresa Precisa{' '}
             <span className="text-[#5F91FF]">Para Crescer</span>
           </h2>
-          <p className="text-[#888] text-sm md:text-base max-w-xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
             Soluções completas para impulsionar sua presença digital e transformar visitantes em clientes.
           </p>
         </div>

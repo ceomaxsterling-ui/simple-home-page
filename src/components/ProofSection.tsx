@@ -80,29 +80,29 @@ const ProofSection = () => {
   const currentCase = cases[currentSlide];
 
   return (
-    <section id="provas" className="py-20 sm:py-24 bg-black relative overflow-hidden">
+    <section id="provas" className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-elevix-blue/8 to-transparent rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tr from-elevix-blue/8 to-transparent rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-elevix-blue/10 to-blue-500/10 rounded-full px-6 md:px-8 py-3 mb-6 md:mb-8 border border-elevix-blue/20 backdrop-blur-sm">
-            <CheckCircle className="w-5 h-5 text-elevix-blue" />
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">Missões Concluídas</span>
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-elevix-blue/10 to-blue-500/10 rounded-full px-4 sm:px-8 py-2 sm:py-3 mb-4 sm:mb-8 border border-elevix-blue/20 backdrop-blur-sm">
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue flex-shrink-0" />
+            <span className="text-blue-300 font-semibold text-xs sm:text-base">Missões Concluídas</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 md:mb-8 leading-tight">
             Histórias Reais. Crescimento Real.{' '}
             <span className="text-elevix-blue">
               Empresas Que Foram Além.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Conheça as histórias de transformação de empresas que chegaram até nós com desafios reais — e foram além do que{' '}
             <span className="text-elevix-blue font-semibold">elas mesmas esperavam</span>.
           </p>
