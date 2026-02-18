@@ -1,30 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar, Clock, Users, TrendingUp, MessageCircle, CheckCircle2, Sparkles, ArrowRight, Phone, ChevronDown, Store, ShoppingCart } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { WHATSAPP_URL } from '@/config/links';
 
 const ConsultancySection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(isInView);
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleWhatsAppRedirect = () => {
     window.open(WHATSAPP_URL, '_blank');
@@ -118,20 +100,8 @@ const ConsultancySection = () => {
         </div>
 
         {/* Floating Orbs */}
-        <div 
-          className="absolute top-20 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-500/15 to-blue-500/10 rounded-full blur-3xl"
-          style={{
-            transform: `translateY(${scrollProgress * 40}px) rotate(${scrollProgress * 25}deg)`,
-            opacity: scrollProgress * 0.8
-          }}
-        />
-        <div 
-          className="absolute bottom-32 right-1/4 w-96 h-96 bg-gradient-to-tl from-blue-500/10 to-blue-500/15 rounded-full blur-3xl"
-          style={{
-            transform: `translateY(${-scrollProgress * 30}px) rotate(${-scrollProgress * 20}deg)`,
-            opacity: scrollProgress * 0.6
-          }}
-        />
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-500/15 to-blue-500/10 rounded-full blur-3xl opacity-60" />
+        <div className="absolute bottom-32 right-1/4 w-96 h-96 bg-gradient-to-tl from-blue-500/10 to-blue-500/15 rounded-full blur-3xl opacity-40" />
 
         {/* Particle Effect */}
         <div className="absolute inset-0 bg-black">
@@ -152,13 +122,7 @@ const ConsultancySection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Main Content Container */}
-        <div 
-          className="max-w-7xl mx-auto"
-          style={{
-            transform: `translateY(${Math.max(0, 20 - scrollProgress * 20)}px)`,
-            opacity: Math.min(1, scrollProgress * 1.2)
-          }}
-        >
+        <div className="max-w-7xl mx-auto">
           {/* Header with Badge - Mobile Optimized */}
           <div className="text-center mb-12 md:mb-16 px-3 sm:px-0">
             <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
@@ -207,12 +171,7 @@ const ConsultancySection = () => {
                     >
                       <CollapsibleTrigger 
                         className="w-full"
-                        style={{
-                          animationDelay: `${index * 100}ms`,
-                          transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
-                          opacity: isVisible ? 1 : 0,
-                          transition: 'all 0.6s ease-out'
-                        }}
+                        style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div className="flex items-center justify-between p-4 sm:p-4 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300 hover:bg-gray-900/60 cursor-pointer">
                           <div className="flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0">
