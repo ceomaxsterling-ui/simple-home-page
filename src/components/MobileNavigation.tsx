@@ -41,6 +41,9 @@ const MobileNavigation = () => {
           </div>
           
           <nav className="flex flex-col space-y-4">
+            <button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsOpen(false); }} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium text-left py-3 border-b border-gray-800 focus:outline-none">
+              Home
+            </button>
             <button onClick={() => scrollToSection('solucoes')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium text-left py-3 border-b border-gray-800 focus:outline-none">
               Soluções
             </button>
