@@ -68,7 +68,7 @@ const AchievementsCarousel: React.FC<AchievementsCarouselProps> = ({ achievement
   // Auto-play
   useEffect(() => {
     if (isPaused) return;
-    autoPlayRef.current = setInterval(next, 5000);
+    autoPlayRef.current = setInterval(next, 2800);
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
