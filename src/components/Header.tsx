@@ -1,58 +1,100 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import MobileNavigation from './MobileNavigation';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 import { WHATSAPP_URL } from '@/config/links';
+
 const Header = () => {
-  const {
-    trackButtonClick,
-    trackContact
-  } = useFacebookPixel();
+  const { trackButtonClick, trackContact } = useFacebookPixel();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   const handleWhatsAppRedirect = () => {
     trackButtonClick('Quero Escalar', 'Header');
     trackContact('WhatsApp');
     window.open(WHATSAPP_URL, '_blank');
   };
-  return <header className="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-gray-800/50">
-      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+
+  return (
+    <header
+      className="fixed top-0 w-full z-50"
+      style={{
+        backgroundColor: 'rgba(10, 10, 26, 0.85)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(97, 164, 248, 0.12)',
+      }}
+    >
+      <div className="container mx-auto px-4 sm:px-10 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <img src="https://i.postimg.cc/4N8Dk04j/Design-sem-nome.png" alt="Elevix Logo" style={{
-            imageRendering: 'crisp-edges'
-          }} className="h-[50px] sm:h-[50px] w-auto object-contain" />
-            <div className="text-xl sm:text-2xl font-bold text-elevix-white bg-transparent ">ORION</div>
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <img
+              src="https://i.postimg.cc/4N8Dk04j/Design-sem-nome.png"
+              alt="Orion Logo"
+              className="h-[44px] w-auto object-contain"
+              style={{
+                imageRendering: 'crisp-edges',
+                filter: 'drop-shadow(0 0 6px #61A4F8)',
+              }}
+            />
+            <span
+              className="text-2xl font-bold text-white tracking-widest"
+              style={{ letterSpacing: '0.15em' }}
+            >
+              ORION
+            </span>
           </div>
-          
-          <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('solucoes')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
-              Soluções
-            </button>
-            <button onClick={() => scrollToSection('provas')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">Cases</button>
-            <button onClick={() => scrollToSection('consultoria')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
-              Consultoria Gratuita
-            </button>
-            <button onClick={() => scrollToSection('faq')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
-              FAQ
-            </button>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-10">
+            {[
+              { label: 'Soluções', id: 'solucoes' },
+              { label: 'Cases', id: 'provas' },
+              { label: 'Consultoria', id: 'consultoria' },
+              { label: 'FAQ', id: 'faq' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-white/80 font-normal text-sm transition-all duration-300 hover:text-[#61A4F8]"
+                style={{ textDecoration: 'none' }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.textShadow = '0 0 8px #61A4F8';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.textShadow = 'none';
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
+          {/* CTA + Mobile Nav */}
           <div className="flex items-center space-x-3">
-            <Button className="bg-elevix-blue text-white hover:bg-blue-hover font-semibold px-4 sm:px-6 py-2 rounded-xl glow-effect transition-all duration-300 hover:scale-105 text-sm sm:text-base" onClick={handleWhatsAppRedirect}>
-            <span className="hidden sm:inline">Iniciar Minha Jornada →</span>
-              <span className="sm:hidden">Começar Agora</span>
-            </Button>
+            <button
+              onClick={handleWhatsAppRedirect}
+              className="btn-neon-pill hidden sm:block text-sm font-semibold"
+            >
+              <span className="hidden sm:inline">Iniciar Minha Jornada →</span>
+            </button>
+            <button
+              onClick={handleWhatsAppRedirect}
+              className="btn-neon-pill sm:hidden text-sm font-semibold"
+            >
+              Começar
+            </button>
             <MobileNavigation />
           </div>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
