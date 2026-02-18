@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Users, Target, Zap, CheckCircle, Shield, Rocket, Sparkles } from 'lucide-react';
+import { Shield, Rocket, Sparkles } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 import { WHATSAPP_URL } from '@/config/links';
 import StarField from '@/components/StarField';
@@ -16,19 +16,7 @@ const HeroSection = () => {
   const scrollToSection = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-  const desktopCards = [
-    { icon: TrendingUp, num: '30 Dias',  label: 'Garantia Orion',                  desc: 'Se o projeto não atingir o padrão que prometemos, devolvemos 100% do investimento. Sem letras miúdas.' },
-    { icon: Users,      num: '500+',     label: 'Empresas Impulsionadas',           desc: 'Empresas que chegaram até nós com desafios reais — e foram além do que elas mesmas esperavam.'        },
-    { icon: Target,     num: 'Design',   label: 'Estratégico Para Performance',     desc: 'Cada pixel tem uma função. Criamos para impressionar — e para vender.'                               },
-    { icon: Zap,        num: 'Suporte',  label: 'Especializado e Rápido',           desc: 'Do briefing à entrega: sua equipe dedicada, sempre disponível. Sem respostas automáticas.'            },
-  ];
 
-  const mobileCards = [
-    { icon: TrendingUp, title: 'Garantia Total de 30 Dias',          description: 'Se seu projeto não atingir o padrão Orion, devolvemos 100% do investimento.' },
-    { icon: Users,      title: '500+ Empresas Impulsionadas',         description: 'Empresas que chegaram com desafios reais — e foram além do que esperavam.'   },
-    { icon: Target,     title: 'Design Estratégico Para Performance', description: 'Cada pixel tem uma função. Criamos para impressionar — e para vender.'        },
-    { icon: Zap,        title: 'Suporte Especializado',               description: 'Do briefing à entrega: sua equipe dedicada, sempre disponível.'              },
-  ];
 
   return (
     <section
@@ -135,66 +123,6 @@ const HeroSection = () => {
           </Button>
         </div>
 
-        {/* ── Benefit cards ── */}
-        {/* Mobile */}
-        <div className="block sm:hidden w-full space-y-3 mb-8">
-          {mobileCards.map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <div key={i} className="flex items-start gap-3 rounded-2xl p-4 text-left"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', backdropFilter: 'blur(10px)' }}>
-                <Icon className="w-5 h-5 text-[#4F8EF7] flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="text-[#4F8EF7] text-sm font-semibold mb-1">{card.title}</div>
-                  <div className="text-slate-400 text-xs leading-relaxed">{card.description}</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Desktop */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 w-full mb-10">
-          {desktopCards.map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <div
-                key={i}
-                className="rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  backdropFilter: 'blur(10px)',
-                  animationDelay: `${i * 100}ms`,
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,212,255,0.25)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(79,142,247,0.12)';
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.06)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = 'none';
-                }}
-              >
-                <Icon className="w-7 h-7 text-[#4F8EF7] mx-auto mb-4 group-hover:scale-110 group-hover:text-[#00D4FF] transition-all duration-300" />
-                <div className="text-2xl font-display font-bold text-slate-100 mb-1">{card.num}</div>
-                <div className="text-[#00D4FF] text-xs font-semibold mb-2">{card.label}</div>
-                <div className="text-slate-400 text-xs leading-relaxed">{card.desc}</div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Floating stat line */}
-        <div className="flex items-center justify-center gap-2 flex-wrap">
-          <span className="text-xl">🚀</span>
-          <span className="text-[#00D4FF] text-sm sm:text-base font-semibold">
-            Mais de R$ 15 Milhões em Receita Gerados Para Nossos Clientes
-          </span>
-        </div>
-        <p className="text-slate-500 text-xs sm:text-sm mt-2">
-          Números reais. Empresas reais. Metodologia comprovada.
-        </p>
       </div>
     </section>
   );
