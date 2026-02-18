@@ -90,34 +90,33 @@ const HeroSection = () => {
             <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 rounded-full bg-gradient-to-r from-elevix-blue/20 to-blue-500/10 border border-elevix-blue/30 mb-6 sm:mb-8 mx-auto backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-elevix-blue/20">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue animate-pulse" />
               <span className="text-xs sm:text-sm md:text-base font-semibold text-white">
-                DESBLOQUEIE O PRÓXIMO NÍVEL DO SEU NEGÓCIO DIGITAL
+                A DISTÂNCIA ENTRE ONDE VOCÊ ESTÁ E ONDE QUER CHEGAR É UMA ESTRATÉGIA.
               </span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent [text-shadow:_0_0_30px_rgb(255_255_255_/_20%)]">
-              Transforme seu negócio digital com{' '}
+              Sua marca tem potencial de estrela.{' '}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-elevix-blue via-blue-400 to-elevix-blue bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                  estratégias que geram resultados
+                  Nós apontamos a rota.
                 </span>
               </span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 sm:mb-10 md:mb-12 leading-relaxed max-w-4xl mx-auto font-light">
-              A Orion oferece <span className="text-white font-semibold">soluções integradas</span> e metodologia comprovada 
-              para transformar desafios em <span className="text-white font-semibold">resultados reais</span>, 
-              independentemente do seu segmento de atuação.
+              Construímos estratégias que levam empresas a outro patamar. Com <span className="text-white font-semibold">dados, criatividade</span> e uma metodologia que já gerou 
+              mais de <span className="text-white font-semibold">R$ 15 milhões para nossos clientes</span>.
             </p>
             
             {/* Botões - CTAs Atualizados */}
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 justify-center items-center pt-6 sm:pt-8 px-2 sm:px-0 w-full">
               <Button size="lg" className="relative z-10 bg-gradient-to-r from-elevix-blue to-blue-600 hover:from-blue-hover hover:to-blue-700 text-white hover:text-white font-bold px-4 py-3 sm:px-12 sm:py-6 text-sm sm:text-xl rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-elevix-blue/25 hover:scale-105 group border border-blue-400/20 w-[90%] sm:w-auto min-h-[48px] flex items-center justify-center" onClick={handleWhatsAppRedirect}>
                 <Rocket className="hidden sm:block w-6 h-6 mr-2 flex-shrink-0 group-hover:text-white transition-colors" />
-                <span className="text-sm sm:text-xl leading-tight text-center">Quero Alavancar Meu Negócio</span>
+                <span className="text-sm sm:text-xl leading-tight text-center">Quero Crescer com a Orion →</span>
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-slate-600 bg-slate-800/50 backdrop-blur-sm text-slate-200 hover:bg-slate-700/70 hover:text-elevix-blue hover:border-blue-500/50 font-semibold px-4 py-3 sm:px-12 sm:py-6 text-sm sm:text-xl rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-slate-700/50 w-[90%] sm:w-auto min-h-[48px] flex items-center justify-center" onClick={handleCasosDeSuccesso} type="button">
                 <Shield className="hidden sm:block w-6 h-6 mr-2 flex-shrink-0" />
-                <span className="text-sm sm:text-xl leading-tight text-center">Conheça Nossos Cases</span>
+                <span className="text-sm sm:text-xl leading-tight text-center">Ver Cases de Sucesso</span>
               </Button>
             </div>
           </div>
@@ -150,17 +149,17 @@ const HeroSection = () => {
                   <TrendingUp className="w-8 h-8 text-elevix-blue group-hover:text-blue-300 transition-colors duration-300" />
                 </div>
                 <div className="text-3xl font-bold text-slate-100 mb-2">30 Dias</div>
-                <div className="text-blue-300 text-sm font-semibold mb-1">Garantia Total</div>
-                <div className="text-slate-400 text-xs">Se seu projeto não atingir o padrão Orion, você recebe 100% do seu investimento de volta.</div>
+                <div className="text-blue-300 text-sm font-semibold mb-1">Garantia Orion</div>
+                <div className="text-slate-400 text-xs">Se o projeto não atingir o padrão que prometemos, devolvemos 100% do investimento. Sem letras miúdas.</div>
               </div>
               
               <div className="bg-gradient-to-br from-slate-700/40 to-slate-800/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-slate-600/30 hover:border-blue-500/40 transition-all duration-500 hover:scale-105 group hover:shadow-lg hover:shadow-blue-900/20">
                 <div className="flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-elevix-blue group-hover:text-blue-300 transition-colors duration-300" />
                 </div>
-                <div className="text-3xl font-bold text-slate-100 mb-2">5.000+</div>
-                <div className="text-blue-300 text-sm font-semibold mb-1">Projetos Criados</div>
-                <div className="text-slate-400 text-xs">De iniciantes a grandes players: ajudamos negócios a crescerem com projetos que passam credibilidade.</div>
+                <div className="text-3xl font-bold text-slate-100 mb-2">500+</div>
+                <div className="text-blue-300 text-sm font-semibold mb-1">Empresas Impulsionadas</div>
+                <div className="text-slate-400 text-xs">Empresas que chegaram até nós com desafios reais — e foram embora com resultados que elas mesmas não esperavam.</div>
               </div>
               
               <div className="bg-gradient-to-br from-slate-700/40 to-slate-800/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-slate-600/30 hover:border-blue-500/40 transition-all duration-500 hover:scale-105 group hover:shadow-lg hover:shadow-blue-900/20">
@@ -169,7 +168,7 @@ const HeroSection = () => {
                 </div>
                 <div className="text-3xl font-bold text-slate-100 mb-2">Design</div>
                 <div className="text-blue-300 text-sm font-semibold mb-1">Estratégico Para Performance</div>
-                <div className="text-slate-400 text-xs">Soluções que não só impressionam, mas convertem – criadas com foco total em resultados.</div>
+                <div className="text-slate-400 text-xs">Cada pixel tem uma função. Criamos para impressionar — e para vender.</div>
               </div>
               
               <div className="bg-gradient-to-br from-slate-700/40 to-slate-800/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-slate-600/30 hover:border-blue-500/40 transition-all duration-500 hover:scale-105 group hover:shadow-lg hover:shadow-blue-900/20">
@@ -178,17 +177,17 @@ const HeroSection = () => {
                 </div>
                 <div className="text-3xl font-bold text-slate-100 mb-2">Suporte</div>
                 <div className="text-blue-300 text-sm font-semibold mb-1">Especializado e Rápido</div>
-                <div className="text-slate-400 text-xs">Nossa equipe te acompanha em cada detalhe até seu negócio estar pronto para resultados reais.</div>
+                <div className="text-slate-400 text-xs">Do briefing à entrega: sua equipe dedicada, sempre disponível. Sem respostas automáticas.</div>
               </div>
             </div>
             
             <div className="mt-6 sm:mt-8 text-center px-2 sm:px-0">
               <p className="text-blue-300 text-sm sm:text-lg font-semibold mb-2 flex items-center justify-center gap-2 flex-wrap">
-                <span className="text-lg sm:text-2xl">💎</span>
-                <span className="text-center leading-tight">Mais de R$ 15 Milhões Gerados por Clientes Orion</span>
+                <span className="text-lg sm:text-2xl">🚀</span>
+                <span className="text-center leading-tight">Mais de R$ 15 Milhões em Receita Gerados Para Nossos Clientes</span>
               </p>
               <p className="text-slate-300 text-xs sm:text-sm px-2 sm:px-0 leading-relaxed">
-                Com a estratégia certa, seus resultados sobem para outro patamar.
+                Números reais. Empresas reais. Metodologia comprovada.
               </p>
             </div>
           </div>

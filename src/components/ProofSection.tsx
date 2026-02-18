@@ -92,20 +92,19 @@ const ProofSection = () => {
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-elevix-blue/10 to-blue-500/10 rounded-full px-6 md:px-8 py-3 mb-6 md:mb-8 border border-elevix-blue/20 backdrop-blur-sm">
             <CheckCircle className="w-5 h-5 text-elevix-blue" />
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">Cases de Sucesso Orion</span>
+            <span className="text-blue-300 font-semibold text-sm sm:text-base">Missões Concluídas</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
-            Cases de Sucesso Orion:{' '}
+            Histórias Reais. Crescimento Real.{' '}
             <span className="text-elevix-blue">
-              Resultados Reais Que Inspiram
+              Empresas Que Foram Além.
             </span>
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Conheça as histórias de transformação de negócios como o seu, impulsionados pela{' '}
-            <span className="text-elevix-blue font-semibold">Metodologia Orion de Alavancagem</span>{' '}
-            e nossas soluções full service.
+            Conheça as histórias de transformação de empresas que chegaram até nós com desafios reais — e foram além do que{' '}
+            <span className="text-elevix-blue font-semibold">elas mesmas esperavam</span>.
           </p>
         </div>
 
@@ -245,12 +244,11 @@ const ProofSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <Card className="bg-gradient-to-br from-elevix-blue/10 via-gray-900/80 to-blue-500/10 border border-elevix-blue/30 backdrop-blur-sm p-8 sm:p-10 md:p-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-              Pronto Para Ser o{' '}
-              <span className="text-elevix-blue">Próximo Case de Sucesso</span>?
+              Pronto Para Escrever Seu{' '}
+              <span className="text-elevix-blue">Próprio Case</span>?
             </h3>
             <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
-              Nossa equipe de especialistas está pronta para transformar seu negócio com a{' '}
-              <span className="text-elevix-blue font-semibold">Metodologia Orion de Alavancagem</span>.
+              Sua empresa tem potencial para ir mais longe do que você imagina. Vamos provar isso juntos.
             </p>
             <Button
               size="lg"

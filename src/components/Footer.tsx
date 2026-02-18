@@ -97,7 +97,7 @@ const Footer = () => {
                 <h3 className="text-3xl font-bold text-neon-green">ORION</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Especialistas em criação e reestruturação de presenças digitais, transformando ideias em negócios de sucesso.
+                Construímos estratégias que levam empresas a outro nível. Traçando rotas de crescimento para quem recusa o ordinário.
               </p>
             </div>
             

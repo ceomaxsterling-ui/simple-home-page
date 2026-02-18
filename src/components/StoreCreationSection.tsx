@@ -10,24 +10,24 @@ const StoreCreationSection = () => {
   const creationSteps = [{
     id: 0,
     icon: <Settings className="w-6 h-6" />,
-    title: "Diagnóstico e Estratégia Personalizada",
-    description: "Entendemos a fundo seus objetivos, desafios e mercado para desenvolver um plano de ação sob medida",
+    title: "Diagnóstico Profundo",
+    description: "Antes de agir, entendemos. Mapeamos seu mercado, seus concorrentes e seus objetivos reais. O plano que nasce daqui não serve para nenhuma outra empresa — só para a sua.",
     features: ["Escuta Ativa", "Análise de Mercado", "Plano de Ação Detalhado", "KPIs Definidos"],
     color: "elevix-blue",
     bgGradient: "from-elevix-blue/20 to-blue-500/10"
   }, {
     id: 1,
     icon: <Zap className="w-6 h-6" />,
-    title: "Execução e Desenvolvimento de Alta Performance",
-    description: "Criamos a identidade visual, design e implementação técnica com tecnologia de ponta",
+    title: "Execução com Precisão",
+    description: "Time dedicado, prazos reais, entrega de alto nível. Cada detalhe é cuidado com o mesmo cuidado que teríamos se fosse nossa própria empresa.",
     features: ["Design e Conteúdo", "Identidade da Marca", "Implementação Técnica", "Plataformas Otimizadas"],
     color: "blue-400",
     bgGradient: "from-blue-400/20 to-blue-500/10"
   }, {
     id: 2,
     icon: <TrendingUp className="w-6 h-6" />,
-    title: "Otimização Contínua e Escala",
-    description: "Monitoramento constante e ajustes estratégicos para garantir máximo ROI e crescimento",
+    title: "Crescimento Contínuo",
+    description: "Entregamos e continuamos. Monitoramos cada resultado, identificamos o que pode ir mais longe e recalibramos a rota. Crescimento aqui não é um pico — é uma trajetória.",
     features: ["Monitoramento 24/7", "Análise de Performance", "Ajustes Estratégicos", "Crescimento Sustentável"],
     color: "blue-500",
     bgGradient: "from-blue-500/20 to-blue-600/10"
@@ -111,24 +111,24 @@ const StoreCreationSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}
         <div className={`text-center mb-16 md:mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center space-x-2 text-elevix-blue mb-6">
+            <div className="inline-flex items-center space-x-2 text-elevix-blue mb-6">
             <Zap className="w-6 h-6" />
-            <span className="text-lg font-medium">Metodologia Orion</span>
+            <span className="text-lg font-medium">Nossa Rota</span>
             <Zap className="w-6 h-6" />
           </div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-            A Metodologia Orion de Alavancagem:
+            Três Etapas. Uma Missão.
             <br />
             <span className="text-elevix-blue bg-gradient-to-r from-elevix-blue to-blue-400 bg-clip-text text-transparent">
-              Seu Caminho Para o Sucesso
+              Levar sua empresa ao lugar que ela merece.
             </span>
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Nosso processo é a espinha dorsal do seu crescimento. A Metodologia Orion de Alavancagem é um{' '}
-            <span className="text-elevix-blue font-semibold">framework robusto e transparente</span>, projetado para garantir que cada etapa do seu projeto seja executada com{' '}
-            <span className="text-elevix-blue font-semibold">precisão, qualidade e foco em resultados</span>.
+            Sem achismo. Sem improviso. Cada projeto segue uma{' '}
+            <span className="text-elevix-blue font-semibold">rota precisa</span> — para que você saiba exatamente onde está e{' '}
+            <span className="text-elevix-blue font-semibold">para onde está indo</span>.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ const StoreCreationSection = () => {
           {/* Left Side - Steps Navigation */}
           <div className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
-              Como Transformamos Sua <span className="text-elevix-blue">Visão em Realidade</span>
+              Como Funciona <span className="text-elevix-blue">Na Prática</span>
             </h3>
             
             <div className="space-y-4">
@@ -248,12 +248,11 @@ const StoreCreationSection = () => {
             onClick={() => window.open(WHATSAPP_URL, '_blank')}
             className="group bg-gradient-to-r from-elevix-blue to-blue-500 hover:from-blue-500 hover:to-elevix-blue text-white font-bold py-3 px-5 sm:py-4 sm:px-8 rounded-xl transition-all duration-300 hover:scale-105 text-sm sm:text-lg leading-tight"
           >
-            <span className="sm:hidden">Metodologia Orion Transforma Seu Negócio</span>
-            <span className="hidden sm:inline">Descubra Como a Metodologia Orion Pode Transformar Seu Negócio</span>
+            <span>Quero Ver Como Isso Funciona Para Minha Empresa →</span>
             <ArrowRight className="hidden sm:inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
           <p className="text-gray-400 text-sm mt-4">
-            ✓ Consultoria gratuita • ✓ Plano personalizado • ✓ Metodologia comprovada
+            ✓ Sem compromisso • ✓ Plano exclusivo para sua empresa • ✓ Resultados comprovados
           </p>
         </div>
       </div>

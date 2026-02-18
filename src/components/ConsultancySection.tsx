@@ -38,26 +38,26 @@ const ConsultancySection = () => {
     {
       id: 'analise',
       icon: TrendingUp,
-      title: "Análise Personalizada",
-      expandedContent: "Nossos especialistas farão um diagnóstico completo do seu negócio e do seu mercado. Analisamos seu cenário atual, estratégias de marketing, conversão e identificamos exatamente onde estão as oportunidades de crescimento."
+      title: "Diagnóstico Real da Sua Empresa",
+      expandedContent: "Vamos entender onde sua empresa está, o que está travando o crescimento e quais são os pontos mais críticos para endereçar agora. Uma análise honesta, sem rodeios."
     },
     {
       id: 'oportunidades',
       icon: Users,
-      title: "Identificação de Oportunidades",
-      expandedContent: "Descobriremos onde estão as maiores chances de crescimento e otimização para o seu negócio. Mapeamos pontos de melhoria em aquisição de clientes, conversão, estratégias de tráfego e automações que podem multiplicar seus resultados."
+      title: "O Que Você Ainda Não Está Aproveitando",
+      expandedContent: "Mapeamos os pontos de alavancagem que têm maior impacto no seu faturamento — e que você pode começar a explorar imediatamente."
     },
     {
       id: 'plano',
       icon: Sparkles,
-      title: "Plano de Ação Preliminar",
-      expandedContent: "Você sairá com insights valiosos e um direcionamento estratégico para os próximos passos. Apresentamos soluções sob medida utilizando a Metodologia Orion de Alavancagem, adaptadas especificamente para o seu segmento e objetivos."
+      title: "Sua Rota de Crescimento",
+      expandedContent: "Você sai da conversa com clareza: o que fazer primeiro, por onde começar e qual o caminho mais inteligente para sua empresa crescer."
     },
     {
       id: 'compromisso',
       icon: CheckCircle2,
-      title: "Sem Compromisso",
-      expandedContent: "Uma conversa focada 100% no seu sucesso, sem custos ou obrigações. Nossa consultoria é totalmente gratuita e sem pressão de venda. O objetivo é entregar valor real e ajudar você a tomar decisões estratégicas informadas."
+      title: "100% Focado em Você",
+      expandedContent: "Sem script de vendas. Sem pressão. Uma conversa honesta, focada no que é melhor para a sua empresa — e nada mais."
     }
   ];
 
@@ -86,19 +86,9 @@ const ConsultancySection = () => {
 
   const targetAudience = [
     {
-      icon: "store",
-      title: "Negócios Locais",
-      description: "Que querem atrair mais clientes e aumentar a visibilidade online"
-    },
-    {
-      icon: "trending",
-      title: "Infoprodutores",
-      description: "Que buscam escalar lançamentos e otimizar a aquisição de leads"
-    },
-    {
-      icon: "cart",
-      title: "E-commerce / Dropshipping",
-      description: "Que desejam aumentar vendas, melhorar conversão e expandir sua marca"
+      icon: "universal",
+      title: "Qualquer Empresa com Ambição",
+      description: "A consultoria é para qualquer empresa que acredita que pode crescer mais. Se você tem uma empresa, tem ambição e tem a sensação de que está deixando oportunidades na mesa — essa conversa é para você."
     }
   ];
 
@@ -173,16 +163,16 @@ const ConsultancySection = () => {
           <div className="text-center mb-12 md:mb-16 px-3 sm:px-0">
             <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
-              <span className="text-elevix-blue font-semibold text-sm sm:text-base">Consultoria Estratégica Gratuita</span>
+              <span className="text-elevix-blue font-semibold text-sm sm:text-base">Sua Primeira Missão Começa Aqui ⚡</span>
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
             </div>
             
             {/* Mobile optimized headline - Mais espaçamento vertical e largura */}
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 sm:mb-6 leading-[1.15] sm:leading-tight px-1 sm:px-4">
-                Consultoria Estratégica Gratuita:{' '}
+                Uma Conversa Que Pode Mudar a{' '}
                 <span className="bg-clip-text bg-gradient-to-r from-elevix-blue via-blue-400 to-blue-400 text-elevix-blue">
-                  Desbloqueie o Potencial do Seu Negócio
+                  Trajetória da Sua Empresa.
                 </span>
               </h2>
             </div>
@@ -190,8 +180,8 @@ const ConsultancySection = () => {
             {/* Mobile optimized subheadline - Fonte menor e mais largura */}
             <div className="max-w-5xl mx-auto">
               <p className="text-base sm:text-xl md:text-2xl text-gray-300 leading-relaxed px-2 sm:px-6">
-                Uma conversa sem compromisso com nossos especialistas para identificar as melhores oportunidades de crescimento e traçar um{' '}
-                <span className="text-elevix-blue font-bold">plano de ação personalizado</span>
+                Sem compromisso, sem custo, sem enrolação. Nossos especialistas analisam sua empresa e entregam um diagnóstico honesto — com as{' '}
+                <span className="text-elevix-blue font-bold">oportunidades que você ainda não está aproveitando</span>.
               </p>
             </div>
           </div>
@@ -280,9 +270,7 @@ const ConsultancySection = () => {
                             className="flex items-start space-x-4 p-4 sm:p-5 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300"
                           >
                             <div className="p-2 sm:p-2.5 bg-blue-500/20 rounded-xl flex-shrink-0">
-                              {audience.icon === "store" && <Store className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />}
-                              {audience.icon === "trending" && <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />}
-                              {audience.icon === "cart" && <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />}
+                              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />
                             </div>
                             <div className="flex-1 text-left">
                               <h5 className="text-white font-semibold text-base sm:text-lg mb-1">{audience.title}</h5>
@@ -387,13 +375,12 @@ const ConsultancySection = () => {
                       onClick={handleWhatsAppRedirect}
                     >
                       <Phone className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
-                      <span className="hidden sm:inline">Agendar Minha Consultoria Gratuita</span>
-                      <span className="sm:hidden">Agendar Consultoria</span>
-                      <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                      <span className="hidden sm:inline">Quero Minha Consultoria Gratuita →</span>
+                      <span className="sm:hidden">Quero Minha Consultoria</span>
                     </Button>
                     
                     <p className="text-xs sm:text-sm text-gray-400">
-                      Resposta em até 5 minutos • Atendimento humanizado
+                      Resposta em até 5 minutos • Sem compromisso • 100% gratuito
                     </p>
                   </div>
                 </div>
@@ -409,7 +396,7 @@ const ConsultancySection = () => {
             <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-8 bg-gray-900/40 border border-gray-800/50 rounded-2xl px-6 sm:px-8 py-4 max-w-md sm:max-w-none mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                <span className="text-white font-medium text-sm sm:text-base">+500 Negócios Ativos</span>
+                <span className="text-white font-medium text-sm sm:text-base">+500 Empresas Impulsionadas</span>
               </div>
               <div className="hidden sm:block w-px h-6 bg-gray-700"></div>
               <div className="flex items-center space-x-2">

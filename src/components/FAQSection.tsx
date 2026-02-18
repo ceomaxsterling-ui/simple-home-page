@@ -25,17 +25,17 @@ const FAQSection = () => {
     question: "O que é a Metodologia Orion de Alavancagem?",
     answer: "É o nosso sistema exclusivo de trabalho, que garante organização, delegação eficiente, prazos claros e um rigoroso controle de qualidade em todos os projetos. Ela foi desenvolvida para assegurar que cada solução entregue pela Orion gere resultados reais e mensuráveis para o seu negócio."
   }, {
-    question: "A Orion atende apenas e-commerces e dropshipping?",
-    answer: "Não! Embora tenhamos uma forte expertise e histórico de sucesso em e-commerce e dropshipping, expandimos nossos serviços para atender uma ampla gama de negócios. Atualmente, somos especialistas em alavancar resultados para donos de negócios locais, infoprodutores e, claro, e-commerces."
+    question: "A Orion atende qualquer tipo de empresa?",
+    answer: "A Orion atende empresas de todos os segmentos. Nossa metodologia foi desenvolvida para funcionar independentemente do mercado — o que muda é a estratégia, não a qualidade da entrega."
   }, {
     question: "Quais tipos de serviços a Orion oferece?",
-    answer: "Oferecemos um ecossistema completo de soluções digitais, incluindo Identidade Visual, Design de Social Media, Criação de Criativos (vídeo e imagem), Gestão de Tráfego Pago, Configuração e Otimização Google Meu Negócio, Automação de Atendimento e Vendas, Planejamento Estratégico Digital e Otimização de Conversão (CRO)."
+    answer: "Oferecemos um ecossistema completo de soluções digitais, incluindo Gestão de Tráfego Pago, Planejamento Estratégico, Identidade Visual, Criação de Conteúdo, Otimização de Conversão (CRO) e Automação de Atendimento — tudo integrado em uma operação única para a sua empresa."
   }, {
     question: "Como a Orion garante os resultados?",
     answer: "Nosso compromisso com resultados é fundamentado na nossa Metodologia Orion de Alavancagem, que inclui um diagnóstico aprofundado, estratégias personalizadas, execução de alta performance e otimização contínua baseada em dados. Além disso, nosso histórico de sucesso e os depoimentos de nossos clientes comprovam a eficácia da nossa abordagem."
   }, {
     question: "Como posso começar a trabalhar com a Orion?",
-    answer: "O primeiro passo é agendar uma Consultoria Estratégica Gratuita com nossos especialistas. Nela, vamos entender suas necessidades e apresentar um plano de ação inicial para o seu negócio. Você pode agendar diretamente em nossa página de Consultoria Gratuita."
+    answer: "O primeiro passo é agendar uma Consultoria Estratégica Gratuita com nossos especialistas. Nela, vamos entender suas necessidades e apresentar um plano de ação inicial para o seu negócio. Você pode agendar diretamente pelo nosso WhatsApp."
   }, {
     question: "Quanto tempo leva para meu projeto ficar pronto?",
     answer: "Nosso prazo médio é de até 7 dias corridos para projetos de criação de lojas e sites, mas pode variar conforme a complexidade do projeto. Para gestão de tráfego e outros serviços, o início é imediato. Garantimos agilidade sem comprometer a qualidade."
@@ -65,18 +65,15 @@ const FAQSection = () => {
         }}>
           <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-blue-500/20">
             <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">FAQ</span>
+            <span className="text-blue-300 font-semibold text-sm sm:text-base">Suas Dúvidas, Respondidas.</span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Perguntas Frequentes:{' '}
-            <span className="text-elevix-blue">
-              Tire Suas Dúvidas Sobre a Orion Company
-            </span>
+            Perguntas Frequentes
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            Encontre aqui as respostas para as perguntas mais comuns sobre nossa{' '}
-            <span className="text-elevix-blue font-semibold">agência, serviços e metodologia</span>.
+            Tudo que você precisa saber antes de dar o próximo passo com a{' '}
+            <span className="text-elevix-blue font-semibold">Orion Company</span>.
           </p>
         </div>
 
