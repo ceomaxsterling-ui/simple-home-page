@@ -80,8 +80,7 @@ const ProofSection = () => {
   const currentCase = cases[currentSlide];
 
   return (
-    <section id="provas" className="py-20 sm:py-24 section-space relative overflow-hidden">
-      <div className="space-dots" />
+    <section id="provas" className="py-20 sm:py-24 bg-black relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-elevix-blue/8 to-transparent rounded-full blur-3xl animate-pulse" />

@@ -105,9 +105,8 @@ const SolutionsSection = () => {
     <section 
       ref={sectionRef}
       id="solucoes" 
-      className="relative py-20 md:py-32 section-space overflow-hidden"
+      className="relative py-20 md:py-32 bg-black overflow-hidden"
     >
-      <div className="space-dots" />
       <div className="absolute inset-0">
         <div 
           className="absolute top-20 left-10 w-96 h-96 bg-elevix-blue/5 rounded-full blur-3xl transition-transform duration-1000"

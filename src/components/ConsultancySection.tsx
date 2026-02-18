@@ -96,9 +96,8 @@ const ConsultancySection = () => {
     <section 
       id="consultoria"
       ref={sectionRef} 
-      className="relative py-32 section-space overflow-hidden"
+      className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
     >
-      <div className="space-dots" />
       {/* Advanced Background Effects */}
       <div className="absolute inset-0">
         {/* Animated Grid */}

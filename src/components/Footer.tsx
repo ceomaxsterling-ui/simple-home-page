@@ -82,8 +82,7 @@ const Footer = () => {
     value: '24/7',
     label: 'Suporte'
   }];
-  return <footer className="relative section-space border-t border-gray-800">
-      <div className="space-dots" />
+  return <footer className="relative bg-black border-t border-gray-800">
       {/* Main Footer Content */}
       <div className="container mx-auto px-6">
         {/* Links and Contact Section */}

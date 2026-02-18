@@ -138,8 +138,7 @@ const ChallengesSection = () => {
   }, []);
 
   return (
-    <section id="challenges" className="section-space py-20 relative overflow-hidden">
-      <div className="space-dots" />
+    <section id="challenges" className="bg-black py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
