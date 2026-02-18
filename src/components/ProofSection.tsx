@@ -89,24 +89,24 @@ const ProofSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-elevix-blue/10 to-blue-500/10 rounded-full px-6 md:px-8 py-3 mb-6 md:mb-8 border border-elevix-blue/20 backdrop-blur-sm">
-            <CheckCircle className="w-5 h-5 text-elevix-blue" />
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">Missões Concluídas</span>
-          </div>
+        
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
-            Histórias Reais. Crescimento Real.{' '}
-            <span className="text-elevix-blue">
-              Empresas Que Foram Além.
-            </span>
-          </h2>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Conheça as histórias de transformação de empresas que chegaram até nós com desafios reais — e foram além do que{' '}
-            <span className="text-elevix-blue font-semibold">elas mesmas esperavam</span>.
-          </p>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Main Case Display */}
         <div className="max-w-6xl mx-auto mb-12 md:mb-16">
@@ -223,20 +223,20 @@ const ProofSection = () => {
             </button>
 
             {/* Slide Indicators */}
-            
+            <div className="flex justify-center gap-2 mt-6">
+              {cases.map((_, index) =>
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ?
+                'w-8 bg-elevix-blue' :
+                'w-2 bg-gray-600 hover:bg-gray-500'}`
+                }
+                aria-label={`Ir para case ${index + 1}`} />
 
-
-
-
-
-
-
-
-
-
-
-
-
+              )}
+            </div>
           </div>
         </div>
 
