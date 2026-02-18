@@ -32,6 +32,9 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
+              Home
+            </button>
             <button onClick={() => scrollToSection('solucoes')} className="text-white hover:text-elevix-blue transition-colors duration-300 font-medium">
               Soluções
             </button>
