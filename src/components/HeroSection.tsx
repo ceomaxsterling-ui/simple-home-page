@@ -103,50 +103,71 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Light cone effect — emanates from bottom center */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full pointer-events-none z-0" aria-hidden>
-        {/* Wide base glow on floor */}
+      {/* Light cone effect — neon beam rising from bottom, connecting to next section */}
+      <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none z-0" aria-hidden>
+
+        {/* Floor spread glow — wide base bleeding into next section */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-64"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-80"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(51,255,253,0.18) 0%, rgba(51,255,253,0.06) 40%, transparent 75%)',
+            background: 'radial-gradient(ellipse 90% 70% at 50% 100%, rgba(11,37,78,0.95) 0%, rgba(11,37,78,0.6) 35%, rgba(11,37,78,0.15) 65%, transparent 100%)',
           }}
         />
-        {/* Cone beam */}
+
+        {/* Wide cone body */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[520px]"
           style={{
-            width: '0',
-            height: '0',
-            borderLeft: '320px solid transparent',
-            borderRight: '320px solid transparent',
-            borderBottom: '420px solid transparent',
-            background: 'none',
-            // Fake the cone with a clip-path div instead
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[640px] h-[420px]"
-          style={{
-            background: 'linear-gradient(to top, rgba(51,255,253,0.22) 0%, rgba(51,255,253,0.10) 30%, rgba(51,255,253,0.02) 60%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(11,37,78,1) 0%, rgba(11,37,78,0.75) 25%, rgba(11,37,78,0.35) 55%, rgba(11,37,78,0.05) 80%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
           }}
         />
-        {/* Bright core streak */}
+
+        {/* Medium cone — brighter inner */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-[300px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px]"
           style={{
-            background: 'linear-gradient(to top, rgba(51,255,253,0.55) 0%, rgba(51,255,253,0.15) 50%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(30,80,160,0.95) 0%, rgba(20,55,120,0.7) 30%, rgba(11,37,78,0.3) 60%, transparent 100%)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-            filter: 'blur(8px)',
+            filter: 'blur(2px)',
           }}
         />
-        {/* Bright point at button origin */}
+
+        {/* Core bright streak */}
         <div
-          className="absolute bottom-[240px] left-1/2 -translate-x-1/2 w-32 h-8 rounded-full"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[160px] h-[420px]"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(51,255,253,0.7) 0%, rgba(51,255,253,0.2) 50%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(80,140,255,1) 0%, rgba(50,100,220,0.8) 25%, rgba(20,60,160,0.4) 55%, transparent 100%)',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
             filter: 'blur(6px)',
+          }}
+        />
+
+        {/* Ultra-bright neon core spine */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40px] h-[360px]"
+          style={{
+            background: 'linear-gradient(to top, rgba(150,200,255,1) 0%, rgba(100,160,255,0.9) 20%, rgba(60,120,240,0.5) 50%, transparent 100%)',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+            filter: 'blur(3px)',
+          }}
+        />
+
+        {/* Neon glow halo at apex (button area) */}
+        <div
+          className="absolute bottom-[260px] left-1/2 -translate-x-1/2 w-48 h-10 rounded-full"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(100,180,255,0.9) 0%, rgba(30,80,200,0.5) 40%, transparent 100%)',
+            filter: 'blur(10px)',
+          }}
+        />
+
+        {/* Outer neon bloom at base */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-32 rounded-full"
+          style={{
+            background: 'radial-gradient(ellipse at center bottom, rgba(11,37,78,0.9) 0%, rgba(11,37,78,0.4) 50%, transparent 100%)',
+            filter: 'blur(20px)',
           }}
         />
       </div>
