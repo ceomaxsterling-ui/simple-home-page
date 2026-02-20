@@ -432,3 +432,60 @@
   z-index: 0;
   pointer-events: none;
 }
+
+/* Cosmic particles */
+@keyframes floatParticle {
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateY(-80px) translateX(20px); opacity: 0; }
+}
+
+.cosmic-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(95, 145, 255, 0.7);
+  box-shadow: 0 0 6px rgba(95, 145, 255, 0.9);
+  pointer-events: none;
+  animation: floatParticle linear infinite;
+}
+
+/* Neon text glow utility */
+.text-neon-blue {
+  text-shadow: 0 0 10px rgba(95, 145, 255, 0.6), 0 0 20px rgba(95, 145, 255, 0.3);
+}
+
+/* Section divider glow */
+.section-glow-divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(95, 145, 255, 0.45), transparent);
+}
+
+/* Premium card hover neon */
+.card-neon-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.card-neon-hover:hover {
+  box-shadow: 0 0 28px rgba(95, 145, 255, 0.35), 0 0 60px rgba(95, 145, 255, 0.12);
+  border-color: rgba(95, 145, 255, 0.6) !important;
+  transform: translateY(-3px);
+}
+
+/* Icon neon glow */
+.icon-neon-glow {
+  filter: drop-shadow(0 0 6px rgba(95, 145, 255, 0.7));
+}
+
+/* Animated gradient border for premium cards */
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+.border-glow-animated {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+

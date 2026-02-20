@@ -4,28 +4,28 @@ import { WHATSAPP_URL } from '@/config/links';
 
 const differentials = [
   {
-    icon: <BarChart2 strokeWidth={1.5} className="w-7 h-7" style={{ color: '#5F91FF' }} />,
+    icon: <BarChart2 strokeWidth={1.5} className="w-7 h-7 icon-neon-glow" style={{ color: '#5F91FF' }} />,
     title: 'Foco em ROI, não em Vaidade',
     description:
       'Não nos importamos com curtidas. Nos importamos com o seu faturamento. Cada campanha é medida pelo retorno real que gera ao seu negócio.',
     objection: 'Cansado de métricas bonitas sem resultado? Nós também.',
   },
   {
-    icon: <Eye strokeWidth={1.5} className="w-7 h-7" style={{ color: '#5F91FF' }} />,
+    icon: <Eye strokeWidth={1.5} className="w-7 h-7 icon-neon-glow" style={{ color: '#5F91FF' }} />,
     title: 'Transparência Radical',
     description:
       'Você tem acesso em tempo real aos dashboards e sabe exatamente para onde cada centavo do seu investimento está indo. Zero surpresas.',
     objection: 'Já investiu em marketing sem saber para onde o dinheiro foi?',
   },
   {
-    icon: <Users2 strokeWidth={1.5} className="w-7 h-7" style={{ color: '#5F91FF' }} />,
+    icon: <Users2 strokeWidth={1.5} className="w-7 h-7 icon-neon-glow" style={{ color: '#5F91FF' }} />,
     title: 'Time Dedicado',
     description:
       'Seu projeto não será tocado por estagiários. Apenas especialistas cuidarão da sua estratégia — do diagnóstico à execução.',
     objection: 'Chega de agências que passam seu projeto para o júnior.',
   },
   {
-    icon: <ShieldCheck strokeWidth={1.5} className="w-7 h-7" style={{ color: '#5F91FF' }} />,
+    icon: <ShieldCheck strokeWidth={1.5} className="w-7 h-7 icon-neon-glow" style={{ color: '#5F91FF' }} />,
     title: 'Metodologia Baseada em Dados',
     description:
       'Nossa Metodologia Orion de Alavancagem elimina o "achismo" do marketing. Cada decisão é fundamentada em dados reais do seu mercado.',
@@ -37,18 +37,20 @@ const WhyOrionSection: React.FC = () => {
   return (
     <section
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
-      style={{ background: '#050505' }}
+      style={{
+        background: 'linear-gradient(180deg, #050505 0%, #06080f 45%, #050505 100%)',
+      }}
     >
       {/* Top glow line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
       />
-      {/* Ambient glow */}
+      {/* Ambient glow top */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.12) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />
@@ -56,10 +58,36 @@ const WhyOrionSection: React.FC = () => {
       <div
         className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 100% 100%, rgba(95,145,255,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 100% 100%, rgba(95,145,255,0.07) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />
+      {/* Left ambient orb */}
+      <div
+        className="absolute left-0 top-1/3 w-[250px] h-[350px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 0% 50%, rgba(95,145,255,0.06) 0%, transparent 70%)',
+          filter: 'blur(50px)',
+        }}
+      />
+      {/* Cosmic particles */}
+      {[
+        { left: '8%',  top: '25%', size: 1.5, delay: '0s',   duration: '9s'  },
+        { left: '92%', top: '45%', size: 2,   delay: '3s',   duration: '11s' },
+        { left: '55%', top: '75%', size: 1.5, delay: '1.5s', duration: '8s'  },
+        { left: '30%', top: '15%', size: 1,   delay: '5s',   duration: '10s' },
+        { left: '70%', top: '60%', size: 1.5, delay: '2.5s', duration: '12s' },
+      ].map((p, i) => (
+        <div
+          key={i}
+          className="cosmic-particle"
+          style={{
+            left: p.left, top: p.top,
+            width: `${p.size}px`, height: `${p.size}px`,
+            animationDelay: p.delay, animationDuration: p.duration,
+          }}
+        />
+      ))}
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 

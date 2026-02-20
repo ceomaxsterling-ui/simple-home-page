@@ -6,17 +6,17 @@ const ArsenalSection: React.FC = () => {
 
   const cards = [
     {
-      icon: <Rocket strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
+      icon: <Rocket strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
       title: 'Nossa Missão',
       text: 'Colocar empresas em uma nova órbita de crescimento',
     },
     {
-      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
+      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
       title: 'Resultados',
       text: 'ROI médio de +300% e 98% de satisfação',
     },
     {
-      icon: <Handshake strokeWidth={1.5} className="w-8 h-8" style={{ color: '#5F91FF' }} />,
+      icon: <Handshake strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
       title: 'Compromisso',
       text: 'Transparência total e foco no seu crescimento',
     },
@@ -26,7 +26,9 @@ const ArsenalSection: React.FC = () => {
     <section
       ref={sectionRef}
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
-      style={{ background: '#050505' }}
+      style={{
+        background: 'linear-gradient(180deg, #050505 0%, #070a14 45%, #050505 100%)',
+      }}
     >
       {/* Top glow line */}
       <div
@@ -37,10 +39,35 @@ const ArsenalSection: React.FC = () => {
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.12) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />
+      {/* Right deep orb */}
+      <div
+        className="absolute right-0 bottom-0 w-[400px] h-[400px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 100% 100%, rgba(95,145,255,0.07) 0%, transparent 70%)',
+          filter: 'blur(70px)',
+        }}
+      />
+      {/* Cosmic particles */}
+      {[
+        { left: '5%',  top: '40%', size: 1.5, delay: '0s',   duration: '10s' },
+        { left: '95%', top: '20%', size: 2,   delay: '3s',   duration: '8s'  },
+        { left: '60%', top: '70%', size: 1,   delay: '1.5s', duration: '12s' },
+        { left: '15%', top: '70%', size: 1.5, delay: '5s',   duration: '9s'  },
+      ].map((p, i) => (
+        <div
+          key={i}
+          className="cosmic-particle"
+          style={{
+            left: p.left, top: p.top,
+            width: `${p.size}px`, height: `${p.size}px`,
+            animationDelay: p.delay, animationDuration: p.duration,
+          }}
+        />
+      ))}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Badge */}

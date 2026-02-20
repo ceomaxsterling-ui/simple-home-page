@@ -74,7 +74,10 @@ const MethodologySection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#050505] py-12 sm:py-16 md:py-24 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #050505 0%, #060810 50%, #050505 100%)',
+      }}
     >
       {/* Section ambient glow — top edge */}
       <div
@@ -85,10 +88,36 @@ const MethodologySection: React.FC = () => {
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.14) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />
+      {/* Left ambient orb */}
+      <div
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[500px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 0% 50%, rgba(95,145,255,0.07) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      />
+      {/* Cosmic particles */}
+      {[
+        { left: '12%', top: '20%', size: 2, delay: '0s', duration: '8s' },
+        { left: '78%', top: '60%', size: 1.5, delay: '2s', duration: '10s' },
+        { left: '45%', top: '80%', size: 2, delay: '4s', duration: '9s' },
+        { left: '90%', top: '30%', size: 1.5, delay: '1s', duration: '11s' },
+        { left: '25%', top: '50%', size: 1, delay: '3s', duration: '7s' },
+      ].map((p, i) => (
+        <div
+          key={i}
+          className="cosmic-particle"
+          style={{
+            left: p.left, top: p.top,
+            width: `${p.size}px`, height: `${p.size}px`,
+            animationDelay: p.delay, animationDuration: p.duration,
+          }}
+        />
+      ))}
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
