@@ -19,7 +19,7 @@ const differentials = [
   },
   {
     icon: <Users2 strokeWidth={1.5} className="w-7 h-7" style={{ color: '#5F91FF' }} />,
-    title: 'Time Sênior Dedicado',
+    title: 'Time Dedicado',
     description:
       'Seu projeto não será tocado por estagiários. Apenas especialistas seniores cuidarão da sua estratégia — do diagnóstico à execução.',
     objection: 'Chega de agências que passam seu projeto para o júnior.',
