@@ -89,12 +89,28 @@ const SolutionsSection: React.FC = () => {
     <section
       id="solucoes"
       ref={sectionRef}
-      className="relative bg-[#050505] py-12 sm:py-16 md:py-20 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #050505 0%, #04060c 40%, #050505 100%)',
+      }}
     >
+      {/* Top edge glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
+      />
       {/* Bottom edge glow */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
+      />
+      {/* Right ambient orb */}
+      <div
+        className="absolute right-0 top-1/3 w-[350px] h-[400px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 100% 50%, rgba(95,145,255,0.08) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
       />
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] pointer-events-none"
