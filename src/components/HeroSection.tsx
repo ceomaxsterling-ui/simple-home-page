@@ -21,9 +21,9 @@ const HeroSection = () => {
 
       {/* Falling stars — styled via CSS nth-child */}
       <div className="stars-container">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div key={`star-${i}`} className="star" />
-        ))}
+        {Array.from({ length: 10 }).map((_, i) =>
+        <div key={`star-${i}`} className="star" />
+        )}
       </div>
 
       {/* Bottom concentrated blue light */}
@@ -32,42 +32,42 @@ const HeroSection = () => {
       {/* Static starfield */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[
-          { top: '8%',  left: '12%', size: 1.5, opacity: 0.5 },
-          { top: '15%', left: '78%', size: 1,   opacity: 0.4 },
-          { top: '22%', left: '34%', size: 1,   opacity: 0.35 },
-          { top: '6%',  left: '55%', size: 1.5, opacity: 0.45 },
-          { top: '30%', left: '90%', size: 1,   opacity: 0.3 },
-          { top: '42%', left: '5%',  size: 1.5, opacity: 0.4 },
-          { top: '18%', left: '65%', size: 1,   opacity: 0.3 },
-          { top: '55%', left: '22%', size: 1,   opacity: 0.35 },
-          { top: '70%', left: '88%', size: 1.5, opacity: 0.4 },
-          { top: '62%', left: '47%', size: 1,   opacity: 0.25 },
-          { top: '80%', left: '10%', size: 1,   opacity: 0.3 },
-          { top: '88%', left: '72%', size: 1.5, opacity: 0.4 },
-          { top: '75%', left: '33%', size: 1,   opacity: 0.3 },
-          { top: '4%',  left: '88%', size: 1,   opacity: 0.35 },
-          { top: '48%', left: '68%', size: 1.5, opacity: 0.3 },
-          { top: '35%', left: '15%', size: 1,   opacity: 0.4 },
-          { top: '12%', left: '42%', size: 1.5, opacity: 0.45 },
-          { top: '25%', left: '8%',  size: 1,   opacity: 0.3 },
-          { top: '38%', left: '58%', size: 1.5, opacity: 0.3 },
-          { top: '66%', left: '18%', size: 1,   opacity: 0.35 },
-        ].map((star, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              top: star.top,
-              left: star.left,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              background: `rgba(165,210,255,${star.opacity})`,
-              boxShadow: `0 0 ${star.size * 3}px rgba(126,200,255,${star.opacity * 0.8})`,
-              animation: `twinkle ${3 + i % 4}s ease-in-out infinite`,
-              animationDelay: `${(i * 0.4) % 4}s`,
-            }}
-          />
-        ))}
+        { top: '8%', left: '12%', size: 1.5, opacity: 0.5 },
+        { top: '15%', left: '78%', size: 1, opacity: 0.4 },
+        { top: '22%', left: '34%', size: 1, opacity: 0.35 },
+        { top: '6%', left: '55%', size: 1.5, opacity: 0.45 },
+        { top: '30%', left: '90%', size: 1, opacity: 0.3 },
+        { top: '42%', left: '5%', size: 1.5, opacity: 0.4 },
+        { top: '18%', left: '65%', size: 1, opacity: 0.3 },
+        { top: '55%', left: '22%', size: 1, opacity: 0.35 },
+        { top: '70%', left: '88%', size: 1.5, opacity: 0.4 },
+        { top: '62%', left: '47%', size: 1, opacity: 0.25 },
+        { top: '80%', left: '10%', size: 1, opacity: 0.3 },
+        { top: '88%', left: '72%', size: 1.5, opacity: 0.4 },
+        { top: '75%', left: '33%', size: 1, opacity: 0.3 },
+        { top: '4%', left: '88%', size: 1, opacity: 0.35 },
+        { top: '48%', left: '68%', size: 1.5, opacity: 0.3 },
+        { top: '35%', left: '15%', size: 1, opacity: 0.4 },
+        { top: '12%', left: '42%', size: 1.5, opacity: 0.45 },
+        { top: '25%', left: '8%', size: 1, opacity: 0.3 },
+        { top: '38%', left: '58%', size: 1.5, opacity: 0.3 },
+        { top: '66%', left: '18%', size: 1, opacity: 0.35 }].
+        map((star, i) =>
+        <div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            top: star.top,
+            left: star.left,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            background: `rgba(165,210,255,${star.opacity})`,
+            boxShadow: `0 0 ${star.size * 3}px rgba(126,200,255,${star.opacity * 0.8})`,
+            animation: `twinkle ${3 + i % 4}s ease-in-out infinite`,
+            animationDelay: `${i * 0.4 % 4}s`
+          }} />
+
+        )}
       </div>
 
       {/* Content */}
@@ -89,9 +89,9 @@ const HeroSection = () => {
             style={{
               backgroundImage: 'linear-gradient(90deg, #ffffff, #7EC8FF, #ffffff)',
               backgroundSize: '200% auto',
-              animation: 'gradient-shift 4s linear infinite',
+              animation: 'gradient-shift 4s linear infinite'
             }}>
-            funis de venda e tráfego pago
+            ​estratégias e metodologia  
           </span>{' '}
           <span className="text-white">de alta performance.</span>
         </h1>
@@ -125,8 +125,8 @@ const HeroSection = () => {
           50%       { opacity: calc(var(--star-opacity, 0.4) * 0.3); transform: scale(0.7); }
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
