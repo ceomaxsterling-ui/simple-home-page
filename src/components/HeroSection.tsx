@@ -83,7 +83,7 @@ const HeroSection = () => {
 
         {/* Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6 text-white">
-          Sua marca tem{' '}
+          Dobramos seu faturamento com{' '}
           <span
             className="bg-clip-text text-transparent"
             style={{
@@ -91,16 +91,15 @@ const HeroSection = () => {
               backgroundSize: '200% auto',
               animation: 'gradient-shift 4s linear infinite',
             }}>
-            potencial de estrela.
-          </span>
-          <br />
-          <span className="text-white">Nós apontamos a rota.</span>
+            funis de venda e tráfego pago
+          </span>{' '}
+          <span className="text-white">de alta performance.</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed font-light">
-          Construímos estratégias que levam empresas a outro nível. Com{' '}
-          <span className="text-white font-medium">dados, criatividade</span> e uma metodologia que transforma ideias em resultados sólidos no universo digital
+          Implementamos nossa <span className="text-white font-medium">Metodologia Orion de Alavancagem</span> para transformar cliques em clientes — garantindo um{' '}
+          <span className="text-white font-medium">ROI médio de 300%</span> para nossos parceiros.
         </p>
 
         {/* CTA */}
@@ -111,7 +110,7 @@ const HeroSection = () => {
             style={{ backgroundColor: '#1E90FF' }}
             onClick={handleWhatsAppRedirect}>
             <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
-            Quero Crescer com a Orion →
+            Receber Meu Diagnóstico Gratuito →
           </Button>
         </div>
       </div>

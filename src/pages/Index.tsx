@@ -3,9 +3,9 @@ import React from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import PainPointsSection from '@/components/PainPointsSection';
-import SolutionsSection from '@/components/SolutionsSection';
-import ArsenalSection from '@/components/ArsenalSection';
+import WhyOrionSection from '@/components/WhyOrionSection';
 import MethodologySection from '@/components/MethodologySection';
+import SolutionsSection from '@/components/SolutionsSection';
 import ChallengesSection from '@/components/ChallengesSection';
 import ConsultancySection from '@/components/ConsultancySection';
 import FAQSection from '@/components/FAQSection';
@@ -18,7 +18,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <PainPointsSection />
-      <ArsenalSection />
+      <WhyOrionSection />
       <MethodologySection />
       <SolutionsSection />
       <ChallengesSection />
@@ -31,4 +31,3 @@ const Index = () => {
 };
 
 export default Index;
-
