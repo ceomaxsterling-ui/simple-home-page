@@ -55,7 +55,7 @@ const MobileNavigation = () => {
             </button>
           </nav>
 
-          <Button className="btn-interactive bg-elevix-blue text-white hover:bg-blue-hover font-semibold px-6 py-3 rounded-xl glow-effect transition-all duration-300 w-full mt-8 focus:outline-none" onClick={handleWhatsAppRedirect}>
+          <Button className="bg-elevix-blue text-white hover:bg-blue-hover font-semibold px-6 py-3 rounded-xl glow-effect transition-all duration-300 hover:scale-105 w-full mt-8 focus:outline-none" onClick={handleWhatsAppRedirect}>
             Quero Escalar
           </Button>
         </div>
