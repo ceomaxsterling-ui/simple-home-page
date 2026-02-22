@@ -223,7 +223,7 @@ const StoreCreationSection = () => {
         <div className="text-center">
           <button
             onClick={() => window.open(WHATSAPP_URL, '_blank')}
-            className="group inline-flex items-center gap-2 bg-gradient-to-r from-elevix-blue to-blue-500 hover:from-blue-500 hover:to-elevix-blue text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 text-base sm:text-lg"
+            className="group inline-flex items-center gap-2 bg-elevix-blue hover:bg-blue-hover text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 text-base sm:text-lg"
           >
             <span>Quero Ver Como Isso Funciona Para Minha Empresa</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
