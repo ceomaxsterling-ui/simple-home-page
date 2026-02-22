@@ -83,7 +83,7 @@ const HeroSection = () => {
 
         {/* Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6 text-white">
-          Dobramos seu faturamento com{' '}
+          Estruturamos seu crescimento com{' '}
           <span
             className="bg-clip-text text-transparent"
             style={{
