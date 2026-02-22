@@ -102,7 +102,7 @@ const WhyOrionSection: React.FC = () => {
         <div className="text-center mb-3 px-2">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight">
             A Escolha Certa Para{' '}
-            <span style={{ color: '#5F91FF' }} className="text-primary">Escalar Seu Negócio</span>
+            <span style={{ color: '#1E90FF' }} className="text-primary">Escalar Seu Negócio</span>
           </h2>
         </div>
 
