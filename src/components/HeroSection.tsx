@@ -98,8 +98,7 @@ const HeroSection = () => {
 
         {/* Subheadline */}
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed font-light">
-          Implementamos nossa <span className="text-white font-medium">Metodologia Orion de Alavancagem</span> para transformar cliques em clientes — garantindo um{' '}
-          <span className="text-white font-medium">ROI médio de 300%</span> para nossos parceiros.
+          Implementamos nossa <span className="text-white font-medium">Metodologia Orion de Alavancagem</span> para transformar cliques em clientes.
         </p>
 
         {/* CTA */}
