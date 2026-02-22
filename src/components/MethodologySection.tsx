@@ -144,20 +144,31 @@ const MethodologySection: React.FC = () => {
             <button
               key={s.id}
               onClick={() => handleSelect(i)}
-              className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full ${
+              className={`group relative text-left p-4 rounded-2xl border transition-all duration-300 w-full overflow-hidden ${
               activeStep === i ?
-              'border-[#5F91FF]/60 bg-[#5F91FF]/8 shadow-[0_0_20px_rgba(95,145,255,0.2)]' :
-              'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'}`
-              }>
-
-                <div className="flex items-start gap-3">
+              'border-[rgba(30,144,255,0.4)] shadow-[0_0_30px_rgba(30,144,255,0.15)]' :
+              'border-[rgba(30,144,255,0.15)] hover:border-[rgba(37,168,245,0.3)] hover:shadow-[0_0_20px_rgba(30,144,255,0.1)]'}`}
+              style={{
+                background: activeStep === i
+                  ? 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)'
+                  : 'linear-gradient(135deg, rgba(30,144,255,0.04) 0%, rgba(15,20,25,0.8) 100%)',
+                backdropFilter: 'blur(10px)',
+              }}
+              >
+                {activeStep === i && <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />}
+                <div className="relative z-10 flex items-start gap-3">
                   <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                activeStep === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/60 text-gray-400 group-hover:text-white'}`
-                }>
+                activeStep === i ? 'text-[#1E90FF]' : 'text-gray-400 group-hover:text-white'}`}
+                style={{
+                  background: activeStep === i ? 'rgba(30,144,255,0.1)' : 'rgba(255,255,255,0.03)',
+                  border: activeStep === i ? '1px solid rgba(30,144,255,0.25)' : '1px solid rgba(255,255,255,0.08)',
+                  ...(activeStep === i ? { filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' } : {}),
+                }}
+                >
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <span className={`text-xs font-bold block mb-0.5 ${activeStep === i ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
+                    <span className={`text-xs font-bold block mb-0.5 ${activeStep === i ? 'text-[#1E90FF]' : 'text-gray-600'}`}>
                       {s.number}
                     </span>
                     <h3 className={`font-bold text-sm transition-colors leading-tight ${
@@ -165,7 +176,7 @@ const MethodologySection: React.FC = () => {
                   }>
                       {s.title}
                     </h3>
-                    <p className="text-xs text-gray-500 mt-1 leading-snug line-clamp-2">{s.summary}</p>
+                    <p style={{ color: 'rgba(255,255,255,0.6)' }} className="text-xs mt-1 leading-snug line-clamp-2">{s.summary}</p>
                   </div>
                 </div>
               </button>

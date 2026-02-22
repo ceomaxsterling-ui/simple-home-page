@@ -218,24 +218,26 @@ const SolutionsSection: React.FC = () => {
               {tab.cards.map((card, i) =>
               <div
                 key={i}
-                className="flex flex-col items-center gap-1.5 md:gap-2 p-2 md:p-3 rounded-xl transition-all duration-300 text-center"
+                className="relative flex flex-col items-center gap-1.5 md:gap-2 p-2 md:p-3 rounded-xl transition-all duration-300 text-center overflow-hidden"
                 style={{
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.03)'
+                  border: '1px solid rgba(30,144,255,0.2)',
+                  background: 'linear-gradient(135deg, rgba(30,144,255,0.08) 0%, rgba(15,20,25,0.9) 100%)',
+                  boxShadow: '0 0 15px rgba(30,144,255,0.08)',
+                  backdropFilter: 'blur(10px)',
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.35)';
-                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(95,145,255,0.06)';
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 12px rgba(95,145,255,0.15)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(37,168,245,0.4)';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 30px rgba(30,144,255,0.2)';
+                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-3px)';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.08)';
-                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.03)';
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(30,144,255,0.2)';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 15px rgba(30,144,255,0.08)';
+                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
                 }}>
 
-                  <div className="text-[#5F91FF]">{card.icon}</div>
-                  <span className="text-white text-xs font-medium leading-snug">{card.label}</span>
+                  <div style={{ filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} className="text-[#1E90FF]">{card.icon}</div>
+                  <span style={{ color: '#FFFFFF' }} className="text-xs font-medium leading-snug">{card.label}</span>
                 </div>
               )}
             </div>
