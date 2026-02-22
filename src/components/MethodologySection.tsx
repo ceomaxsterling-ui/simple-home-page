@@ -2,58 +2,58 @@ import React, { useState, useRef } from 'react';
 import { Settings, Zap, TrendingUp, CheckCircle } from 'lucide-react';
 
 const steps = [
-  {
-    id: 0,
-    number: '01',
-    icon: <Settings className="w-5 h-5" />,
-    title: 'Diagnóstico Profundo',
-    summary: 'Antes de agir, entendemos. Mapeamos seu mercado, seus concorrentes e seus objetivos reais.',
-    badge: 'Etapa 1 de 3',
-    description:
-      'Antes de agir, entendemos. Mapeamos seu mercado, seus concorrentes e seus objetivos reais. Cada decisão nasce de dados — não de achismo.',
-    checklist: [
-      'Análise completa do mercado e concorrência',
-      'Mapeamento dos objetivos e metas reais',
-      'Identificação de gargalos e oportunidades',
-      'Definição de KPIs e indicadores-chave',
-    ],
-    progress: 33,
-  },
-  {
-    id: 1,
-    number: '02',
-    icon: <Zap className="w-5 h-5" />,
-    title: 'Execução com Precisão',
-    summary: 'Time dedicado, prazos reais, entrega de alto nível. Cada detalhe é cuidado com excelência.',
-    badge: 'Etapa 2 de 3',
-    description:
-      'Time dedicado, prazos reais, entrega de alto nível. Cada detalhe é cuidado com excelência. Você acompanha cada etapa com transparência total.',
-    checklist: [
-      'Time especializado dedicado ao seu projeto',
-      'Prazos definidos e respeitados',
-      'Entregas com qualidade premium',
-      'Comunicação clara e transparente',
-    ],
-    progress: 66,
-  },
-  {
-    id: 2,
-    number: '03',
-    icon: <TrendingUp className="w-5 h-5" />,
-    title: 'Crescimento Contínuo',
-    summary: 'Entregamos e continuamos. Monitoramos cada resultado, identificamos oportunidades e otimizamos.',
-    badge: 'Etapa 3 de 3',
-    description:
-      'Entregamos e continuamos. Monitoramos cada resultado, identificamos o que pode ser melhorado e otimizamos a rota. Crescimento não é sorte — é método.',
-    checklist: [
-      'Monitoramento constante de resultados',
-      'Relatórios periódicos de performance',
-      'Otimizações baseadas em dados',
-      'Ajustes estratégicos contínuos',
-    ],
-    progress: 100,
-  },
-];
+{
+  id: 0,
+  number: '01',
+  icon: <Settings className="w-5 h-5" />,
+  title: 'Diagnóstico Profundo',
+  summary: 'Antes de agir, entendemos. Mapeamos seu mercado, seus concorrentes e seus objetivos reais.',
+  badge: 'Etapa 1 de 3',
+  description:
+  'Antes de agir, entendemos. Mapeamos seu mercado, seus concorrentes e seus objetivos reais. Cada decisão nasce de dados — não de achismo.',
+  checklist: [
+  'Análise completa do mercado e concorrência',
+  'Mapeamento dos objetivos e metas reais',
+  'Identificação de gargalos e oportunidades',
+  'Definição de KPIs e indicadores-chave'],
+
+  progress: 33
+},
+{
+  id: 1,
+  number: '02',
+  icon: <Zap className="w-5 h-5" />,
+  title: 'Execução com Precisão',
+  summary: 'Time dedicado, prazos reais, entrega de alto nível. Cada detalhe é cuidado com excelência.',
+  badge: 'Etapa 2 de 3',
+  description:
+  'Time dedicado, prazos reais, entrega de alto nível. Cada detalhe é cuidado com excelência. Você acompanha cada etapa com transparência total.',
+  checklist: [
+  'Time especializado dedicado ao seu projeto',
+  'Prazos definidos e respeitados',
+  'Entregas com qualidade premium',
+  'Comunicação clara e transparente'],
+
+  progress: 66
+},
+{
+  id: 2,
+  number: '03',
+  icon: <TrendingUp className="w-5 h-5" />,
+  title: 'Crescimento Contínuo',
+  summary: 'Entregamos e continuamos. Monitoramos cada resultado, identificamos oportunidades e otimizamos.',
+  badge: 'Etapa 3 de 3',
+  description:
+  'Entregamos e continuamos. Monitoramos cada resultado, identificamos o que pode ser melhorado e otimizamos a rota. Crescimento não é sorte — é método.',
+  checklist: [
+  'Monitoramento constante de resultados',
+  'Relatórios periódicos de performance',
+  'Otimizações baseadas em dados',
+  'Ajustes estratégicos contínuos'],
+
+  progress: 100
+}];
+
 
 const MethodologySection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -76,55 +76,55 @@ const MethodologySection: React.FC = () => {
       ref={sectionRef}
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #050505 0%, #060810 50%, #050505 100%)',
-      }}
-    >
+        background: 'linear-gradient(180deg, #050505 0%, #060810 50%, #050505 100%)'
+      }}>
+
       {/* Section ambient glow — top edge */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
-      />
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }} />
+
       {/* Radial glow centre */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.14) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }}
-      />
+          filter: 'blur(40px)'
+        }} />
+
       {/* Left ambient orb */}
       <div
         className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[500px] pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at 0% 50%, rgba(95,145,255,0.07) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-        }}
-      />
+          filter: 'blur(60px)'
+        }} />
+
       {/* Cosmic particles */}
       {[
-        { left: '12%', top: '20%', size: 2, delay: '0s', duration: '8s' },
-        { left: '78%', top: '60%', size: 1.5, delay: '2s', duration: '10s' },
-        { left: '45%', top: '80%', size: 2, delay: '4s', duration: '9s' },
-        { left: '90%', top: '30%', size: 1.5, delay: '1s', duration: '11s' },
-        { left: '25%', top: '50%', size: 1, delay: '3s', duration: '7s' },
-      ].map((p, i) => (
-        <div
-          key={i}
-          className="cosmic-particle"
-          style={{
-            left: p.left, top: p.top,
-            width: `${p.size}px`, height: `${p.size}px`,
-            animationDelay: p.delay, animationDuration: p.duration,
-          }}
-        />
-      ))}
+      { left: '12%', top: '20%', size: 2, delay: '0s', duration: '8s' },
+      { left: '78%', top: '60%', size: 1.5, delay: '2s', duration: '10s' },
+      { left: '45%', top: '80%', size: 2, delay: '4s', duration: '9s' },
+      { left: '90%', top: '30%', size: 1.5, delay: '1s', duration: '11s' },
+      { left: '25%', top: '50%', size: 1, delay: '3s', duration: '7s' }].
+      map((p, i) =>
+      <div
+        key={i}
+        className="cosmic-particle"
+        style={{
+          left: p.left, top: p.top,
+          width: `${p.size}px`, height: `${p.size}px`,
+          animationDelay: p.delay, animationDuration: p.duration
+        }} />
+
+      )}
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Header */}
         <div className="text-center mb-8 md:mb-16 px-2">
           <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-4 py-2 mb-4">
-            <span className="text-[#5F91FF] font-semibold text-xs sm:text-sm">⚡ Nossa Rota ⚡</span>
+            <span className="text-[#5F91FF] font-semibold text-xs sm:text-sm"> Nossa Rota </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
             Três Etapas. Uma Missão.{' '}
@@ -140,20 +140,20 @@ const MethodologySection: React.FC = () => {
 
           {/* Step cards — STACKED on mobile (no horizontal scroll) */}
           <div className="md:col-span-2 flex flex-col gap-3">
-            {steps.map((s, i) => (
-              <button
-                key={s.id}
-                onClick={() => handleSelect(i)}
-                className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full ${
-                  activeStep === i
-                    ? 'border-[#5F91FF]/60 bg-[#5F91FF]/8 shadow-[0_0_20px_rgba(95,145,255,0.2)]'
-                    : 'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'
-                }`}
-              >
+            {steps.map((s, i) =>
+            <button
+              key={s.id}
+              onClick={() => handleSelect(i)}
+              className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full ${
+              activeStep === i ?
+              'border-[#5F91FF]/60 bg-[#5F91FF]/8 shadow-[0_0_20px_rgba(95,145,255,0.2)]' :
+              'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'}`
+              }>
+
                 <div className="flex items-start gap-3">
                   <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    activeStep === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/60 text-gray-400 group-hover:text-white'
-                  }`}>
+                activeStep === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/60 text-gray-400 group-hover:text-white'}`
+                }>
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -161,15 +161,15 @@ const MethodologySection: React.FC = () => {
                       {s.number}
                     </span>
                     <h3 className={`font-bold text-sm transition-colors leading-tight ${
-                      activeStep === i ? 'text-white' : 'text-gray-300 group-hover:text-white'
-                    }`}>
+                  activeStep === i ? 'text-white' : 'text-gray-300 group-hover:text-white'}`
+                  }>
                       {s.title}
                     </h3>
                     <p className="text-xs text-gray-500 mt-1 leading-snug line-clamp-2">{s.summary}</p>
                   </div>
                 </div>
               </button>
-            ))}
+            )}
           </div>
 
           {/* Detail panel */}
@@ -178,22 +178,22 @@ const MethodologySection: React.FC = () => {
             style={{
               opacity: fading ? 0 : 1,
               transform: fading ? 'translateX(8px)' : 'translateX(0)',
-              transition: 'opacity 0.22s ease, transform 0.22s ease',
-            }}
-          >
+              transition: 'opacity 0.22s ease, transform 0.22s ease'
+            }}>
+
             <div
               className="rounded-2xl p-5 md:p-8 relative overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, rgba(95,145,255,0.07) 0%, rgba(10,14,28,0.95) 60%)',
                 border: '1px solid rgba(95,145,255,0.3)',
-                boxShadow: '0 0 40px rgba(95,145,255,0.12), inset 0 0 20px rgba(95,145,255,0.03)',
-              }}
-            >
+                boxShadow: '0 0 40px rgba(95,145,255,0.12), inset 0 0 20px rgba(95,145,255,0.03)'
+              }}>
+
               {/* Card top glow line */}
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.6), transparent)' }}
-              />
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.6), transparent)' }} />
+
 
               {/* Badge + Title */}
               <div className="mb-5 md:mb-6">
@@ -206,12 +206,12 @@ const MethodologySection: React.FC = () => {
 
               {/* Checklist */}
               <div className="space-y-2 md:space-y-3 mb-5 md:mb-6">
-                {step.checklist.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
+                {step.checklist.map((item, idx) =>
+                <div key={idx} className="flex items-start gap-3">
                     <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#5F91FF] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-200 text-xs md:text-sm">{item}</span>
                   </div>
-                ))}
+                )}
               </div>
 
               {/* Progress bar */}
@@ -223,18 +223,18 @@ const MethodologySection: React.FC = () => {
                 <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[#5F91FF] to-[#5F91FF]/70 rounded-full transition-all duration-700 ease-out"
-                    style={{ width: `${step.progress}%` }}
-                  />
+                    style={{ width: `${step.progress}%` }} />
+
                 </div>
                 <div className="flex justify-between mt-2">
-                  {steps.map((s, i) => (
-                    <div
-                      key={i}
-                      className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}
-                    >
+                  {steps.map((s, i) =>
+                  <div
+                    key={i}
+                    className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
+
                       {s.title}
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -242,8 +242,8 @@ const MethodologySection: React.FC = () => {
         </div>
 
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default MethodologySection;
