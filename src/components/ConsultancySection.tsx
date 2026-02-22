@@ -13,73 +13,73 @@ const ConsultancySection = () => {
   };
 
   const toggleCard = (cardId: string) => {
-    setOpenCards(prev => ({ ...prev, [cardId]: !prev[cardId] }));
+    setOpenCards((prev) => ({ ...prev, [cardId]: !prev[cardId] }));
   };
 
   const benefits = [
-    {
-      id: 'analise',
-      icon: TrendingUp,
-      title: "Diagnóstico Real da Sua Empresa",
-      expandedContent: "Vamos entender onde sua empresa está, o que está travando o crescimento e quais são os pontos mais críticos para endereçar agora. Uma análise honesta, sem rodeios."
-    },
-    {
-      id: 'oportunidades',
-      icon: Users,
-      title: "O Que Você Ainda Não Está Aproveitando",
-      expandedContent: "Mapeamos os pontos de alavancagem que têm maior impacto no seu faturamento — e que você pode começar a explorar imediatamente."
-    },
-    {
-      id: 'plano',
-      icon: Sparkles,
-      title: "Sua Rota de Crescimento",
-      expandedContent: "Você sai da conversa com clareza: o que fazer primeiro, por onde começar e qual o caminho mais inteligente para sua empresa crescer."
-    },
-    {
-      id: 'compromisso',
-      icon: CheckCircle2,
-      title: "100% Focado em Você",
-      expandedContent: "Sem script de vendas. Sem pressão. Uma conversa honesta, focada no que é melhor para a sua empresa — e nada mais."
-    }
-  ];
+  {
+    id: 'analise',
+    icon: TrendingUp,
+    title: "Diagnóstico Real da Sua Empresa",
+    expandedContent: "Vamos entender onde sua empresa está, o que está travando o crescimento e quais são os pontos mais críticos para endereçar agora. Uma análise honesta, sem rodeios."
+  },
+  {
+    id: 'oportunidades',
+    icon: Users,
+    title: "O Que Você Ainda Não Está Aproveitando",
+    expandedContent: "Mapeamos os pontos de alavancagem que têm maior impacto no seu faturamento — e que você pode começar a explorar imediatamente."
+  },
+  {
+    id: 'plano',
+    icon: Sparkles,
+    title: "Sua Rota de Crescimento",
+    expandedContent: "Você sai da conversa com clareza: o que fazer primeiro, por onde começar e qual o caminho mais inteligente para sua empresa crescer."
+  },
+  {
+    id: 'compromisso',
+    icon: CheckCircle2,
+    title: "100% Focado em Você",
+    expandedContent: "Sem script de vendas. Sem pressão. Uma conversa honesta, focada no que é melhor para a sua empresa — e nada mais."
+  }];
+
 
   const processSteps = [
-    {
-      step: 1,
-      title: "Agendamento rápido e flexível",
-      description: "Entre em contato e escolha o melhor horário para conversar"
-    },
-    {
-      step: 2,
-      title: "Análise profunda do seu negócio",
-      description: "Revisamos seu negócio, mercado e estratégias atuais"
-    },
-    {
-      step: 3,
-      title: "Identificação de oportunidades",
-      description: "Mapeamos as melhores oportunidades e otimizações prioritárias"
-    },
-    {
-      step: 4,
-      title: "Plano de ação personalizado",
-      description: "Criamos um roadmap específico para escalar seus resultados"
-    }
-  ];
+  {
+    step: 1,
+    title: "Agendamento rápido e flexível",
+    description: "Entre em contato e escolha o melhor horário para conversar"
+  },
+  {
+    step: 2,
+    title: "Análise profunda do seu negócio",
+    description: "Revisamos seu negócio, mercado e estratégias atuais"
+  },
+  {
+    step: 3,
+    title: "Identificação de oportunidades",
+    description: "Mapeamos as melhores oportunidades e otimizações prioritárias"
+  },
+  {
+    step: 4,
+    title: "Plano de ação personalizado",
+    description: "Criamos um roadmap específico para escalar seus resultados"
+  }];
+
 
   const targetAudience = [
-    {
-      icon: "universal",
-      title: "Qualquer Empresa com Ambição",
-      description: "A consultoria é para qualquer empresa que acredita que pode crescer mais. Se você tem uma empresa, tem ambição e tem a sensação de que está deixando oportunidades na mesa — essa conversa é para você."
-    }
-  ];
+  {
+    icon: "universal",
+    title: "Qualquer Empresa com Ambição",
+    description: "A consultoria é para qualquer empresa que acredita que pode crescer mais. Se você tem uma empresa, tem ambição e tem a sensação de que está deixando oportunidades na mesa — essa conversa é para você."
+  }];
+
 
   return (
-    <section 
+    <section
       id="consultoria"
-      ref={sectionRef} 
-      className="relative py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
-    >
+      ref={sectionRef}
+      className="relative py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+
       {/* Advanced Background Effects */}
       <div className="absolute inset-0">
         {/* Animated Grid */}
@@ -105,18 +105,18 @@ const ConsultancySection = () => {
 
         {/* Particle Effect */}
         <div className="absolute inset-0 bg-black">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-elevix-blue/20 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }}
-            />
-          ))}
+          {[...Array(15)].map((_, i) =>
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-elevix-blue/20 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
+            }} />
+
+          )}
         </div>
       </div>
 
@@ -127,7 +127,7 @@ const ConsultancySection = () => {
           <div className="text-center mb-12 md:mb-16 px-3 sm:px-0">
             <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
-              <span className="text-elevix-blue font-semibold text-sm sm:text-base">Sua Primeira Missão Começa Aqui ⚡</span>
+              <span className="text-elevix-blue font-semibold text-sm sm:text-base">Sua Primeira Missão Começa Aqui </span>
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
             </div>
             
@@ -163,16 +163,16 @@ const ConsultancySection = () => {
                 
                 {/* Mobile Centered Cards Container */}
                 <div className="space-y-3 sm:space-y-4 max-w-md sm:max-w-none mx-auto sm:mx-0">
-                  {benefits.map((benefit, index) => (
-                    <Collapsible
-                      key={benefit.id}
-                      open={openCards[benefit.id]}
-                      onOpenChange={() => toggleCard(benefit.id)}
-                    >
-                      <CollapsibleTrigger 
-                        className="w-full"
-                        style={{ animationDelay: `${index * 100}ms` }}
-                      >
+                  {benefits.map((benefit, index) =>
+                  <Collapsible
+                    key={benefit.id}
+                    open={openCards[benefit.id]}
+                    onOpenChange={() => toggleCard(benefit.id)}>
+
+                      <CollapsibleTrigger
+                      className="w-full"
+                      style={{ animationDelay: `${index * 100}ms` }}>
+
                         <div className="flex items-center justify-between p-4 sm:p-4 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300 hover:bg-gray-900/60 cursor-pointer">
                           <div className="flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0">
                             <div className="p-1.5 sm:p-2 bg-blue-500/20 rounded-xl flex-shrink-0">
@@ -180,11 +180,11 @@ const ConsultancySection = () => {
                             </div>
                             <span className="text-sm sm:text-lg text-white font-medium text-left leading-tight">{benefit.title}</span>
                           </div>
-                          <ChevronDown 
-                            className={`w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue transition-transform duration-300 flex-shrink-0 ml-2 ${
-                              openCards[benefit.id] ? 'rotate-180' : ''
-                            }`} 
-                          />
+                          <ChevronDown
+                          className={`w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue transition-transform duration-300 flex-shrink-0 ml-2 ${
+                          openCards[benefit.id] ? 'rotate-180' : ''}`
+                          } />
+
                         </div>
                       </CollapsibleTrigger>
                       
@@ -194,7 +194,7 @@ const ConsultancySection = () => {
                         </div>
                       </CollapsibleContent>
                     </Collapsible>
-                  ))}
+                  )}
                 </div>
               </div>
 
@@ -202,8 +202,8 @@ const ConsultancySection = () => {
               <div className="max-w-md sm:max-w-none mx-auto sm:mx-0">
                 <Collapsible
                   open={openCards['target-audience']}
-                  onOpenChange={() => toggleCard('target-audience')}
-                >
+                  onOpenChange={() => toggleCard('target-audience')}>
+
                   <CollapsibleTrigger className="w-full">
                     <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/40 border border-gray-700/50 rounded-3xl p-6 sm:p-8 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 cursor-pointer">
                       <div className="flex items-center justify-between">
@@ -211,11 +211,11 @@ const ConsultancySection = () => {
                           <Users className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
                           Para Quem é a Consultoria?
                         </h3>
-                        <ChevronDown 
+                        <ChevronDown
                           className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-transform duration-300 flex-shrink-0 ${
-                            openCards['target-audience'] ? 'rotate-180' : ''
-                          }`} 
-                        />
+                          openCards['target-audience'] ? 'rotate-180' : ''}`
+                          } />
+
                       </div>
                     </div>
                   </CollapsibleTrigger>
@@ -223,11 +223,11 @@ const ConsultancySection = () => {
                   <CollapsibleContent className="overflow-hidden">
                     <div className="mt-4 bg-gradient-to-br from-gray-900/40 to-gray-800/20 border border-gray-700/30 rounded-3xl p-4 sm:p-6 backdrop-blur-sm">
                       <div className="grid gap-4">
-                        {targetAudience.map((audience, index) => (
-                          <div 
-                            key={index}
-                            className="flex items-start space-x-4 p-4 sm:p-5 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300"
-                          >
+                        {targetAudience.map((audience, index) =>
+                        <div
+                          key={index}
+                          className="flex items-start space-x-4 p-4 sm:p-5 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300">
+
                             <div className="p-2 sm:p-2.5 bg-blue-500/20 rounded-xl flex-shrink-0">
                               <Users className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />
                             </div>
@@ -236,7 +236,7 @@ const ConsultancySection = () => {
                               <p className="text-gray-400 text-sm sm:text-base">{audience.description}</p>
                             </div>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
                   </CollapsibleContent>
@@ -247,8 +247,8 @@ const ConsultancySection = () => {
               <div className="max-w-md sm:max-w-none mx-auto sm:mx-0">
                 <Collapsible
                   open={openCards['process']}
-                  onOpenChange={() => toggleCard('process')}
-                >
+                  onOpenChange={() => toggleCard('process')}>
+
                   <CollapsibleTrigger className="w-full">
                     <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/40 border border-gray-700/50 rounded-3xl p-6 sm:p-8 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 cursor-pointer">
                       <div className="flex items-center justify-between">
@@ -256,11 +256,11 @@ const ConsultancySection = () => {
                           <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
                           Como Funciona
                         </h4>
-                        <ChevronDown 
+                        <ChevronDown
                           className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-transform duration-300 flex-shrink-0 ${
-                            openCards['process'] ? 'rotate-180' : ''
-                          }`} 
-                        />
+                          openCards['process'] ? 'rotate-180' : ''}`
+                          } />
+
                       </div>
                     </div>
                   </CollapsibleTrigger>
@@ -268,8 +268,8 @@ const ConsultancySection = () => {
                   <CollapsibleContent className="overflow-hidden">
                     <div className="mt-4 bg-gradient-to-br from-gray-900/40 to-gray-800/20 border border-gray-700/30 rounded-3xl p-4 sm:p-6 backdrop-blur-sm">
                       <div className="space-y-3 sm:space-y-4">
-                        {processSteps.map((step, index) => (
-                          <div key={index} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-900/30 rounded-2xl">
+                        {processSteps.map((step, index) =>
+                        <div key={index} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-900/30 rounded-2xl">
                             <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-xs sm:text-sm flex-shrink-0">
                               {step.step}
                             </div>
@@ -278,7 +278,7 @@ const ConsultancySection = () => {
                               <p className="text-gray-400 text-xs sm:text-sm">{step.description}</p>
                             </div>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
                   </CollapsibleContent>
@@ -329,10 +329,10 @@ const ConsultancySection = () => {
 
                   {/* WhatsApp CTA - Mobile optimized */}
                   <div className="space-y-3 sm:space-y-4">
-                    <Button 
+                    <Button
                       className="w-full bg-elevix-blue hover:bg-blue-hover text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-elevix-blue/30 group text-base sm:text-lg"
-                      onClick={handleWhatsAppRedirect}
-                    >
+                      onClick={handleWhatsAppRedirect}>
+
                       <Phone className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
                       <span className="hidden sm:inline">Quero Minha Consultoria Gratuita →</span>
                       <span className="sm:hidden">Quero Minha Consultoria</span>
@@ -371,8 +371,8 @@ const ConsultancySection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ConsultancySection;
