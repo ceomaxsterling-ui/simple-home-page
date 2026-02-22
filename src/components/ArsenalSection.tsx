@@ -6,17 +6,17 @@ const ArsenalSection: React.FC = () => {
 
   const cards = [
     {
-      icon: <Rocket strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
+      icon: <Rocket strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#00D1FF' }} />,
       title: 'Nossa Missão',
       text: 'Colocar empresas em uma nova órbita de crescimento',
     },
     {
-      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
+      icon: <TrendingUp strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#00D1FF' }} />,
       title: 'Resultados',
       text: 'ROI médio de +300% e 98% de satisfação',
     },
     {
-      icon: <Handshake strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#5F91FF' }} />,
+      icon: <Handshake strokeWidth={1.5} className="w-8 h-8 icon-neon-glow" style={{ color: '#00D1FF' }} />,
       title: 'Compromisso',
       text: 'Transparência total e foco no seu crescimento',
     },
@@ -27,30 +27,18 @@ const ArsenalSection: React.FC = () => {
       ref={sectionRef}
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #050505 0%, #070a14 45%, #050505 100%)',
+        background: 'linear-gradient(180deg, #050505 0%, #040a14 45%, #050505 100%)',
       }}
     >
       {/* Top glow line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.4), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.4), transparent)' }}
       />
-      {/* Ambient glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.12) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }}
-      />
+      {/* Light ellipse top */}
+      <div className="light-ellipse" style={{ top: '-80px', left: '50%', transform: 'translateX(-50%)', width: '800px', height: '350px' }} />
       {/* Right deep orb */}
-      <div
-        className="absolute right-0 bottom-0 w-[400px] h-[400px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 100% 100%, rgba(95,145,255,0.07) 0%, transparent 70%)',
-          filter: 'blur(70px)',
-        }}
-      />
+      <div className="light-ellipse" style={{ right: '-100px', bottom: '-50px', width: '500px', height: '500px', opacity: 0.4 }} />
       {/* Cosmic particles */}
       {[
         { left: '5%',  top: '40%', size: 1.5, delay: '0s',   duration: '10s' },
@@ -71,80 +59,59 @@ const ArsenalSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-6xl relative z-10">
 
         {/* Badge */}
-        <div
-          className="flex justify-center mb-4"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5F91FF]/30 bg-[#5F91FF]/5 text-[#5F91FF] text-xs sm:text-sm font-medium tracking-wide">
+        <div className="flex justify-center mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D1FF]/30 bg-[#00D1FF]/5 text-[#00D1FF] text-xs sm:text-sm font-medium tracking-wide backdrop-blur-sm">
             Sobre Nós
           </span>
         </div>
 
         {/* Title */}
-        <div
-          className="text-center mb-3 px-2"
-        >
+        <div className="text-center mb-3 px-2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             Nascemos da Inconformidade com o{' '}
-            <span style={{ color: '#5F91FF' }}>Marketing Genérico</span>
+            <span className="title-neon">Marketing Genérico</span>
           </h2>
         </div>
 
         {/* Subtitle */}
-        <div
-          className="text-center mb-8 md:mb-12 px-2"
-        >
+        <div className="text-center mb-8 md:mb-12 px-2">
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Enquanto o mercado se contentava com promessas vazias, nós criamos algo que realmente funciona.
           </p>
         </div>
 
-        {/* 2-column layout: stacks on mobile */}
+        {/* 2-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-stretch">
 
           {/* Left: Logo card */}
-          <div
-            className="flex items-center justify-center"
-          >
+          <div className="flex items-center justify-center">
             <div className="relative w-full" style={{ minHeight: '340px' }}>
+              <div className="light-ellipse" style={{ inset: '0', width: '100%', height: '100%' }} />
 
-              {/* Outer ambient glow */}
               <div
-                className="absolute inset-0"
-                style={{
-                  background: 'radial-gradient(ellipse at 50% 50%, rgba(95,145,255,0.2) 0%, transparent 70%)',
-                  filter: 'blur(55px)',
-                  pointerEvents: 'none',
-                }}
-              />
-
-              {/* Card — full height to match right column */}
-              <div
-                className="relative w-full h-full flex items-center justify-center rounded-2xl"
+                className="relative w-full h-full flex items-center justify-center rounded-2xl glass-card-strong"
                 style={{
                   minHeight: '340px',
-                  background: 'linear-gradient(160deg, rgba(95,145,255,0.09) 0%, rgba(8,12,24,0.97) 60%, rgba(5,5,5,1) 100%)',
-                  border: '1px solid rgba(95,145,255,0.35)',
-                  boxShadow: '0 0 50px rgba(95,145,255,0.2), 0 0 100px rgba(95,145,255,0.1), inset 0 0 30px rgba(95,145,255,0.04)',
                   animation: 'floatOrion 5s ease-in-out infinite',
                 }}
               >
                 {/* Corner accents */}
-                <div className="absolute top-3 left-3 w-5 h-5 border-t border-l" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
-                <div className="absolute top-3 right-3 w-5 h-5 border-t border-r" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
-                <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
-                <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r" style={{ borderColor: 'rgba(95,145,255,0.6)' }} />
+                <div className="absolute top-3 left-3 w-5 h-5 border-t border-l" style={{ borderColor: 'rgba(0,209,255,0.6)' }} />
+                <div className="absolute top-3 right-3 w-5 h-5 border-t border-r" style={{ borderColor: 'rgba(0,209,255,0.6)' }} />
+                <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l" style={{ borderColor: 'rgba(0,209,255,0.6)' }} />
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r" style={{ borderColor: 'rgba(0,209,255,0.6)' }} />
 
                 {/* Scan lines */}
                 <div
                   className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden opacity-20"
                   style={{
-                    background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(95,145,255,0.08) 3px, rgba(95,145,255,0.08) 4px)',
+                    background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,209,255,0.08) 3px, rgba(0,209,255,0.08) 4px)',
                   }}
                 />
 
                 {/* Pulsing rings */}
-                <div className="absolute rounded-full" style={{ width: '200px', height: '200px', border: '1px solid rgba(95,145,255,0.3)', animation: 'pulseRing 3s ease-in-out infinite' }} />
-                <div className="absolute rounded-full" style={{ width: '250px', height: '250px', border: '1px solid rgba(95,145,255,0.12)', animation: 'pulseRing 3s ease-in-out infinite 0.7s' }} />
+                <div className="absolute rounded-full" style={{ width: '200px', height: '200px', border: '1px solid rgba(0,209,255,0.3)', animation: 'pulseRing 3s ease-in-out infinite' }} />
+                <div className="absolute rounded-full" style={{ width: '250px', height: '250px', border: '1px solid rgba(0,209,255,0.12)', animation: 'pulseRing 3s ease-in-out infinite 0.7s' }} />
 
                 {/* Logo */}
                 <img
@@ -155,7 +122,7 @@ const ArsenalSection: React.FC = () => {
                     width: '180px',
                     height: '180px',
                     objectFit: 'contain',
-                    filter: 'drop-shadow(0 0 24px rgba(95,145,255,1)) drop-shadow(0 0 60px rgba(95,145,255,0.6))',
+                    filter: 'drop-shadow(0 0 24px rgba(0,209,255,1)) drop-shadow(0 0 60px rgba(0,209,255,0.6))',
                     userSelect: 'none',
                     position: 'relative',
                     zIndex: 1,
@@ -165,35 +132,21 @@ const ArsenalSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Cards */}
+          {/* Right: Cards — glassmorphism */}
           <div className="flex flex-col gap-5">
             {cards.map((card, i) => (
               <div
                 key={i}
-                className="group p-6 rounded-2xl cursor-default"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(95,145,255,0.25)',
-                  boxShadow: '0 0 12px rgba(95,145,255,0.1)',
-                  transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.45), 0 0 48px rgba(95,145,255,0.15)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.7)';
-                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-3px)';
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 12px rgba(95,145,255,0.1)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.25)';
-                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-                }}
+                className="group p-6 rounded-2xl cursor-default glass-card relative overflow-hidden"
               >
+                {/* Inner top glow */}
+                <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.3), transparent)' }} />
                 <div className="flex items-center gap-4">
                   <div
                     className="flex-shrink-0 p-2.5 rounded-xl"
                     style={{
-                      background: 'rgba(95,145,255,0.08)',
-                      border: '1px solid rgba(95,145,255,0.2)',
+                      background: 'rgba(0,209,255,0.08)',
+                      border: '1px solid rgba(0,209,255,0.2)',
                     }}
                   >
                     {card.icon}
@@ -210,7 +163,6 @@ const ArsenalSection: React.FC = () => {
 
       </div>
 
-      {/* Floating animation keyframe via style tag */}
       <style>{`
         @keyframes floatOrion {
           0%, 100% { transform: translateY(0px); }

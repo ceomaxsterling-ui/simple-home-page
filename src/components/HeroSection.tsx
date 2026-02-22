@@ -61,8 +61,8 @@ const HeroSection = () => {
             left: star.left,
             width: `${star.size}px`,
             height: `${star.size}px`,
-            background: `rgba(165,210,255,${star.opacity})`,
-            boxShadow: `0 0 ${star.size * 3}px rgba(126,200,255,${star.opacity * 0.8})`,
+            background: `rgba(0,209,255,${star.opacity})`,
+            boxShadow: `0 0 ${star.size * 3}px rgba(0,209,255,${star.opacity * 0.8})`,
             animation: `twinkle ${3 + i % 4}s ease-in-out infinite`,
             animationDelay: `${i * 0.4 % 4}s`
           }} />
@@ -74,8 +74,8 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto w-full px-4">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8 backdrop-blur-sm">
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#7EC8FF] flex-shrink-0" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-[#00D1FF]/20 mb-6 sm:mb-8 backdrop-blur-sm">
+          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00D1FF] flex-shrink-0" />
           <span className="text-[10px] sm:text-xs font-medium text-slate-300 tracking-wide leading-snug">
             A DISTÂNCIA ENTRE ONDE VOCÊ ESTÁ E ONDE QUER CHEGAR É UMA ESTRATÉGIA.
           </span>
@@ -87,7 +87,7 @@ const HeroSection = () => {
           <span
             className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: 'linear-gradient(90deg, #ffffff, #7EC8FF, #ffffff)',
+              backgroundImage: 'linear-gradient(90deg, #ffffff, #00D1FF, #ffffff)',
               backgroundSize: '200% auto',
               animation: 'gradient-shift 4s linear infinite'
             }}>
@@ -106,8 +106,8 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full mb-12 sm:mb-20">
           <Button
             size="lg"
-            className="relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[90%] sm:w-auto"
-            style={{ backgroundColor: '#1E90FF' }}
+            className="relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#00D1FF]/40 hover:border-[#00D1FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,209,255,0.35)] hover:scale-105 w-[90%] sm:w-auto"
+            style={{ backgroundColor: '#00D1FF', color: '#000' }}
             onClick={handleWhatsAppRedirect}>
             <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
             Receber Meu Diagnóstico Gratuito →
