@@ -136,43 +136,63 @@ const WhyOrionSection: React.FC = () => {
           {differentials.map((item, i) =>
           <div
             key={i}
-            className="group p-5 sm:p-6 rounded-2xl cursor-default"
+            className="group relative p-5 sm:p-6 rounded-2xl cursor-default overflow-hidden"
             style={{
-              background: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(95,145,255,0.2)',
-              boxShadow: '0 0 10px rgba(95,145,255,0.06)',
+              background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+              border: '1px solid rgba(30,144,255,0.2)',
+              boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+              backdropFilter: 'blur(10px)',
               transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease'
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLDivElement;
-              el.style.boxShadow = '0 0 30px rgba(95,145,255,0.35), 0 0 60px rgba(95,145,255,0.12)';
-              el.style.borderColor = 'rgba(95,145,255,0.6)';
-              el.style.transform = 'translateY(-3px)';
+              el.style.boxShadow = '0 0 40px rgba(37,168,245,0.25), 0 0 80px rgba(30,144,255,0.1)';
+              el.style.borderColor = 'rgba(37,168,245,0.4)';
+              el.style.transform = 'translateY(-5px)';
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLDivElement;
-              el.style.boxShadow = '0 0 10px rgba(95,145,255,0.06)';
-              el.style.borderColor = 'rgba(95,145,255,0.2)';
+              el.style.boxShadow = '0 0 30px rgba(30,144,255,0.15)';
+              el.style.borderColor = 'rgba(30,144,255,0.2)';
               el.style.transform = 'translateY(0)';
             }}>
 
+              {/* Radial light source */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)',
+                }}
+              />
+
+              {/* Corner decorative particle */}
+              <div
+                className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full pointer-events-none"
+                style={{
+                  background: 'rgba(30,144,255,0.4)',
+                  boxShadow: '0 0 6px rgba(30,144,255,0.6)',
+                }}
+              />
+
               {/* Objection pill */}
-              <p className="text-[10px] sm:text-xs text-[#5F91FF]/60 font-medium mb-3 italic">
+              <p className="relative z-10 text-[10px] sm:text-xs font-medium mb-3 italic" style={{ color: 'rgba(30,144,255,0.6)' }}>
                 {item.objection}
               </p>
-              <div className="flex items-start gap-4">
+              <div className="relative z-10 flex items-start gap-4">
                 <div
                 className="flex-shrink-0 p-2.5 rounded-xl mt-0.5"
                 style={{
-                  background: 'rgba(95,145,255,0.08)',
-                  border: '1px solid rgba(95,145,255,0.18)'
+                  background: 'rgba(30,144,255,0.1)',
+                  border: '1px solid rgba(30,144,255,0.25)',
+                  boxShadow: '0 0 12px rgba(30,144,255,0.1)'
                 }}>
-
-                  {item.icon}
+                  <div style={{ filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }}>
+                    {item.icon}
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-1.5">{item.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                  <h3 className="font-semibold text-base sm:text-lg mb-1.5" style={{ color: '#FFFFFF' }}>{item.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>{item.description}</p>
                 </div>
               </div>
             </div>
