@@ -128,7 +128,7 @@ const MethodologySection: React.FC = () => {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
             Três Etapas. Uma Missão.{' '}
-            <span className="text-[#5F91FF]">Levar sua empresa ao lugar que ela merece.</span>
+            <span className="text-primary">Levar sua empresa ao lugar que ela merece.</span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Sem achismo. Sem improviso. Cada projeto segue uma rota precisa — para que você saiba exatamente onde está e para onde está indo.
