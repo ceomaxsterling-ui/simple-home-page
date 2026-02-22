@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Rocket, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 import { WHATSAPP_URL } from '@/config/links';
 
@@ -109,7 +109,7 @@ const HeroSection = () => {
             className="relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[90%] sm:w-auto"
             style={{ backgroundColor: '#1E90FF' }}
             onClick={handleWhatsAppRedirect}>
-            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
+            
             Receber Meu Diagnóstico Gratuito →
           </Button>
         </div>
