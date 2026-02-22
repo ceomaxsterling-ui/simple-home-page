@@ -133,57 +133,66 @@ const AchievementsCarousel: React.FC<AchievementsCarouselProps> = ({ achievement
               style={{ width: `${cardWidthPercent}%` }}
             >
               <div
-                className={`
-                  relative h-full p-7 rounded-2xl
-                  bg-gradient-to-br ${achievement.gradient}
-                  backdrop-blur-sm border
-                  ${achievement.featured
-                    ? 'border-blue-400/70 shadow-[0_0_30px_rgba(59,130,246,0.25)]'
-                    : achievement.borderColor}
-                  hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
-                  transition-all duration-300 group
-                `}
+                className="relative h-full p-7 rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-[1.03]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+                  border: '1px solid rgba(30,144,255,0.2)',
+                  boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+                  backdropFilter: 'blur(10px)',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 40px rgba(37,168,245,0.25), 0 0 80px rgba(30,144,255,0.1)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(37,168,245,0.4)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 30px rgba(30,144,255,0.15)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(30,144,255,0.2)';
+                }}
               >
+                {/* Radial light source */}
+                <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
 
-                {/* Glow on hover */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/5 to-blue-400/5 pointer-events-none" />
+                {/* Corner particle */}
+                <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full pointer-events-none" style={{ background: 'rgba(30,144,255,0.4)', boxShadow: '0 0 6px rgba(30,144,255,0.6)' }} />
 
                 {/* Icon */}
-                <div className="flex items-center justify-center mb-5">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 flex items-center justify-center border border-blue-500/40 group-hover:border-blue-400/60 transition-colors duration-300">
-                    {achievement.icon}
+                <div className="relative z-10 flex items-center justify-center mb-5">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: 'rgba(30,144,255,0.1)', border: '1px solid rgba(30,144,255,0.25)', boxShadow: '0 0 12px rgba(30,144,255,0.1)' }}>
+                    <div style={{ filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }}>
+                      {achievement.icon}
+                    </div>
                   </div>
                 </div>
 
                 {/* Number */}
-                <div className="text-center mb-2">
-                  <div className="text-4xl font-bold text-white mb-1 group-hover:text-blue-100 transition-colors">
+                <div className="relative z-10 text-center mb-2">
+                  <div className="text-4xl font-bold mb-1" style={{ color: '#FFFFFF' }}>
                     {achievement.number}
                   </div>
-                  <div className="text-blue-400 text-xs uppercase tracking-widest font-semibold">Resultado</div>
+                  <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: '#1E90FF' }}>Resultado</div>
                 </div>
 
                 {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent my-4" />
+                <div className="relative z-10 h-px my-4" style={{ background: 'linear-gradient(90deg, transparent, rgba(30,144,255,0.4), transparent)' }} />
 
                 {/* Title & description */}
-                <h3 className="text-lg font-bold text-white text-center mb-3 leading-tight">
+                <h3 className="relative z-10 text-lg font-bold text-center mb-3 leading-tight" style={{ color: '#FFFFFF' }}>
                   {achievement.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed text-center">
+                <p className="relative z-10 text-sm leading-relaxed text-center" style={{ color: 'rgba(255,255,255,0.85)' }}>
                   {achievement.description}
                 </p>
 
                 {/* Performance bar */}
-                <div className="mt-5 space-y-1">
-                  <div className="flex justify-between text-xs text-gray-500">
+                <div className="relative z-10 mt-5 space-y-1">
+                  <div className="flex justify-between text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                     <span>Performance</span>
-                    <span className="text-blue-400">Excelente</span>
+                    <span style={{ color: '#1E90FF' }}>Excelente</span>
                   </div>
-                  <div className="h-1.5 bg-gray-800/80 rounded-full overflow-hidden">
+                  <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.05)' }}>
                     <div
-                      className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
-                      style={{ width: '95%' }}
+                      className="h-full rounded-full"
+                      style={{ width: '95%', background: 'linear-gradient(90deg, #1E90FF, rgba(37,168,245,0.7))' }}
                     />
                   </div>
                 </div>

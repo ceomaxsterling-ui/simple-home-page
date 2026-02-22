@@ -193,55 +193,62 @@ const MethodologySection: React.FC = () => {
             }}>
 
             <div
-              className="rounded-2xl p-5 md:p-8 relative overflow-hidden"
+              className="relative rounded-2xl p-5 md:p-8 overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(95,145,255,0.07) 0%, rgba(10,14,28,0.95) 60%)',
-                border: '1px solid rgba(95,145,255,0.3)',
-                boxShadow: '0 0 40px rgba(95,145,255,0.12), inset 0 0 20px rgba(95,145,255,0.03)'
+                background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+                border: '1px solid rgba(30,144,255,0.2)',
+                boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+                backdropFilter: 'blur(10px)',
               }}>
 
               {/* Card top glow line */}
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.6), transparent)' }} />
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(30,144,255,0.5), transparent)' }} />
 
+              {/* Radial light source */}
+              <div className="absolute top-0 right-0 w-48 h-48 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
+
+              {/* Corner particle */}
+              <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full pointer-events-none" style={{ background: 'rgba(30,144,255,0.4)', boxShadow: '0 0 6px rgba(30,144,255,0.6)' }} />
 
               {/* Badge + Title */}
-              <div className="mb-5 md:mb-6">
-                <span className="inline-block bg-[#5F91FF]/15 border border-[#5F91FF]/30 text-[#5F91FF] text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+              <div className="relative z-10 mb-5 md:mb-6">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider" style={{ background: 'rgba(30,144,255,0.1)', border: '1px solid rgba(30,144,255,0.25)', color: '#1E90FF' }}>
                   {step.badge}
                 </span>
-                <h3 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-3">{step.title}</h3>
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed">{step.description}</p>
+                <h3 className="text-xl md:text-3xl font-bold mb-2 md:mb-3" style={{ color: '#FFFFFF' }}>{step.title}</h3>
+                <p className="text-sm md:text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>{step.description}</p>
               </div>
 
               {/* Checklist */}
-              <div className="space-y-2 md:space-y-3 mb-5 md:mb-6">
+              <div className="relative z-10 space-y-2 md:space-y-3 mb-5 md:mb-6">
                 {step.checklist.map((item, idx) =>
                 <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#5F91FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-200 text-xs md:text-sm">{item}</span>
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 mt-0.5" style={{ color: '#1E90FF', filter: 'drop-shadow(0 0 6px rgba(30,144,255,0.6))' }} />
+                    <span className="text-xs md:text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>{item}</span>
                   </div>
                 )}
               </div>
 
               {/* Progress bar */}
-              <div>
-                <div className="flex justify-between text-xs text-gray-400 mb-2">
+              <div className="relative z-10">
+                <div className="flex justify-between text-xs mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>
                   <span>Progresso da Metodologia</span>
-                  <span className="text-[#5F91FF] font-bold">{step.progress}%</span>
+                  <span style={{ color: '#1E90FF' }} className="font-bold">{step.progress}%</span>
                 </div>
-                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.05)' }}>
                   <div
-                    className="h-full bg-gradient-to-r from-[#5F91FF] to-[#5F91FF]/70 rounded-full transition-all duration-700 ease-out"
-                    style={{ width: `${step.progress}%` }} />
+                    className="h-full rounded-full transition-all duration-700 ease-out"
+                    style={{ width: `${step.progress}%`, background: 'linear-gradient(90deg, #1E90FF, rgba(37,168,245,0.7))' }} />
 
                 </div>
                 <div className="flex justify-between mt-2">
                   {steps.map((s, i) =>
                   <div
                     key={i}
-                    className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
+                    className="text-[9px] md:text-[10px] font-medium transition-colors"
+                    style={{ color: i <= activeStep ? '#1E90FF' : 'rgba(255,255,255,0.3)' }}>
 
                       {s.title}
                     </div>
