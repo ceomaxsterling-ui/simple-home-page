@@ -245,16 +245,16 @@ const SolutionsSection: React.FC = () => {
               onClick={scrollToContact}
               className="inline-flex items-center gap-2 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-105 text-sm w-full md:w-auto justify-center md:justify-start"
               style={{
-                background: '#5F91FF',
-                boxShadow: '0 0 0 rgba(95,145,255,0)',
+                background: '#1E90FF',
+                boxShadow: '0 0 0 rgba(30,144,255,0)',
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLButtonElement).style.background = '#4a7ee8';
-                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.4)';
+                (e.currentTarget as HTMLButtonElement).style.background = '#1C86EE';
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 24px rgba(30,144,255,0.4)';
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.background = '#5F91FF';
-                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 rgba(95,145,255,0)';
+                (e.currentTarget as HTMLButtonElement).style.background = '#1E90FF';
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 rgba(30,144,255,0)';
               }}
             >
               Quero Começar Agora
