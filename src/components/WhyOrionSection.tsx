@@ -203,7 +203,7 @@ const WhyOrionSection: React.FC = () => {
         <div className="text-center">
           <button
             onClick={() => window.open(WHATSAPP_URL, '_blank')}
-            className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-2xl text-sm sm:text-base transition-all duration-300 hover:scale-105"
+            className="btn-interactive inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-2xl text-sm sm:text-base"
             style={{
               background: '#1E90FF',
               boxShadow: '0 0 0 rgba(30,144,255,0)'

@@ -245,7 +245,7 @@ const SolutionsSection: React.FC = () => {
             {/* CTA */}
             <button
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-105 text-sm w-full md:w-auto justify-center md:justify-start"
+              className="btn-interactive inline-flex items-center gap-2 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl text-sm w-full md:w-auto justify-center md:justify-start"
               style={{
                 background: '#1E90FF',
                 boxShadow: '0 0 0 rgba(30,144,255,0)'

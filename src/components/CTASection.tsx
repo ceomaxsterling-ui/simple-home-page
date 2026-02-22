@@ -123,7 +123,7 @@ const CTASection = () => {
               <div className="py-2 sm:py-4">
                 <Button
                   size="lg"
-                  className="bg-elevix-blue hover:bg-blue-hover text-white font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-elevix-blue/30 w-full sm:w-auto group"
+                  className="btn-interactive bg-elevix-blue hover:bg-blue-hover text-white font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-elevix-blue/30 w-full sm:w-auto group"
                   onClick={handleWhatsAppRedirect}>
 
                   <span className="sm:hidden">Agende Consultoria Gratuita</span>

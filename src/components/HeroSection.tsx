@@ -105,7 +105,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full mb-12 sm:mb-20">
           <Button
             size="lg"
-            className="relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] hover:scale-105 w-[90%] sm:w-auto"
+            className="btn-interactive relative text-white font-semibold px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg rounded-2xl border border-[#70B8FF]/40 hover:border-[#70B8FF]/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(112,184,255,0.35)] w-[90%] sm:w-auto"
             style={{ backgroundColor: '#1E90FF' }}
             onClick={handleWhatsAppRedirect}>
             
