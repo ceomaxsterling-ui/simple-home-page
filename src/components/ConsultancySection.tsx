@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, Clock, Users, TrendingUp, MessageCircle, CheckCircle2, Sparkles, ArrowRight, Phone, ChevronDown, Store, ShoppingCart } from 'lucide-react';
+import { Clock, Users, TrendingUp, MessageCircle, CheckCircle2, Sparkles, ArrowRight, Phone, ChevronDown, Store, ShoppingCart } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { WHATSAPP_URL } from '@/config/links';
 
@@ -126,7 +126,7 @@ const ConsultancySection = () => {
           {/* Header with Badge - Mobile Optimized */}
           <div className="text-center mb-12 md:mb-16 px-3 sm:px-0">
             <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
+              
               <span className="text-elevix-blue font-semibold text-sm sm:text-base">Sua Primeira Missão Começa Aqui </span>
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
             </div>
