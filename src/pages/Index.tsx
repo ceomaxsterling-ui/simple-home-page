@@ -11,20 +11,32 @@ import ConsultancySection from '@/components/ConsultancySection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import ScrollProgressBar from '@/components/ScrollProgressBar';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
+const RevealSection = ({ children }: { children: React.ReactNode }) => {
+  const { ref, isVisible } = useScrollReveal(0.1);
+  return (
+    <div ref={ref} className={`scroll-reveal ${isVisible ? 'visible' : ''}`}>
+      {children}
+    </div>
+  );
+};
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black scroll-smooth">
+      <ScrollProgressBar />
       <Header />
       <HeroSection />
-      <PainPointsSection />
-      <WhyOrionSection />
-      <MethodologySection />
-      <SolutionsSection />
-      <ChallengesSection />
-      <ConsultancySection />
-      <FAQSection />
-      <CTASection />
+      <RevealSection><PainPointsSection /></RevealSection>
+      <RevealSection><WhyOrionSection /></RevealSection>
+      <RevealSection><MethodologySection /></RevealSection>
+      <RevealSection><SolutionsSection /></RevealSection>
+      <RevealSection><ChallengesSection /></RevealSection>
+      <RevealSection><ConsultancySection /></RevealSection>
+      <RevealSection><FAQSection /></RevealSection>
+      <RevealSection><CTASection /></RevealSection>
       <Footer />
     </div>
   );
