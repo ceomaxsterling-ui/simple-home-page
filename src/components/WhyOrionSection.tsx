@@ -185,16 +185,16 @@ const WhyOrionSection: React.FC = () => {
             onClick={() => window.open(WHATSAPP_URL, '_blank')}
             className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-2xl text-sm sm:text-base transition-all duration-300 hover:scale-105"
             style={{
-              background: '#5F91FF',
-              boxShadow: '0 0 0 rgba(95,145,255,0)',
+              background: '#1E90FF',
+              boxShadow: '0 0 0 rgba(30,144,255,0)',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 28px rgba(95,145,255,0.5)';
-              (e.currentTarget as HTMLButtonElement).style.background = '#4a7ee8';
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 28px rgba(30,144,255,0.5)';
+              (e.currentTarget as HTMLButtonElement).style.background = '#1C86EE';
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 rgba(95,145,255,0)';
-              (e.currentTarget as HTMLButtonElement).style.background = '#5F91FF';
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 rgba(30,144,255,0)';
+              (e.currentTarget as HTMLButtonElement).style.background = '#1E90FF';
             }}
           >
             Quero um diagnóstico gratuito →

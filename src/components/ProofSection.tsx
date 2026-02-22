@@ -253,7 +253,7 @@ const ProofSection = () => {
             <Button
               size="lg"
               onClick={handleWhatsAppRedirect}
-              className="bg-gradient-to-r from-elevix-blue to-blue-600 hover:from-blue-hover hover:to-blue-700 text-white font-bold px-6 sm:px-12 py-3 sm:py-6 text-base sm:text-lg rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-elevix-blue/25 hover:scale-105 group">
+              className="bg-elevix-blue hover:bg-blue-hover text-white font-bold px-6 sm:px-12 py-3 sm:py-6 text-base sm:text-lg rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-elevix-blue/25 hover:scale-105 group">
 
               <MessageCircle className="hidden sm:block w-6 h-6 mr-2" />
               Falar com Especialistas
