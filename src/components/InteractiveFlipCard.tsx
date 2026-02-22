@@ -44,13 +44,20 @@ const InteractiveFlipCard: React.FC<InteractiveFlipCardProps> = ({
       >
         {/* Front Face - Problem */}
         <div 
-          className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 ${
+          className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 overflow-hidden ${
             showSolution 
-              ? 'bg-gray-900/30 border-gray-800/50' 
-              : 'bg-gradient-to-br from-red-900/20 to-red-800/10 border-red-500/30 hover:border-red-500/50'
-          } border backdrop-blur-sm`}
+              ? 'border-gray-800/50' 
+              : 'border-red-500/30 hover:border-red-500/50'
+          } border`}
+          style={{
+            background: showSolution
+              ? 'rgba(15,20,25,0.6)'
+              : 'linear-gradient(135deg, rgba(239,68,68,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(239,68,68,0.06) 100%)',
+            backdropFilter: 'blur(10px)',
+          }}
         >
-          <div className="flex items-start justify-between">
+          <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(239,68,68,0.06) 0%, transparent 70%)' }} />
+          <div className="relative z-10 flex items-start justify-between">
             <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
               {card.problem.title}
             </h3>
@@ -62,22 +69,32 @@ const InteractiveFlipCard: React.FC<InteractiveFlipCardProps> = ({
               }`} />
             </div>
           </div>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+          <p style={{ color: 'rgba(255,255,255,0.85)' }} className="relative z-10 text-sm md:text-base leading-relaxed">
             {card.problem.description}
           </p>
         </div>
 
         {/* Back Face - Solution */}
-        <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl p-6 flex flex-col justify-between bg-gradient-to-br from-elevix-blue/30 to-blue-700/20 border border-elevix-blue/30 backdrop-blur-sm">
-          <div className="flex items-start justify-between">
+        <div
+          className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl p-6 flex flex-col justify-between overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, rgba(30,144,255,0.15) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+            border: '1px solid rgba(30,144,255,0.3)',
+            boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+            backdropFilter: 'blur(10px)',
+          }}
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
+          <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full pointer-events-none" style={{ background: 'rgba(30,144,255,0.4)', boxShadow: '0 0 6px rgba(30,144,255,0.6)' }} />
+          <div className="relative z-10 flex items-start justify-between">
             <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
               {card.solution.title}
             </h3>
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-elevix-blue/20 flex items-center justify-center">
-              <Check className="w-5 h-5 text-elevix-blue" />
+            <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(30,144,255,0.15)', border: '1px solid rgba(30,144,255,0.25)' }}>
+              <Check className="w-5 h-5 text-[#1E90FF]" style={{ filter: 'drop-shadow(0 0 6px rgba(30,144,255,0.6))' }} />
             </div>
           </div>
-          <p className="text-blue-100 text-sm md:text-base leading-relaxed">
+          <p style={{ color: 'rgba(255,255,255,0.85)' }} className="relative z-10 text-sm md:text-base leading-relaxed">
             {card.solution.description}
           </p>
         </div>

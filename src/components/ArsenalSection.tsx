@@ -170,37 +170,45 @@ const ArsenalSection: React.FC = () => {
             {cards.map((card, i) => (
               <div
                 key={i}
-                className="group p-6 rounded-2xl cursor-default"
+                className="group relative p-6 rounded-2xl cursor-default overflow-hidden"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(95,145,255,0.25)',
-                  boxShadow: '0 0 12px rgba(95,145,255,0.1)',
+                  background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+                  border: '1px solid rgba(30,144,255,0.2)',
+                  boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+                  backdropFilter: 'blur(10px)',
                   transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 24px rgba(95,145,255,0.45), 0 0 48px rgba(95,145,255,0.15)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.7)';
-                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-3px)';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 40px rgba(37,168,245,0.25), 0 0 80px rgba(30,144,255,0.1)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(37,168,245,0.4)';
+                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-5px)';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 12px rgba(95,145,255,0.1)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(95,145,255,0.25)';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 30px rgba(30,144,255,0.15)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(30,144,255,0.2)';
                   (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
                 }}
               >
-                <div className="flex items-center gap-4">
+                {/* Radial light source */}
+                <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
+                {/* Corner particle */}
+                <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full pointer-events-none" style={{ background: 'rgba(30,144,255,0.4)', boxShadow: '0 0 6px rgba(30,144,255,0.6)' }} />
+                <div className="relative z-10 flex items-center gap-4">
                   <div
                     className="flex-shrink-0 p-2.5 rounded-xl"
                     style={{
-                      background: 'rgba(95,145,255,0.08)',
-                      border: '1px solid rgba(95,145,255,0.2)',
+                      background: 'rgba(30,144,255,0.1)',
+                      border: '1px solid rgba(30,144,255,0.25)',
+                      boxShadow: '0 0 12px rgba(30,144,255,0.1)',
                     }}
                   >
-                    {card.icon}
+                    <div style={{ filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }}>
+                      {card.icon}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold text-base mb-0.5">{card.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{card.text}</p>
+                    <h3 style={{ color: '#FFFFFF' }} className="font-semibold text-base mb-0.5">{card.title}</h3>
+                    <p style={{ color: 'rgba(255,255,255,0.85)' }} className="text-sm leading-relaxed">{card.text}</p>
                   </div>
                 </div>
               </div>

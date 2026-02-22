@@ -173,15 +173,21 @@ const ConsultancySection = () => {
                       className="w-full"
                       style={{ animationDelay: `${index * 100}ms` }}>
 
-                        <div className="flex items-center justify-between p-4 sm:p-4 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300 hover:bg-gray-900/60 cursor-pointer">
-                          <div className="flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0">
-                            <div className="p-1.5 sm:p-2 bg-blue-500/20 rounded-xl flex-shrink-0">
-                              <benefit.icon className="w-4 h-4 sm:w-6 sm:h-6 text-elevix-blue" />
+                        <div className="relative flex items-center justify-between p-4 sm:p-4 rounded-2xl cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,144,255,0.15)]" style={{
+                          background: 'linear-gradient(135deg, rgba(30,144,255,0.08) 0%, rgba(15,20,25,0.9) 100%)',
+                          border: '1px solid rgba(30,144,255,0.2)',
+                          boxShadow: '0 0 15px rgba(30,144,255,0.08)',
+                          backdropFilter: 'blur(10px)',
+                        }}>
+                          <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.06) 0%, transparent 70%)' }} />
+                          <div className="relative z-10 flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0">
+                            <div className="p-1.5 sm:p-2 rounded-xl flex-shrink-0" style={{ background: 'rgba(30,144,255,0.1)', border: '1px solid rgba(30,144,255,0.25)' }}>
+                              <benefit.icon className="w-4 h-4 sm:w-6 sm:h-6 text-[#1E90FF]" style={{ filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} />
                             </div>
-                            <span className="text-sm sm:text-lg text-white font-medium text-left leading-tight">{benefit.title}</span>
+                            <span className="text-sm sm:text-lg font-medium text-left leading-tight" style={{ color: '#FFFFFF' }}>{benefit.title}</span>
                           </div>
                           <ChevronDown
-                          className={`w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue transition-transform duration-300 flex-shrink-0 ml-2 ${
+                          className={`relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-[#1E90FF] transition-transform duration-300 flex-shrink-0 ml-2 ${
                           openCards[benefit.id] ? 'rotate-180' : ''}`
                           } />
 

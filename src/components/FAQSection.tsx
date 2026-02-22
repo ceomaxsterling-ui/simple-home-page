@@ -76,33 +76,40 @@ const FAQSection = () => {
         {/* Main Content */}
         <div>
           <div
-            className="rounded-2xl overflow-hidden"
+            className="relative rounded-2xl overflow-hidden"
             style={{
-              background: 'rgba(15,23,42,0.7)',
-              border: '1px solid rgba(95,145,255,0.2)',
-              boxShadow: '0 0 40px rgba(95,145,255,0.08), inset 0 0 20px rgba(95,145,255,0.02)',
+              background: 'linear-gradient(135deg, rgba(30,144,255,0.08) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.05) 100%)',
+              border: '1px solid rgba(30,144,255,0.2)',
+              boxShadow: '0 0 30px rgba(30,144,255,0.1)',
+              backdropFilter: 'blur(10px)',
             }}
           >
             {/* Top glow line on card */}
             <div
               className="h-px w-full"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(30,144,255,0.5), transparent)' }}
             />
-            <div className="p-4 sm:p-6 md:p-8">
+            {/* Radial light source */}
+            <div className="absolute top-0 right-0 w-48 h-48 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.06) 0%, transparent 70%)' }} />
+            <div className="relative z-10 p-4 sm:p-6 md:p-8">
               <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
                 {faqs.map((faq, index) => (
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`} 
-                    className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-3 sm:px-6 py-1 hover:bg-slate-800/50 hover:border-[#5F91FF]/20 transition-all duration-300"
+                    className="rounded-xl px-3 sm:px-6 py-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(30,144,255,0.1)]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(30,144,255,0.04) 0%, rgba(15,20,25,0.8) 100%)',
+                      border: '1px solid rgba(30,144,255,0.12)',
+                    }}
                   >
-                    <AccordionTrigger className="text-left text-white hover:text-elevix-blue font-semibold py-3 sm:py-5 group hover:no-underline">
-                      <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-elevix-blue transition-colors pr-2 text-left">
+                    <AccordionTrigger className="text-left text-white hover:text-[#1E90FF] font-semibold py-3 sm:py-5 group hover:no-underline">
+                      <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-[#1E90FF] transition-colors pr-2 text-left">
                         {faq.question}
                       </h3>
                     </AccordionTrigger>
-                    <AccordionContent className="text-slate-300 leading-relaxed pb-3 sm:pb-5 pt-1">
-                      <p className="text-slate-300 leading-relaxed text-sm">
+                    <AccordionContent className="leading-relaxed pb-3 sm:pb-5 pt-1">
+                      <p style={{ color: 'rgba(255,255,255,0.85)' }} className="leading-relaxed text-sm">
                         {faq.answer}
                       </p>
                     </AccordionContent>
