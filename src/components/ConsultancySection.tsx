@@ -349,7 +349,7 @@ const ConsultancySection = () => {
                   {/* WhatsApp CTA - Mobile optimized */}
                   <div className="space-y-3 sm:space-y-4">
                     <Button
-                      className="w-full bg-elevix-blue hover:bg-blue-hover text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-elevix-blue/30 group text-base sm:text-lg"
+                      className="btn-interactive w-full bg-elevix-blue hover:bg-blue-hover text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-elevix-blue/30 group text-base sm:text-lg"
                       onClick={handleWhatsAppRedirect}>
 
                       <Phone className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
