@@ -18,7 +18,6 @@ const tabs = [
   { icon: <Smartphone className="w-4 h-4" />, label: 'Responsivo' },
   { icon: <Search className="w-4 h-4" />, label: 'SEO Otimizado' },
   { icon: <BarChart3 className="w-4 h-4" />, label: 'Alta Conversão' }]
-
 },
 {
   id: 'social',
@@ -32,7 +31,6 @@ const tabs = [
   { icon: <Calendar className="w-4 h-4" />, label: 'Conteúdo Estratégico' },
   { icon: <Palette className="w-4 h-4" />, label: 'Design Profissional' },
   { icon: <Heart className="w-4 h-4" />, label: '+Engajamento' }]
-
 },
 {
   id: 'google',
@@ -46,7 +44,6 @@ const tabs = [
   { icon: <Map className="w-4 h-4" />, label: 'Buscas Locais' },
   { icon: <Star className="w-4 h-4" />, label: 'Avaliações 5★' },
   { icon: <Eye className="w-4 h-4" />, label: 'Mais Visibilidade' }]
-
 },
 {
   id: 'ads',
@@ -60,9 +57,16 @@ const tabs = [
   { icon: <Target className="w-4 h-4" />, label: 'Google & Meta Ads' },
   { icon: <DollarSign className="w-4 h-4" />, label: 'ROI Comprovado' },
   { icon: <RefreshCw className="w-4 h-4" />, label: 'Otimização Contínua' }]
-
 }];
 
+// Preload all images on module load
+const allImages = [mockupWebsites, mockupInstagram, mockupGoogle, mockupAds];
+if (typeof window !== 'undefined') {
+  allImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 
 const SolutionsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -138,7 +142,7 @@ const SolutionsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Tabs — STACKED on mobile (grid 2x2), row on md+ */}
+        {/* Tabs */}
         <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 mb-8 md:mb-10">
           {tabs.map((t, i) =>
           <button
@@ -149,13 +153,12 @@ const SolutionsSection: React.FC = () => {
             'bg-[#5F91FF]/15 border-[#5F91FF]/60 text-[#5F91FF] shadow-[0_0_12px_rgba(95,145,255,0.25)]' :
             'bg-white/3 border-white/8 text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/5'}`
             }>
-
               {t.label}
             </button>
           )}
         </div>
 
-        {/* Content — stacked on mobile */}
+        {/* Content */}
         <div
           className="flex flex-col md:grid md:grid-cols-5 gap-6 md:gap-12 items-center"
           style={{
@@ -188,8 +191,14 @@ const SolutionsSection: React.FC = () => {
                   alt={tab.imageAlt}
                   className="w-full object-cover"
                   style={{ maxHeight: '280px', objectFit: 'cover' }}
-                  loading="lazy" />
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high" />
 
+                {/* Preload all other tab images as hidden elements */}
+                {tabs.filter((_, i) => i !== activeTab).map(t => (
+                  <link key={t.id} rel="preload" as="image" href={t.image} />
+                ))}
               </div>
             </div>
           </div>
