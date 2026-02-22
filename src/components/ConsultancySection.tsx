@@ -195,8 +195,8 @@ const ConsultancySection = () => {
                       </CollapsibleTrigger>
                       
                       <CollapsibleContent className="overflow-hidden">
-                        <div className="p-3 sm:p-4 mt-2 bg-gray-900/20 border border-gray-800/30 rounded-2xl">
-                          <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{benefit.expandedContent}</p>
+                        <div className="p-3 sm:p-4 mt-2 rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.06) 0%, rgba(15,20,25,0.85) 100%)', border: '1px solid rgba(30,144,255,0.12)', backdropFilter: 'blur(10px)' }}>
+                          <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>{benefit.expandedContent}</p>
                         </div>
                       </CollapsibleContent>
                     </Collapsible>
@@ -211,35 +211,42 @@ const ConsultancySection = () => {
                   onOpenChange={() => toggleCard('target-audience')}>
 
                   <CollapsibleTrigger className="w-full">
-                    <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/40 border border-gray-700/50 rounded-3xl p-6 sm:p-8 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 cursor-pointer">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2 sm:gap-3">
-                          <Users className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                    <div className="relative rounded-2xl p-6 sm:p-8 cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(37,168,245,0.25)]" style={{
+                      background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+                      border: '1px solid rgba(30,144,255,0.2)',
+                      boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+                      backdropFilter: 'blur(10px)',
+                    }}>
+                      <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
+                      <div className="relative z-10 flex items-center justify-between">
+                        <h3 className="text-lg sm:text-xl font-bold flex items-center gap-2 sm:gap-3" style={{ color: '#FFFFFF' }}>
+                          <Users className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#1E90FF', filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} />
                           Para Quem é a Consultoria?
                         </h3>
                         <ChevronDown
-                          className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-transform duration-300 flex-shrink-0 ${
-                          openCards['target-audience'] ? 'rotate-180' : ''}`
-                          } />
-
+                          className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 flex-shrink-0 ${
+                          openCards['target-audience'] ? 'rotate-180' : ''}`}
+                          style={{ color: '#1E90FF' }}
+                          />
                       </div>
                     </div>
                   </CollapsibleTrigger>
                   
                   <CollapsibleContent className="overflow-hidden">
-                    <div className="mt-4 bg-gradient-to-br from-gray-900/40 to-gray-800/20 border border-gray-700/30 rounded-3xl p-4 sm:p-6 backdrop-blur-sm">
+                    <div className="mt-4 rounded-2xl p-4 sm:p-6" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.06) 0%, rgba(15,20,25,0.85) 100%)', border: '1px solid rgba(30,144,255,0.12)', backdropFilter: 'blur(10px)' }}>
                       <div className="grid gap-4">
                         {targetAudience.map((audience, index) =>
                         <div
                           key={index}
-                          className="flex items-start space-x-4 p-4 sm:p-5 bg-gray-900/40 border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300">
-
-                            <div className="p-2 sm:p-2.5 bg-blue-500/20 rounded-xl flex-shrink-0">
-                              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-elevix-blue" />
+                          className="relative flex items-start space-x-4 p-4 sm:p-5 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,144,255,0.15)]"
+                          style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.08) 0%, rgba(15,20,25,0.9) 100%)', border: '1px solid rgba(30,144,255,0.15)' }}>
+                            <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.06) 0%, transparent 70%)' }} />
+                            <div className="relative z-10 p-2 sm:p-2.5 rounded-xl flex-shrink-0" style={{ background: 'rgba(30,144,255,0.1)', border: '1px solid rgba(30,144,255,0.25)' }}>
+                              <Users className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#1E90FF', filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} />
                             </div>
-                            <div className="flex-1 text-left">
-                              <h5 className="text-white font-semibold text-base sm:text-lg mb-1">{audience.title}</h5>
-                              <p className="text-gray-400 text-sm sm:text-base">{audience.description}</p>
+                            <div className="relative z-10 flex-1 text-left">
+                              <h5 className="font-semibold text-base sm:text-lg mb-1" style={{ color: '#FFFFFF' }}>{audience.title}</h5>
+                              <p className="text-sm sm:text-base" style={{ color: 'rgba(255,255,255,0.85)' }}>{audience.description}</p>
                             </div>
                           </div>
                         )}
@@ -256,32 +263,38 @@ const ConsultancySection = () => {
                   onOpenChange={() => toggleCard('process')}>
 
                   <CollapsibleTrigger className="w-full">
-                    <div className="bg-gradient-to-br from-gray-900/60 to-gray-800/40 border border-gray-700/50 rounded-3xl p-6 sm:p-8 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 cursor-pointer">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2 sm:gap-3">
-                          <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                    <div className="relative rounded-2xl p-6 sm:p-8 cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(37,168,245,0.25)]" style={{
+                      background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)',
+                      border: '1px solid rgba(30,144,255,0.2)',
+                      boxShadow: '0 0 30px rgba(30,144,255,0.15)',
+                      backdropFilter: 'blur(10px)',
+                    }}>
+                      <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at 100% 0%, rgba(37,168,245,0.08) 0%, transparent 70%)' }} />
+                      <div className="relative z-10 flex items-center justify-between">
+                        <h4 className="text-lg sm:text-xl font-bold flex items-center gap-2 sm:gap-3" style={{ color: '#FFFFFF' }}>
+                          <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#1E90FF', filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} />
                           Como Funciona
                         </h4>
                         <ChevronDown
-                          className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-transform duration-300 flex-shrink-0 ${
-                          openCards['process'] ? 'rotate-180' : ''}`
-                          } />
-
+                          className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 flex-shrink-0 ${
+                          openCards['process'] ? 'rotate-180' : ''}`}
+                          style={{ color: '#1E90FF' }}
+                          />
                       </div>
                     </div>
                   </CollapsibleTrigger>
                   
                   <CollapsibleContent className="overflow-hidden">
-                    <div className="mt-4 bg-gradient-to-br from-gray-900/40 to-gray-800/20 border border-gray-700/30 rounded-3xl p-4 sm:p-6 backdrop-blur-sm">
+                    <div className="mt-4 rounded-2xl p-4 sm:p-6" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.06) 0%, rgba(15,20,25,0.85) 100%)', border: '1px solid rgba(30,144,255,0.12)', backdropFilter: 'blur(10px)' }}>
                       <div className="space-y-3 sm:space-y-4">
                         {processSteps.map((step, index) =>
-                        <div key={index} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-900/30 rounded-2xl">
-                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-xs sm:text-sm flex-shrink-0">
+                        <div key={index} className="relative flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.06) 0%, rgba(15,20,25,0.8) 100%)', border: '1px solid rgba(30,144,255,0.12)' }}>
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm flex-shrink-0" style={{ background: 'rgba(30,144,255,0.1)', border: '1px solid rgba(30,144,255,0.25)', color: '#1E90FF' }}>
                               {step.step}
                             </div>
                             <div className="text-left">
-                              <h5 className="text-white font-medium text-sm sm:text-base">{step.title}</h5>
-                              <p className="text-gray-400 text-xs sm:text-sm">{step.description}</p>
+                              <h5 className="font-medium text-sm sm:text-base" style={{ color: '#FFFFFF' }}>{step.title}</h5>
+                              <p className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>{step.description}</p>
                             </div>
                           </div>
                         )}
@@ -295,13 +308,13 @@ const ConsultancySection = () => {
             {/* Right Side - CTA Card - Mobile Perfectly Centered */}
             <div className="relative max-w-md sm:max-w-none mx-auto sm:mx-0">
               {/* Floating Elements */}
-              <div className="absolute -top-6 -right-6 w-20 h-20 sm:w-24 sm:h-24 bg-blue-500/10 rounded-full border border-blue-500/20 flex items-center justify-center animate-pulse">
-                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-elevix-blue" />
+              <div className="absolute -top-6 -right-6 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center animate-pulse" style={{ background: 'rgba(30,144,255,0.08)', border: '1px solid rgba(30,144,255,0.2)' }}>
+                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: '#1E90FF', filter: 'drop-shadow(0 0 8px rgba(30,144,255,0.6))' }} />
               </div>
               
-              <div className="bg-gradient-to-br from-blue-500/10 via-gray-900/80 to-blue-500/10 border border-blue-500/30 rounded-3xl p-6 sm:p-10 backdrop-blur-sm relative overflow-hidden">
+              <div className="relative rounded-3xl p-6 sm:p-10 overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.12) 0%, rgba(15,20,25,0.95) 50%, rgba(37,168,245,0.08) 100%)', border: '1px solid rgba(30,144,255,0.25)', boxShadow: '0 0 30px rgba(30,144,255,0.15)', backdropFilter: 'blur(10px)' }}>
                 {/* Inner Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-3xl"></div>
+                <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 0%, rgba(37,168,245,0.06) 0%, transparent 60%)' }}></div>
                 
                 <div className="relative z-10 text-center space-y-6 sm:space-y-8">
                   <div>
@@ -320,7 +333,7 @@ const ConsultancySection = () => {
                   </div>
 
                   {/* Urgency Indicator */}
-                  <div className="bg-gray-900/60 border border-gray-700/50 rounded-2xl p-4 sm:p-6">
+                  <div className="rounded-2xl p-4 sm:p-6" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.06) 0%, rgba(15,20,25,0.8) 100%)', border: '1px solid rgba(30,144,255,0.15)' }}>
                     <div className="flex items-center justify-center space-x-2 text-yellow-400 mb-2">
                       <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                       <span className="font-semibold text-yellow-500 text-sm sm:text-base">Vagas Limitadas</span>
@@ -351,14 +364,14 @@ const ConsultancySection = () => {
                 </div>
 
                 {/* Animated Border */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-50 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-3xl opacity-50 animate-pulse pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(30,144,255,0.15), transparent)' }}></div>
               </div>
             </div>
           </div>
 
           {/* Bottom Trust Indicators - Mobile Perfectly Centered */}
           <div className="mt-16 sm:mt-20 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-8 bg-gray-900/40 border border-gray-800/50 rounded-2xl px-6 sm:px-8 py-4 max-w-md sm:max-w-none mx-auto">
+            <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-8 rounded-2xl px-6 sm:px-8 py-4 max-w-md sm:max-w-none mx-auto" style={{ background: 'linear-gradient(135deg, rgba(30,144,255,0.08) 0%, rgba(15,20,25,0.9) 100%)', border: '1px solid rgba(30,144,255,0.15)', boxShadow: '0 0 20px rgba(30,144,255,0.08)' }}>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
                 <span className="text-white font-medium text-sm sm:text-base">+500 Empresas Impulsionadas</span>
