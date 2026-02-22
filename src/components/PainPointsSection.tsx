@@ -158,11 +158,18 @@ const PainPointsSection = () => {
                     onClick={() => handleMobileCardClick(index)}
                   >
                     <div 
-                      className={`flex items-start gap-3 p-3 rounded-xl border transition-all duration-500 ${
-                        showSolution 
-                          ? 'bg-gradient-to-br from-elevix-blue/10 to-blue-900/5 border-elevix-blue/30 shadow-[0_0_12px_rgba(30,144,255,0.15)]' 
-                          : 'bg-gradient-to-br from-red-500/10 to-red-900/5 border-red-500/20'
-                      }`}
+                      className="flex items-start gap-3 p-3 rounded-xl transition-all duration-500"
+                      style={{
+                        background: showSolution 
+                          ? 'linear-gradient(135deg, #1E90FF, #25A8F5)' 
+                          : 'linear-gradient(145deg, rgba(30, 30, 35, 0.9), rgba(20, 20, 25, 0.95))',
+                        border: showSolution 
+                          ? '1px solid rgba(255, 255, 255, 0.3)' 
+                          : '1px solid rgba(255, 255, 255, 0.08)',
+                        boxShadow: showSolution 
+                          ? '0 0 40px rgba(30, 144, 255, 0.5), 0 0 80px rgba(37, 168, 245, 0.3)' 
+                          : 'none',
+                      }}
                     >
                       <div className="flex-shrink-0 mt-0.5">
                         {showSolution ? (
@@ -206,9 +213,7 @@ const PainPointsSection = () => {
                   key={index}
                   card={card}
                   index={index}
-                  isHovered={hoveredCard === index}
-                  onHover={handleCardHover}
-                  globalSolutionMode={isInSolutionMode}
+                  flipDelay={index * 1000}
                 />
               ))}
             </div>
