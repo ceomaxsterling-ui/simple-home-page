@@ -135,7 +135,7 @@ const ConsultancySection = () => {
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 sm:mb-6 leading-[1.15] sm:leading-tight px-1 sm:px-4">
                 Uma Conversa Que Pode Mudar a{' '}
-                <span className="bg-clip-text bg-gradient-to-r from-elevix-blue via-blue-400 to-blue-400 text-elevix-blue">
+                <span className="bg-clip-text bg-gradient-to-r from-elevix-blue via-blue-400 to-blue-400 text-primary">
                   Trajetória da Sua Empresa.
                 </span>
               </h2>
