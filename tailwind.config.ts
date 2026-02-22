@@ -63,12 +63,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				elevix: {
-					blue: '#1E90FF'
+			elevix: {
+					blue: '#00D1FF',
+					cyan: '#00D1FF',
 				},
 				blue: {
-					elevix: '#1E90FF',
-					hover: '#1C86EE'
+					elevix: '#00D1FF',
+					hover: '#00B8E6'
+				},
+				neon: {
+					cyan: '#00D1FF',
 				},
 				red: {
 					neon: '#FF3131'
