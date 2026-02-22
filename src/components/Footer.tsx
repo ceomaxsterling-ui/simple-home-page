@@ -1,6 +1,8 @@
 import React from 'react';
+import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, Clock, ChevronRight, Shield, Award, Users, TrendingUp } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+import { MapPin, Phone, Mail, Clock, ChevronRight, Shield, Award, Users, TrendingUp } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 const Footer = () => {
   const {
@@ -63,10 +65,29 @@ const Footer = () => {
       sectionId: 'consultoria'
     }]
   };
-  return <footer className="relative bg-black border-t border-[#00D1FF]/10">
+  const stats = [{
+    icon: Users,
+    value: '100+',
+    label: 'Projetos Criados'
+  }, {
+    icon: TrendingUp,
+    value: '95%',
+    label: 'Taxa de Sucesso'
+  }, {
+    icon: Award,
+    value: '7 dias',
+    label: 'Prazo Médio'
+  }, {
+    icon: Shield,
+    value: '24/7',
+    label: 'Suporte'
+  }];
+  return <footer className="relative bg-black border-t border-gray-800">
+      {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6">
+        {/* Links and Contact Section */}
         <div className="py-10 md:py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Company Info */}
+          {/* Company Info — full width on mobile */}
           <div className="col-span-2 lg:col-span-1 space-y-4 md:space-y-6">
             <div>
               <div className="flex items-center space-x-3 mb-3">
@@ -78,17 +99,18 @@ const Footer = () => {
               </p>
             </div>
             
+            {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-300">
-                <Phone className="w-4 h-4 text-[#00D1FF] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
                 <span className="text-sm">+55 85 8441-0835</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
-                <Mail className="w-4 h-4 text-[#00D1FF] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
                 <span className="text-xs sm:text-sm break-all">contatoorion@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
-                <Clock className="w-4 h-4 text-[#00D1FF] flex-shrink-0" />
+                <Clock className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
                 <span className="text-sm">Dom - Dom: 6h às 0h</span>
               </div>
             </div>
@@ -99,7 +121,7 @@ const Footer = () => {
             <h4 className="text-base font-semibold text-white">Serviços</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => <li key={index}>
-                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#00D1FF] transition-colors duration-300 group text-left text-sm">
+                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#5F91FF] transition-colors duration-300 group text-left text-sm">
                     <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                     <span>{link.label}</span>
                   </button>
@@ -112,7 +134,7 @@ const Footer = () => {
             <h4 className="text-base font-semibold text-white">Empresa</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => <li key={index}>
-                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#00D1FF] transition-colors duration-300 group text-left text-sm">
+                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#5F91FF] transition-colors duration-300 group text-left text-sm">
                     <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                     <span>{link.label}</span>
                   </button>
@@ -125,7 +147,7 @@ const Footer = () => {
             <h4 className="text-base font-semibold text-white">Suporte</h4>
             <ul className="space-y-2">
               {footerLinks.support.map((link, index) => <li key={index}>
-                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#00D1FF] transition-colors duration-300 group text-left text-sm">
+                  <button onClick={() => handleFooterLinkClick(link.label, link.sectionId)} className="flex items-center space-x-2 text-gray-400 hover:text-[#5F91FF] transition-colors duration-300 group text-left text-sm">
                     <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                     <span>{link.label}</span>
                   </button>
@@ -135,22 +157,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-5 md:py-8 border-t border-white/5">
+        <div className="py-5 md:py-8 border-t border-gray-800">
           <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
             <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
               © {currentYear} Orion. Todos os direitos reservados.
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm">
-              <a href="#" onClick={() => handleLinkClick('Termos de Uso')} className="text-gray-400 hover:text-[#00D1FF] transition-colors duration-300">
+              <a href="#" onClick={() => handleLinkClick('Termos de Uso')} className="text-gray-400 hover:text-[#5F91FF] transition-colors duration-300">
                 Termos de Uso
               </a>
               <span className="text-gray-700">|</span>
-              <a href="#" onClick={() => handleLinkClick('Política de Privacidade')} className="text-gray-400 hover:text-[#00D1FF] transition-colors duration-300">
+              <a href="#" onClick={() => handleLinkClick('Política de Privacidade')} className="text-gray-400 hover:text-[#5F91FF] transition-colors duration-300">
                 Privacidade
               </a>
               <span className="text-gray-700">|</span>
-              <a href="#" onClick={() => handleLinkClick('Cookies')} className="text-gray-400 hover:text-[#00D1FF] transition-colors duration-300">
+              <a href="#" onClick={() => handleLinkClick('Cookies')} className="text-gray-400 hover:text-[#5F91FF] transition-colors duration-300">
                 Cookies
               </a>
             </div>
@@ -160,8 +182,8 @@ const Footer = () => {
 
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl" style={{ background: 'rgba(0,209,255,0.03)' }} />
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl" style={{ background: 'rgba(0,209,255,0.03)' }} />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#5F91FF]/3 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/3 rounded-full blur-3xl"></div>
       </div>
     </footer>;
 };

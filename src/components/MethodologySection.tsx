@@ -76,18 +76,30 @@ const MethodologySection: React.FC = () => {
       ref={sectionRef}
       className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #050505 0%, #030810 50%, #050505 100%)',
+        background: 'linear-gradient(180deg, #050505 0%, #060810 50%, #050505 100%)',
       }}
     >
       {/* Section ambient glow — top edge */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.5), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
       />
-      {/* Light ellipse centre */}
-      <div className="light-ellipse" style={{ top: '-50px', left: '50%', transform: 'translateX(-50%)', width: '700px', height: '350px' }} />
+      {/* Radial glow centre */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.14) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
       {/* Left ambient orb */}
-      <div className="light-ellipse" style={{ left: '-100px', top: '40%', width: '400px', height: '600px', opacity: 0.4 }} />
+      <div
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[500px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 0% 50%, rgba(95,145,255,0.07) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      />
       {/* Cosmic particles */}
       {[
         { left: '12%', top: '20%', size: 2, delay: '0s', duration: '8s' },
@@ -111,41 +123,41 @@ const MethodologySection: React.FC = () => {
 
         {/* Header */}
         <div className="text-center mb-8 md:mb-16 px-2">
-          <div className="inline-flex items-center gap-2 bg-[#00D1FF]/10 border border-[#00D1FF]/30 rounded-full px-4 py-2 mb-4 backdrop-blur-sm">
-            <span className="text-[#00D1FF] font-semibold text-xs sm:text-sm">⚡ Nossa Rota ⚡</span>
+          <div className="inline-flex items-center gap-2 bg-[#5F91FF]/10 border border-[#5F91FF]/30 rounded-full px-4 py-2 mb-4">
+            <span className="text-[#5F91FF] font-semibold text-xs sm:text-sm">⚡ Nossa Rota ⚡</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
             Três Etapas. Uma Missão.{' '}
-            <span className="title-neon">Levar sua empresa ao lugar que ela merece.</span>
+            <span className="text-[#5F91FF]">Levar sua empresa ao lugar que ela merece.</span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Sem achismo. Sem improviso. Cada projeto segue uma rota precisa — para que você saiba exatamente onde está e para onde está indo.
           </p>
         </div>
 
-        {/* Layout */}
+        {/* Layout: stacked on mobile, side-by-side on md+ */}
         <div className="flex flex-col md:grid md:grid-cols-5 gap-4 md:gap-10 items-start">
 
-          {/* Step cards */}
+          {/* Step cards — STACKED on mobile (no horizontal scroll) */}
           <div className="md:col-span-2 flex flex-col gap-3">
             {steps.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => handleSelect(i)}
-                className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full backdrop-blur-sm ${
+                className={`group text-left p-4 rounded-2xl border transition-all duration-300 w-full ${
                   activeStep === i
-                    ? 'border-[#00D1FF]/60 bg-[#00D1FF]/8 shadow-[0_0_20px_rgba(0,209,255,0.2)]'
-                    : 'border-white/8 bg-white/3 hover:border-[#00D1FF]/30 hover:bg-white/5'
+                    ? 'border-[#5F91FF]/60 bg-[#5F91FF]/8 shadow-[0_0_20px_rgba(95,145,255,0.2)]'
+                    : 'border-gray-800/60 bg-gray-900/20 hover:border-gray-700/60 hover:bg-gray-900/40'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    activeStep === i ? 'bg-[#00D1FF]/20 text-[#00D1FF]' : 'bg-white/5 text-gray-400 group-hover:text-white'
+                    activeStep === i ? 'bg-[#5F91FF]/20 text-[#5F91FF]' : 'bg-gray-800/60 text-gray-400 group-hover:text-white'
                   }`}>
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <span className={`text-xs font-bold block mb-0.5 ${activeStep === i ? 'text-[#00D1FF]' : 'text-gray-600'}`}>
+                    <span className={`text-xs font-bold block mb-0.5 ${activeStep === i ? 'text-[#5F91FF]' : 'text-gray-600'}`}>
                       {s.number}
                     </span>
                     <h3 className={`font-bold text-sm transition-colors leading-tight ${
@@ -160,7 +172,7 @@ const MethodologySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Detail panel — glassmorphism */}
+          {/* Detail panel */}
           <div
             className="md:col-span-3"
             style={{
@@ -169,16 +181,23 @@ const MethodologySection: React.FC = () => {
               transition: 'opacity 0.22s ease, transform 0.22s ease',
             }}
           >
-            <div className="rounded-2xl p-5 md:p-8 relative overflow-hidden glass-card-strong">
+            <div
+              className="rounded-2xl p-5 md:p-8 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(95,145,255,0.07) 0%, rgba(10,14,28,0.95) 60%)',
+                border: '1px solid rgba(95,145,255,0.3)',
+                boxShadow: '0 0 40px rgba(95,145,255,0.12), inset 0 0 20px rgba(95,145,255,0.03)',
+              }}
+            >
               {/* Card top glow line */}
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.6), transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.6), transparent)' }}
               />
 
               {/* Badge + Title */}
               <div className="mb-5 md:mb-6">
-                <span className="inline-block bg-[#00D1FF]/15 border border-[#00D1FF]/30 text-[#00D1FF] text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                <span className="inline-block bg-[#5F91FF]/15 border border-[#5F91FF]/30 text-[#5F91FF] text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
                   {step.badge}
                 </span>
                 <h3 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-3">{step.title}</h3>
@@ -189,7 +208,7 @@ const MethodologySection: React.FC = () => {
               <div className="space-y-2 md:space-y-3 mb-5 md:mb-6">
                 {step.checklist.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#00D1FF] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#5F91FF] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-200 text-xs md:text-sm">{item}</span>
                   </div>
                 ))}
@@ -199,19 +218,19 @@ const MethodologySection: React.FC = () => {
               <div>
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
                   <span>Progresso da Metodologia</span>
-                  <span className="text-[#00D1FF] font-bold">{step.progress}%</span>
+                  <span className="text-[#5F91FF] font-bold">{step.progress}%</span>
                 </div>
-                <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full transition-all duration-700 ease-out"
-                    style={{ width: `${step.progress}%`, background: 'linear-gradient(90deg, #00D1FF, rgba(0,209,255,0.5))' }}
+                    className="h-full bg-gradient-to-r from-[#5F91FF] to-[#5F91FF]/70 rounded-full transition-all duration-700 ease-out"
+                    style={{ width: `${step.progress}%` }}
                   />
                 </div>
                 <div className="flex justify-between mt-2">
                   {steps.map((s, i) => (
                     <div
                       key={i}
-                      className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#00D1FF]' : 'text-gray-600'}`}
+                      className={`text-[9px] md:text-[10px] font-medium transition-colors ${i <= activeStep ? 'text-[#5F91FF]' : 'text-gray-600'}`}
                     >
                       {s.title}
                     </div>

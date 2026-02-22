@@ -1,5 +1,6 @@
 
 import React, { useRef } from 'react';
+import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
 
@@ -41,38 +42,51 @@ const FAQSection = () => {
       {/* Top glow line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.45), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.45), transparent)' }}
       />
-      {/* Light ellipse top */}
-      <div className="light-ellipse" style={{ top: '-80px', left: '50%', transform: 'translateX(-50%)', width: '700px', height: '300px' }} />
+      {/* Ambient top glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(95,145,255,0.09) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
       {/* Side glow */}
-      <div className="light-ellipse" style={{ top: '100px', right: '-80px', width: '400px', height: '400px', opacity: 0.3 }} />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#00D1FF]/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-[#00D1FF]/20 backdrop-blur-sm">
-            <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#00D1FF]" />
-            <span className="text-[#00D1FF] font-semibold text-xs sm:text-sm">Suas Dúvidas, Respondidas.</span>
+          <div className="inline-flex items-center gap-2 bg-blue-500/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-blue-500/20">
+            <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-elevix-blue" />
+            <span className="text-blue-300 font-semibold text-xs sm:text-sm">Suas Dúvidas, Respondidas.</span>
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
             Dúvidas Que Podem Estar{' '}
-            <span className="title-neon">Impedindo Seu Crescimento</span>
+            <span className="text-elevix-blue">Impedindo Seu Crescimento</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Respondemos as principais objeções antes mesmo que você as verbalize. Transparência total da{' '}
-            <span className="text-[#00D1FF] font-semibold">Orion Company</span>.
+            <span className="text-elevix-blue font-semibold">Orion Company</span>.
           </p>
         </div>
 
-        {/* Main Content — glassmorphism */}
+        {/* Main Content */}
         <div>
-          <div className="rounded-2xl overflow-hidden glass-card-strong">
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{
+              background: 'rgba(15,23,42,0.7)',
+              border: '1px solid rgba(95,145,255,0.2)',
+              boxShadow: '0 0 40px rgba(95,145,255,0.08), inset 0 0 20px rgba(95,145,255,0.02)',
+            }}
+          >
             {/* Top glow line on card */}
             <div
               className="h-px w-full"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(0,209,255,0.5), transparent)' }}
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(95,145,255,0.5), transparent)' }}
             />
             <div className="p-4 sm:p-6 md:p-8">
               <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
@@ -80,10 +94,10 @@ const FAQSection = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`} 
-                    className="border border-white/8 rounded-xl bg-white/3 backdrop-blur-sm px-3 sm:px-6 py-1 hover:bg-white/5 hover:border-[#00D1FF]/20 transition-all duration-300"
+                    className="border border-slate-700/30 rounded-xl bg-slate-800/30 px-3 sm:px-6 py-1 hover:bg-slate-800/50 hover:border-[#5F91FF]/20 transition-all duration-300"
                   >
-                    <AccordionTrigger className="text-left text-white hover:text-[#00D1FF] font-semibold py-3 sm:py-5 group hover:no-underline">
-                      <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-[#00D1FF] transition-colors pr-2 text-left">
+                    <AccordionTrigger className="text-left text-white hover:text-elevix-blue font-semibold py-3 sm:py-5 group hover:no-underline">
+                      <h3 className="font-bold text-sm sm:text-base leading-snug group-hover:text-elevix-blue transition-colors pr-2 text-left">
                         {faq.question}
                       </h3>
                     </AccordionTrigger>
