@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { MapPin, Phone, Mail, Clock, ChevronRight, Shield, Award, Users, TrendingUp } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ChevronRight, Shield, Award, Users, TrendingUp, Instagram } from 'lucide-react';
 import { useFacebookPixel } from '@/hooks/useFacebookPixel';
 const Footer = () => {
   const {
@@ -113,7 +113,11 @@ const Footer = () => {
                 <Clock className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
                 <span className="text-sm">Dom - Dom: 6h às 0h</span>
               </div>
-            </div>
+              </div>
+              <a href="https://www.instagram.com/orioncompanny/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-300 hover:text-[#5F91FF] transition-colors duration-300">
+                <Instagram className="w-4 h-4 text-[#5F91FF] flex-shrink-0" />
+                <span className="text-sm">@orioncompanny</span>
+              </a>
           </div>
 
           {/* Services Links */}
